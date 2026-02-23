@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAGNAROK // Terminal Wiki</title>
+    <title>Ragnarok WIKI // Terminal Wiki</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -886,14 +886,31 @@
                         <li><a href="#midnight-commander">🔵 Midnight Commander</a></li>
                         <li><a href="#micro">🟡 Micro Editor</a></li>
                         <li><a href="#git">📦 Git</a></li>
-                        <li><a href="#qwen">🤖 Qwen CLI</a></li>
-                        <li><a href="#gemini">⭐ Gemini CLI</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">🤖 Qwen CLI</div>
+                    <ul class="nav-list">
+                        <li><a href="#qwen">🏠 Principal</a></li>
+                        <li><a href="#qwen-seguranca">🔐 Segurança</a></li>
+                        <li><a href="#qwen-temas">🎨 Temas</a></li>
+                        <li><a href="#qwen-colaboracao">🤝 Colaboração</a></li>
+                        <li><a href="#qwen-atalhos">⌨️ Atalhos</a></li>
+                        <li><a href="#qwen-acessibilidade">♿ Acessibilidade</a></li>
+                        <li><a href="#qwen-integracoes">🔌 Integrações</a></li>
+                        <li><a href="#qwen-prompts">🧠 Prompts</a></li>
+                        <li><a href="#qwen-sessoes">🔄 Sessões</a></li>
+                        <li><a href="#qwen-faq">❓ FAQ</a></li>
+                        <li><a href="#qwen-referencia">📋 Referência</a></li>
+                        <li><a href="#qwen-migracao">🔄 Migração</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-section">
                     <div class="nav-section-title">🛠️ Ferramentas</div>
                     <ul class="nav-list">
+                        <li><a href="#gemini">⭐ Gemini CLI</a></li>
                         <li><a href="#btop">📊 btop</a></li>
                         <li><a href="#fastfetch">⚡ fastfetch</a></li>
                         <li><a href="#ssh">🔐 SSH</a></li>
@@ -1433,6 +1450,542 @@ git rebase -i HEAD~<span class="arg">3</span></div>
                         <div><span class="terminal-prompt">$</span> <span class="terminal-command">qwen --file src/app.js <span class="arg">"refatore esta função"</span></span></div>
                         <div class="terminal-output">🤖 Sugestão de refatoração...</div>
                     </div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Segurança -->
+            <section id="qwen-seguranca" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">🔐</span>
+                    <h2 class="section-title">Qwen: Segurança e API</h2>
+                    <span class="section-badge">AI Assistant</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag advanced">advanced</span>
+                </div>
+                <div class="command-block">
+                    <div class="command-header">
+                        <span class="command-title">Autenticação</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    </div>
+                    <div class="command-code">
+<span class="comment"># Login</span>
+qwen --auth login
+
+<span class="comment"># Status</span>
+qwen --auth status
+
+<span class="comment"># Rotacionar chave</span>
+qwen --auth rotate
+
+<span class="comment"># Modo seguro</span>
+qwen --secure-mode "analise"</div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Temas -->
+            <section id="qwen-temas" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">🎨</span>
+                    <h2 class="section-title">Qwen: Temas e Personalização</h2>
+                    <span class="section-badge">Customization</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag beginner">beginner</span>
+                </div>
+                <div class="command-block">
+                    <div class="command-header">
+                        <span class="command-title">Temas</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    </div>
+                    <div class="command-code">
+<span class="comment"># Cyberpunk (default)</span>
+qwen --theme cyberpunk
+
+<span class="comment"># Matrix</span>
+qwen --theme matrix
+
+<span class="comment"># Light/Dark</span>
+qwen --theme light
+qwen --theme dark
+
+<span class="comment"># Templates</span>
+qwen --template docs "gere docs"
+qwen --template changelog "resumo"
+qwen --template email "stakeholders"</div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Colaboração -->
+            <section id="qwen-colaboracao" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">🤝</span>
+                    <h2 class="section-title">Qwen: Colaboração e Exportação</h2>
+                    <span class="section-badge">Collaboration</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag advanced">advanced</span>
+                </div>
+                <div class="command-block">
+                    <div class="command-header">
+                        <span class="command-title">Exportação</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    </div>
+                    <div class="command-code">
+<span class="comment"># PDF</span>
+qwen --session export "sessao" --format pdf
+
+<span class="comment"># HTML</span>
+qwen --export html --output docs/
+
+<span class="comment"># Markdown</span>
+qwen --export markdown > conversa.md
+
+<span class="comment"># Workspaces</span>
+qwen --workspace create "proj-x"</div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Atalhos -->
+            <section id="qwen-atalhos" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">⌨️</span>
+                    <h2 class="section-title">Qwen: Atalhos de Teclado</h2>
+                    <span class="section-badge">Productivity</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag beginner">beginner</span>
+                </div>
+                <div class="content-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🧭</span>
+                            <h3 class="card-title">Navegação</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+P</span>
+                                    <p class="cheat-desc">Histórico anterior</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+N</span>
+                                    <p class="cheat-desc">Histórico próximo</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+R</span>
+                                    <p class="cheat-desc">Buscar</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+A</span>
+                                    <p class="cheat-desc">Início</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+E</span>
+                                    <p class="cheat-desc">Fim</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">✏️</span>
+                            <h3 class="card-title">Edição</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+K</span>
+                                    <p class="cheat-desc">Cortar fim</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+U</span>
+                                    <p class="cheat-desc">Cortar início</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+Y</span>
+                                    <p class="cheat-desc">Colar</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+L</span>
+                                    <p class="cheat-desc">Limpar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">⚙️</span>
+                            <h3 class="card-title">Sistema</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+D</span>
+                                    <p class="cheat-desc">Sair</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+C</span>
+                                    <p class="cheat-desc">Cancelar</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">F1</span>
+                                    <p class="cheat-desc">Ajuda</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Shift+Z</span>
+                                    <p class="cheat-desc">Zen mode</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Acessibilidade -->
+            <section id="qwen-acessibilidade" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">♿</span>
+                    <h2 class="section-title">Qwen: Acessibilidade</h2>
+                    <span class="section-badge">Accessibility</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag beginner">beginner</span>
+                </div>
+                <div class="command-block">
+                    <div class="command-header">
+                        <span class="command-title">Comandos</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    </div>
+                    <div class="command-code">
+<span class="comment"># Screen reader</span>
+qwen --screen-reader "explique"
+
+<span class="comment"># Alto contraste</span>
+qwen --high-contrast
+
+<span class="comment"># Texto grande</span>
+qwen --large-text --font-size 18
+
+<span class="comment"># Erros detalhados</span>
+qwen --verbose-errors
+
+<span class="comment"># Fonte dislexia</span>
+qwen --dyslexia-font</div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Integrações -->
+            <section id="qwen-integracoes" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">🔌</span>
+                    <h2 class="section-title">Qwen: Integrações</h2>
+                    <span class="section-badge">Integration</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag advanced">advanced</span>
+                </div>
+                <div class="command-block">
+                    <div class="command-header">
+                        <span class="command-title">GitHub Actions</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    </div>
+                    <div class="command-code">
+name: AI Code Review
+on: [pull_request]
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: AI Review
+        run: |
+          qwen --file ${{ github.event.pull_request.diff }} \
+            "faça code review" --export markdown</div>
+                </div>
+                <div class="command-block">
+                    <div class="command-header">
+                        <span class="command-title">Webhooks</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    </div>
+                    <div class="command-code">
+{
+  "webhooks": {
+    "incoming": {
+      "slack": {
+        "url": "https://hooks.slack.com/...",
+        "events": ["task.completed"]
+      }
+    }
+  }
+}</div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Prompts -->
+            <section id="qwen-prompts" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">🧠</span>
+                    <h2 class="section-title">Qwen: Engenharia de Prompt</h2>
+                    <span class="section-badge">Advanced</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag advanced">advanced</span>
+                </div>
+                <div class="content-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">📚</span>
+                            <h3 class="card-title">Técnicas</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Zero-shot</span>
+                                    <p class="cheat-desc">Direto</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Few-shot</span>
+                                    <p class="cheat-desc">Com exemplos</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Chain-of-thought</span>
+                                    <p class="cheat-desc">Passo-a-passo</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Role-playing</span>
+                                    <p class="cheat-desc">Atribui papel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🎯</span>
+                            <h3 class="card-title">Padrões</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Decomposition</span>
+                                    <p class="cheat-desc">Divide</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Verification</span>
+                                    <p class="cheat-desc">Verifica</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Comparison</span>
+                                    <p class="cheat-desc">Compara</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Sessões -->
+            <section id="qwen-sessoes" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">🔄</span>
+                    <h2 class="section-title">Qwen: Sessões</h2>
+                    <span class="section-badge">Advanced</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag advanced">advanced</span>
+                </div>
+                <div class="command-block">
+                    <div class="command-header">
+                        <span class="command-title">Comandos</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    </div>
+                    <div class="command-code">
+<span class="comment"># Criar</span>
+qwen --session new "projeto"
+
+<span class="comment"># Listar</span>
+qwen --session list
+
+<span class="comment"># Carregar</span>
+qwen --session load "projeto"
+
+<span class="comment"># Salvar</span>
+qwen --session save "checkpoint"
+
+<span class="comment"># Exportar</span>
+qwen --session export "p" --format pdf
+
+<span class="comment"># Fork</span>
+qwen --session fork "orig" --name "exp"
+
+<span class="comment"># Merge</span>
+qwen --session merge "a" "b"</div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: FAQ -->
+            <section id="qwen-faq" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">❓</span>
+                    <h2 class="section-title">Qwen: FAQ</h2>
+                    <span class="section-badge">FAQ</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag beginner">beginner</span>
+                </div>
+                <div class="command-block">
+                    <div class="command-header">
+                        <span class="command-title">Perguntas</span>
+                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    </div>
+                    <div class="command-code">
+<span class="comment"># Nova sessão?</span>
+qwen --session new "nome"
+
+<span class="comment"># Histórico?</span>
+qwen --history
+
+<span class="comment"># --yolo?</span>
+Sem confirmação
+
+<span class="comment"># Exportar?</span>
+qwen --session export "nome"
+
+<span class="comment"># Offline?</span>
+qwen --offline
+
+<span class="comment"># Modelo?</span>
+qwen --model=qwen-max
+
+<span class="comment"># Tokens?</span>
+qwen --token-count</div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Referência -->
+            <section id="qwen-referencia" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">📋</span>
+                    <h2 class="section-title">Qwen: Referência Rápida</h2>
+                    <span class="section-badge">Reference</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag beginner">beginner</span>
+                </div>
+                <div class="content-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">⚡</span>
+                            <h3 class="card-title">Flags</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">--yolo</span>
+                                    <p class="cheat-desc">Sem confirmar</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">--dry-run</span>
+                                    <p class="cheat-desc">Simular</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">--verbose</span>
+                                    <p class="cheat-desc">Detalhado</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">--debug</span>
+                                    <p class="cheat-desc">Debug</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">❌</span>
+                            <h3 class="card-title">Erros</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">ERR_AUTH</span>
+                                    <p class="cheat-desc">Login</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">ERR_CONTEXT</span>
+                                    <p class="cheat-desc">Grande</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">ERR_SESSION</span>
+                                    <p class="cheat-desc">Inválida</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">ERR_NETWORK</span>
+                                    <p class="cheat-desc">Offline</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🤖</span>
+                            <h3 class="card-title">Modelos</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">qwen-max</span>
+                                    <p class="cheat-desc">Complexo (256K)</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">qwen-turbo</span>
+                                    <p class="cheat-desc">Simples (128K)</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">qwen-coder</span>
+                                    <p class="cheat-desc">Code</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">qwen-vision</span>
+                                    <p class="cheat-desc">Imagem</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Qwen CLI: Migração -->
+            <section id="qwen-migracao" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">🔄</span>
+                    <h2 class="section-title">Qwen: Migração</h2>
+                    <span class="section-badge">Migration</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag intermediate">intermediate</span>
+                </div>
+                <div class="info-box">
+                    <span class="info-icon">⭐</span>
+                    <p><strong>Gemini → Qwen:</strong> <code>gemini "msg"</code> → <code>qwen "msg"</code> | Vantagens: 256K contexto, offline, $20/mês</p>
+                </div>
+                <div class="info-box">
+                    <span class="info-icon">🎯</span>
+                    <p><strong>Claude → Qwen:</strong> <code>claude "msg"</code> → <code>qwen "msg"</code> | Vantagens: Mais rápido, melhor sessões</p>
+                </div>
+                <div class="info-box">
+                    <span class="info-icon">💻</span>
+                    <p><strong>Cursor → Qwen:</strong> <code>cursor ask</code> → <code>qwen</code> | Vantagens: Standalone, mais integrações</p>
                 </div>
             </section>
 

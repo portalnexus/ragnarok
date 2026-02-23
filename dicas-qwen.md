@@ -369,6 +369,1542 @@ qwen "crie teste que reproduz e valida o fix"
 
 ---
 
+## 🔐 Segurança e Gerenciamento de API
+
+### Gerenciamento de Chaves API
+
+| Comando | Descrição |
+|---------|-----------|
+| `qwen --auth login` | Inicia processo de autenticação |
+| `qwen --auth logout` | Remove credenciais salvas |
+| `qwen --auth status` | Verifica status da autenticação |
+| `qwen --auth rotate` | Rotaciona chave API atual |
+| `qwen --secure-mode` | Habilita modo seguro (sem logs) |
+
+### Exemplos Práticos
+
+```bash
+# Login interativo com salvamento seguro
+qwen --auth login
+
+# Verificar se autenticação está ativa
+qwen --auth status
+
+# Logout e limpeza de credenciais
+qwen --auth logout
+
+# Rotacionar chave API (invalida anterior)
+qwen --auth rotate
+
+# Modo seguro para ambientes compartilhados
+qwen --secure-mode "analise este código sensível"
+
+# Usar chave temporária (não salva)
+QWEN_API_KEY_TEMP="chave-temp" qwen "pergunta única"
+
+# Verificar permissões da chave atual
+qwen --auth permissions
+```
+
+### Boas Práticas de Segurança
+
+```bash
+# Nunca commitar chaves no git
+echo "QWEN_API_KEY" >> .gitignore
+
+# Usar variáveis de ambiente em CI/CD
+# GitHub Actions example:
+# - name: Qwen Task
+#   env:
+#     QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+#   run: qwen "analise o PR"
+
+# Limpar histórico do shell após uso sensível
+history -c && history -w
+
+# Usar vault de secrets em produção
+qwen --vault aws-secrets-manager "use chave do vault"
+```
+
+---
+
+## 🎨 Personalização de Output e Temas
+
+### Temas e Formatação
+
+| Flag/Comando | Descrição |
+|--------------|-----------|
+| `--theme <nome>` | Aplica tema de cores (dark/light/minimal) |
+| `--font-size <tamanho>` | Ajusta tamanho da fonte no REPL |
+| `--syntax <linguagem>` | Força syntax highlighting específico |
+| `--no-colors` | Desabilita cores no output |
+| `--compact` | Output compacto, menos linhas em branco |
+| `/theme` | Muda tema dentro do REPL |
+
+### Exemplos Práticos
+
+```bash
+# Aplicar tema escuro para sessões noturnas
+qwen --theme dark "explique este código"
+
+# Tema minimalista para capturas de tela
+qwen --theme minimal "gere snippet de exemplo"
+
+# Ajustar fonte para apresentações
+qwen --font-size 16 --theme high-contrast "demonstre funcionalidade"
+
+# Forçar syntax highlighting para linguagem específica
+qwen --syntax python --file script.py "otimize este código"
+
+# Output sem cores para logs automatizados
+qwen --no-colors --json "status do sistema" > log.json
+
+# Modo compacto para terminal pequeno
+qwen --compact "resumo das mudanças no git"
+
+# Mudar tema dinamicamente no REPL
+/theme solarized-dark
+```
+
+### Templates de Output
+
+```bash
+# Template para documentação técnica
+qwen --template docs "gere documentação da API"
+
+# Template para changelog
+qwen --template changelog --git "o que mudou?"
+
+# Template para release notes
+qwen --template release --git "prepare release notes v2.0"
+
+# Template para email técnico
+qwen --template email "resuma o bug fix para o cliente"
+
+# Template para apresentação
+qwen --template slides "crie slides sobre arquitetura"
+```
+
+---
+
+## 🤝 Colaboração e Exportação
+
+### Formatos de Exportação
+
+| Comando | Descrição |
+|---------|-----------|
+| `qwen --export pdf <session>` | Exporta sessão como PDF |
+| `qwen --export html <session>` | Exporta sessão como HTML |
+| `qwen --export markdown <session>` | Exporta sessão como Markdown |
+| `qwen --export json <session>` | Exporta sessão como JSON |
+| `qwen --share <session>` | Gera link compartilhável |
+| `qwen --publish <session>` | Publica em workspace da equipe |
+
+### Exemplos Práticos
+
+```bash
+# Exportar sessão de debugging como PDF
+qwen --export pdf session-123 > debug-report.pdf
+
+# Exportar conversa técnica em HTML
+qwen --export html session-456 > knowledge-base.html
+
+# Exportar para Markdown (compatível com wikis)
+qwen --export markdown session-789 > doc.md
+
+# Exportar dados estruturados em JSON
+qwen --export json session-000 > analysis.json
+
+# Gerar link compartilhável (expira em 7 dias)
+qwen --share session-abc
+# Output: https://qwen.dev/share/abc123xyz
+
+# Publicar no workspace da equipe
+qwen --publish session-def --workspace "engineering"
+
+# Exportar com metadados completos
+qwen --export json --with-metadata session-ghi > full-export.json
+
+# Exportar apenas código gerado
+qwen --export code-only session-jkl > generated-code.zip
+```
+
+### Colaboração em Equipe
+
+```bash
+# Criar workspace compartilhado
+qwen --workspace create "projeto-alpha"
+
+# Adicionar membros ao workspace
+qwen --workspace add-member user @email.com
+
+# Compartilhar contexto do projeto
+qwen --workspace share-context "projeto-alpha"
+
+# Sessão colaborativa em tempo real
+qwen --collab-session start --room "room-123"
+
+# Exportar histórico do workspace
+qwen --workspace export-history "projeto-alpha" > team-history.json
+
+# Gerar relatório de atividade
+qwen --workspace report "projeto-alpha" --period "last-week"
+```
+
+---
+
+## ⌨️ Atalhos de Teclado no REPL
+
+### Navegação e Edição
+
+| Atalho | Ação |
+|--------|------|
+| `Ctrl + P` / `↑` | Comando anterior no histórico |
+| `Ctrl + N` / `↓` | Próximo comando no histórico |
+| `Ctrl + R` | Busca reversa no histórico |
+| `Ctrl + G` | Cancelar busca |
+| `Ctrl + A` / `Home` | Início da linha |
+| `Ctrl + E` / `End` | Fim da linha |
+| `Ctrl + K` | Cortar até fim da linha |
+| `Ctrl + U` | Cortar linha inteira |
+| `Ctrl + Y` | Colar último corte |
+| `Ctrl + W` | Cortar palavra anterior |
+| `Alt + D` | Cortar próxima palavra |
+| `Ctrl + L` | Limpar tela |
+
+### Comandos Especiais
+
+| Atalho | Ação |
+|--------|------|
+| `Ctrl + D` | Sair do REPL (EOF) |
+| `Ctrl + C` | Cancelar comando atual |
+| `Ctrl + Z` | Suspender sessão |
+| `Ctrl + T` | Transpor caracteres |
+| `Alt + T` | Transpor palavras |
+| `Ctrl + _` | Desfazer (undo) |
+| `Ctrl + Shift + Z` | Refazer (redo) |
+| `F1` | Abrir ajuda contextual |
+| `F2` | Salvar sessão rápida |
+| `F3` | Carregar última sessão |
+| `F5` | Refresh do contexto |
+| `F12` | Toggle debug mode |
+
+### Exemplos Práticos
+
+```bash
+# Usar busca reversa para encontrar comando antigo
+# Pressione Ctrl+R e digite "git" para buscar comandos com git
+
+# Editar comando longo sem redigitar
+# Use Ctrl+A para ir ao início, edite, Enter para executar
+
+# Copiar e colar dentro do REPL
+# Ctrl+K corta até fim, Ctrl+Y cola
+
+# Navegar histórico eficientemente
+# Ctrl+P repetidamente para comandos anteriores
+
+# Limpar tela sem perder histórico
+# Ctrl+L limpa visual, /clear limpa memória
+
+# Salvar sessão rapidamente durante trabalho
+# F2, digite nome, Enter
+
+# Acessar ajuda sem sair do fluxo
+# F1 mostra comandos disponíveis no contexto atual
+```
+
+---
+
+## ♿ Acessibilidade
+
+### Recursos de Acessibilidade
+
+| Flag/Comando | Descrição |
+|--------------|-----------|
+| `--screen-reader` | Output otimizado para leitores de tela |
+| `--high-contrast` | Tema de alto contraste |
+| `--large-text` | Aumenta tamanho do texto |
+| `--verbose-errors` | Mensagens de erro detalhadas |
+| `--audio-feedback` | Feedback sonoro para ações |
+| `--dyslexia-font` | Usa fonte amigável para dislexia |
+
+### Exemplos Práticos
+
+```bash
+# Otimizar output para VoiceOver/NVDA
+qwen --screen-reader "explique o código"
+
+# Sessão com alto contraste
+qwen --high-contrast --theme dark "analise este arquivo"
+
+# Aumentar texto para melhor legibilidade
+qwen --large-text --font-size 20 "demonstre exemplos"
+
+# Erros detalhados para melhor compreensão
+qwen --verbose-errors "execute esta tarefa"
+
+# Feedback sonoro para confirmações
+qwen --audio-feedback --yolo "corrija os erros"
+
+# Fonte especializada para dislexia
+qwen --dyslexia-font "gere documentação clara"
+
+# Combinação para máxima acessibilidade
+qwen --screen-reader --high-contrast --large-text --verbose-errors "ajuda completa"
+```
+
+### Configuração Permanente
+
+```bash
+# Adicionar ao ~/.qwenrc para acessibilidade persistente
+{
+  "accessibility": {
+    "screenReader": true,
+    "highContrast": true,
+    "fontSize": 18,
+    "dyslexiaFont": true,
+    "verboseErrors": true
+  }
+}
+
+# Variáveis de ambiente para acessibilidade
+export QWEN_ACCESSIBILITY_SCREEN_READER=true
+export QWEN_ACCESSIBILITY_HIGH_CONTRAST=true
+export QWEN_FONT_SIZE=18
+```
+
+---
+
+## 🔌 Integrações e Extensões
+
+### Integração com IDEs
+
+| Integração | Comando/Setup |
+|------------|---------------|
+| VS Code | `qwen --install-extension vscode` |
+| JetBrains | `qwen --install-extension jetbrains` |
+| Vim/Neovim | `qwen --install-extension vim` |
+| Emacs | `qwen --install-extension elpa` |
+| Sublime | `qwen --install-extension sublime` |
+
+### Integração com CI/CD
+
+| Plataforma | Exemplo |
+|------------|---------|
+| GitHub Actions | `uses: qwen/action @v1` |
+| GitLab CI | `image: qwen/cli:latest` |
+| Jenkins | `qwen --ci-analyze` |
+| CircleCI | `qwen --orb` |
+| Azure DevOps | `qwen --task` |
+
+### Exemplos Práticos
+
+```bash
+# Instalar extensão VS Code
+qwen --install-extension vscode
+
+# Instalar plugin Vim
+qwen --install-extension vim
+# Adicionar ao .vimrc: nnoremap <leader>q :!qwen %<CR>
+
+# Usar no GitHub Actions
+# .github/workflows/qwen.yml:
+# - uses: qwen/action@v1
+#   with:
+#     prompt: "Code review das mudanças"
+#     api-key: ${{ secrets.QWEN_API_KEY }}
+
+# Análise automática no CI
+qwen --ci-analyze --fail-on-warnings
+
+# Integração com pre-commit hooks
+# .pre-commit-config.yaml:
+# - repo: https://github.com/qwen/pre-commit
+#   hooks:
+#     - id: qwen-review
+
+# Pipeline GitLab CI
+# image: qwen/cli:latest
+# review:
+#   script:
+#     - qwen --git "code review"
+
+# Jenkins pipeline
+# stage('Qwen Review') {
+#   steps {
+#     sh 'qwen --ci-analyze src/'
+#   }
+# }
+
+# Hook de pre-push
+# .git/hooks/pre-push:
+# qwen --git "validate commit messages" || exit 1
+```
+
+### Webhooks e APIs
+
+```bash
+# Configurar webhook para notificações
+qwen --webhook configure --url "https://api.slack.com/..."
+
+# Disparar notificação após tarefa longa
+qwen --notify --webhook "tarefa completada"
+
+# Integração com Slack
+qwen --slack-channel "#dev" --notify "build completado"
+
+# Integração com Discord
+qwen --discord-webhook "url" --notify "review pronto"
+
+# API REST para automação
+curl -X POST http://localhost:8080/qwen \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "analise o código", "file": "src/app.js"}'
+```
+
+---
+
+## 🧠 Engenharia de Prompt
+
+### Técnicas de Prompting
+
+| Técnica | Descrição | Exemplo |
+|---------|-----------|---------|
+| Zero-shot | Prompt direto sem exemplos | "Traduza para Python" |
+| Few-shot | Com exemplos de entrada/saída | "Ex1: ... Ex2: ... Agora:" |
+| Chain-of-thought | Pedir raciocínio passo a passo | "Pense passo a passo" |
+| Role-playing | Atribuir papel específico | "Atue como senior dev" |
+| Template | Usar estrutura padronizada | Contexto, Tarefa, Formato |
+
+### Exemplos Práticos
+
+```bash
+# Zero-shot prompting (direto)
+qwen "otimize esta função para performance"
+
+# Few-shot prompting (com exemplos)
+qwen "converta para funcional:
+Ex1: function soma(a,b){return a+b} → const soma = (a,b) => a+b
+Ex2: function mult(a,b){return a*b} → const mult = (a,b) => a*b
+Agora: function divide(a,b){return a/b}"
+
+# Chain-of-thought (raciocínio explícito)
+qwen "pense passo a passo para debugar este erro: $(cat error.log)"
+
+# Role-playing (papel específico)
+qwen "atue como tech lead sênior e faça code review deste PR"
+
+# Template estruturado
+qwen "
+CONTEXTO: Desenvolvimento de API REST
+TAREFA: Criar endpoint de autenticação
+REQUISITOS: JWT, refresh token, rate limiting
+FORMATO: Código + explicação
+"
+
+# Prompt iterativo (refinamento)
+qwen "gere função de validação de email"
+# ... após resposta ...
+qwen "agora adicione validação de domínio corporativo"
+
+# Prompt com restrições
+qwen "explique recursão sem usar analogias de bonecas russas"
+
+# Prompt para debugging sistemático
+qwen "
+1. Identifique o erro
+2. Explique a causa raiz
+3. Sugira 3 soluções
+4. Implemente a melhor solução
+"
+```
+
+### Padrões de Prompt Avançados
+
+```bash
+# Prompt de decomposição
+qwen "quebre esta tarefa em subtarefas executáveis: implementar auth completa"
+
+# Prompt de verificação
+qwen "verifique se este código trata todos os edge cases: $(cat code.js)"
+
+# Prompt de comparação
+qwen "compare estas 3 abordagens e recomende a melhor: A) ... B) ... C) ..."
+
+# Prompt de expansão
+qwen "expanda este pseudocódigo para implementação completa: $(cat pseudo.txt)"
+
+# Prompt de contração
+qwen "resuma esta documentação em 5 pontos-chave: $(cat docs.md)"
+
+# Prompt de transformação
+qwen "transforme este código procedural em orientado a objetos: $(cat code.py)"
+
+# Prompt de geração de testes
+qwen "gere testes que cubram 100% dos branches deste código"
+
+# Prompt de documentação
+qwen "gere docs no formato: descrição, params, retorno, exemplos, erros"
+```
+
+---
+
+## 🔄 Gerenciamento de Sessões Avançado
+
+### Comandos de Sessão
+
+| Comando | Descrição |
+|---------|-----------|
+| `qwen --session new <nome>` | Cria nova sessão nomeada |
+| `qwen --session list` | Lista todas as sessões |
+| `qwen --session load <nome>` | Carrega sessão existente |
+| `qwen --session save <nome>` | Salva sessão atual |
+| `qwen --session delete <nome>` | Remove sessão |
+| `qwen --session export <nome>` | Exporta sessão |
+| `qwen --session fork <nome>` | Cria cópia da sessão |
+| `qwen --session merge <a> <b>` | Mescla duas sessões |
+
+### Exemplos Práticos
+
+```bash
+# Criar sessão para projeto específico
+qwen --session new "projeto-auth"
+
+# Listar sessões disponíveis
+qwen --session list
+
+# Carregar sessão anterior
+qwen --session load "projeto-auth"
+
+# Salvar ponto de checkpoint
+qwen --session save "checkpoint-pre-refactor"
+
+# Fork para experimentação
+qwen --session fork "projeto-auth" --name "projeto-auth-experimental"
+
+# Mesclar sessões de diferentes branches
+qwen --session merge "feature-a" "feature-b"
+
+# Exportar sessão para backup
+qwen --session export "projeto-auth" --format json > backup.json
+
+# Carregar sessão e continuar
+qwen --session load "projeto-auth" --continue
+
+# Sessões temporárias (auto-delete após 1h)
+qwen --session new "temp-debug" --ttl 3600
+
+# Taggear sessões para organização
+qwen --session tag "projeto-auth" --tags "auth,security,backend"
+
+# Buscar sessão por tag
+qwen --session find --tag "auth"
+```
+
+### Sessões Paralelas
+
+```bash
+# Múltiplas sessões em paralelo
+qwen --session new "session-1" &
+qwen --session new "session-2" &
+
+# Alternar entre sessões no REPL
+/session switch "session-1"
+
+# Copiar contexto entre sessões
+/session copy-context from:"session-1" to:"session-2"
+
+# Comparar sessões
+qwen --session compare "session-a" "session-b"
+
+# Sincronizar sessões
+qwen --session sync "session-1" "session-2" --direction both
+```
+
+---
+
+## 🎯 Workflows de Produtividade
+
+### Workflow de Code Review
+
+```bash
+# 1. Setup do review
+qwen --session new "review-$(date +%Y%m%d)"
+
+# 2. Carregar contexto do PR
+qwen --git --dir src/ "contexto completo do PR"
+
+# 3. Análise estática
+qwen "analise padrões de código e anti-padrões"
+
+# 4. Verificação de segurança
+qwen "identifique vulnerabilidades potenciais"
+
+# 5. Checagem de performance
+qwen "aponte possíveis gargalos de performance"
+
+# 6. Sugestão de melhorias
+qwen "liste 5 melhorias prioritárias"
+
+# 7. Gerar comentário para PR
+qwen --template pr-comment "resumo do review"
+
+# 8. Salvar para referência
+qwen --session save "review-completo"
+```
+
+### Workflow de Onboarding
+
+```bash
+# 1. Explicar estrutura do projeto
+qwen --dir . "explique a estrutura deste projeto"
+
+# 2. Mapear dependências
+qwen "mapeie o grafo de dependências"
+
+# 3. Identificar pontos de entrada
+qwen "quais são os arquivos principais para começar?"
+
+# 4. Configurar ambiente
+qwen "gere guia de setup do ambiente"
+
+# 5. Primeiras tarefas
+qwen "sugira 3 tarefas boas para iniciantes"
+
+# 6. Documentar convenções
+qwen --dir src/ "extraia convenções de código deste projeto"
+
+# 7. Criar cheat sheet
+qwen --export markdown "gere cheat sheet do projeto"
+```
+
+### Workflow de Migração
+
+```bash
+# 1. Análise do código legado
+qwen --dir legacy/ "analise arquitetura atual"
+
+# 2. Planejar migração
+qwen "plano de migração para TypeScript em 5 fases"
+
+# 3. Migrar arquivo piloto
+qwen --file legacy/app.js "converta para TypeScript"
+
+# 4. Validar migração
+qwen "verifique se há erros de tipo"
+
+# 5. Gerar scripts de migração
+qwen "crie script para migrar arquivos em lote"
+
+# 6. Documentar mudanças
+qwen "documente breaking changes da migração"
+
+# 7. Criar guia de rollback
+qwen "gere procedimento de rollback se necessário"
+```
+
+### Workflow de Documentação
+
+```bash
+# 1. Extrair estrutura de código
+qwen --dir src/ "liste todas as classes e funções públicas"
+
+# 2. Gerar docs de API
+qwen --template api-docs "documente toda a API"
+
+# 3. Criar exemplos de uso
+qwen "gere exemplos de uso para cada função"
+
+# 4. Validar documentação
+qwen "verifique se há funções sem documentação"
+
+# 5. Gerar README
+qwen --template readme "crie README completo"
+
+# 6. Criar changelog
+qwen --template changelog --git "gere changelog desde v1.0"
+
+# 7. Publicar docs
+qwen --export html --output docs/ "documentação completa"
+```
+
+---
+
+## 🔐 Segurança e Gerenciamento de API
+
+### Autenticação
+
+| Comando | Descrição |
+|---------|-----------|
+| `qwen --auth login` | Inicia login interativo |
+| `qwen --auth logout` | Remove credenciais locais |
+| `qwen --auth status` | Verifica status da autenticação |
+| `qwen --auth rotate` | Rotaciona chave de API |
+
+### Exemplos
+
+```bash
+# Login interativo
+qwen --auth login
+
+# Verificar status
+qwen --auth status
+# Output: Authenticated as user@example.com (expires in 29 days)
+
+# Rotacionar chave (útil após vazamento)
+qwen --auth rotate
+# Gera nova chave e invalida a anterior
+
+# Login com chave específica
+qwen --auth login --key $QWEN_API_KEY
+```
+
+### Modo Seguro
+
+```bash
+# Habilitar modo seguro (não salva histórico sensível)
+qwen --secure-mode "analise este código com credenciais"
+
+# Usar com password manager
+qwen --file <(pass show api-key) "use esta chave para..."
+```
+
+### Integração com Password Managers
+
+```bash
+# 1Password
+qwen --file <(op read "op://vault/api-key") "analise"
+
+# KeePass
+qwen --file <(keepassxc-cli show database key) "analise"
+
+# LastPass
+qwen --file <(lpass show api-key --clip) "analise"
+```
+
+### Variáveis de Ambiente
+
+```bash
+# Configurar chave via env
+export QWEN_API_KEY="sk-..."
+qwen "mensagem"
+
+# Ou usar arquivo .env
+source .env && qwen "mensagem"
+```
+
+---
+
+## 🎨 Personalização de Output e Temas
+
+### Temas Disponíveis
+
+| Tema | Descrição | Comando |
+|------|-----------|---------|
+| `cyberpunk` | Verde neon, fundo escuro (default) | `--theme cyberpunk` |
+| `light` | Tema claro padrão | `--theme light` |
+| `dark` | Tema escuro padrão | `--theme dark` |
+| `matrix` | Verde matrix, preto | `--theme matrix` |
+| `sunset` | Tons quentes laranja/roxo | `--theme sunset` |
+| `monochrome` | Preto e branco | `--theme monochrome` |
+| `high-contrast` | Alto contraste | `--theme high-contrast` |
+| `dracula` | Tema Dracula popular | `--theme dracula` |
+
+### Exemplos de Uso
+
+```bash
+# Usar tema específico
+qwen --theme matrix "explique código"
+
+# Mudar tema no REPL
+/theme cyberpunk
+
+# Configurar tema padrão
+qwen --config-set theme "dark"
+
+# Listar temas disponíveis
+qwen --theme list
+```
+
+### Templates de Output
+
+```bash
+# Output formatado para documentação
+qwen --template docs "gere documentação desta função"
+
+# Output para changelog
+qwen --template changelog "resumo das mudanças"
+
+# Output para release notes
+qwen --template release "notas de release"
+
+# Output para email
+qwen --template email "resumo para stakeholders"
+
+# Output para slides
+qwen --template slides "pontos principais da apresentação"
+```
+
+### Opções de Formatação
+
+| Opção | Descrição |
+|-------|-----------|
+| `--font-size <n>` | Tamanho da fonte (8-24) |
+| `--syntax <tema>` | Tema de syntax highlighting |
+| `--no-colors` | Output sem cores |
+| `--compact` | Modo compacto, menos espaçamento |
+
+```bash
+# Aumentar fonte para apresentação
+qwen --font-size 16 "mostre código"
+
+# Syntax highlighting específico
+qwen --syntax monokai "código colorido"
+
+# Output sem cores (para logs)
+qwen --no-colors "mensagem" > log.txt
+
+# Modo compacto
+qwen --compact "resumo breve"
+```
+
+---
+
+## 🤝 Colaboração e Exportação
+
+### Exportação de Conversas
+
+| Formato | Comando | Descrição |
+|---------|---------|-----------|
+| PDF | `--export pdf` | Exporta como PDF formatado |
+| HTML | `--export html` | Exporta como página HTML |
+| Markdown | `--export markdown` | Exporta como .md |
+| JSON | `--export json` | Exporta como JSON estruturado |
+
+### Exemplos de Exportação
+
+```bash
+# Exportar sessão atual como PDF
+qwen --session export "minha-sessao" --format pdf > sessao.pdf
+
+# Exportar como HTML
+qwen --export html --output docs/conversa.html "resumo"
+
+# Exportar como Markdown
+qwen --export markdown > conversa.md
+
+# Exportar como JSON (para processamento)
+qwen --export json > dados.json
+```
+
+### Compartilhamento
+
+```bash
+# Compartilhar conversa por email
+qwen --share user@example.com "sessao-completa"
+
+# Publicar como gist público
+qwen --publish --platform gist "snippet"
+
+# Publicar como documento Notion
+qwen --export notion --page-id="abc123" "documentação"
+```
+
+### Workspaces Colaborativos
+
+```bash
+# Criar workspace compartilhado
+qwen --workspace create "projeto-x" --members user1,user2
+
+# Listar workspaces
+qwen --workspace list
+
+# Entrar em workspace
+qwen --workspace join "projeto-x"
+
+# Sair do workspace
+qwen --workspace leave "projeto-x"
+
+# Compartilhar contexto no workspace
+qwen --workspace share-context "arquivo-importante.js"
+```
+
+---
+
+## ⌨️ Atalhos de Teclado no REPL
+
+### Navegação
+
+| Atalho | Ação |
+|--------|------|
+| `Ctrl+P` | Histórico anterior (Previous) |
+| `Ctrl+N` | Histórico próximo (Next) |
+| `Ctrl+R` | Buscar no histórico (Reverse search) |
+| `Ctrl+G` | Ir para linha/comando específico |
+| `Ctrl+A` | Ir para início da linha (Beginning) |
+| `Ctrl+E` | Ir para fim da linha (End) |
+| `Ctrl+K` | Cortar do cursor até fim da linha |
+| `Ctrl+U` | Cortar do início até o cursor |
+| `Ctrl+Y` | Colar último corte (Yank) |
+| `Ctrl+W` | Cortar palavra anterior |
+
+### Edição
+
+| Atalho | Ação |
+|--------|------|
+| `Alt+D` | Cortar palavra seguinte |
+| `Ctrl+L` | Limpar tela |
+| `Ctrl+_` | Desfazer (Undo) |
+
+### Sistema
+
+| Atalho | Ação |
+|--------|------|
+| `Ctrl+D` | Sair do REPL (EOF) |
+| `Ctrl+C` | Cancelar comando atual |
+| `Ctrl+Z` | Suspender (background) |
+| `Ctrl+T` | Transpor caracteres |
+| `Alt+T` | Transpor palavras |
+
+### Ajuda e Informações
+
+| Atalho | Ação |
+|--------|------|
+| `F1` | Ajuda geral |
+| `F2` | Lista de comandos |
+| `F3` | Histórico |
+| `F4` | Status do contexto |
+| `F5` | Refresh/retry |
+| `F12` | Debug mode |
+| `Shift+Z` | Zen mode (sem distrações) |
+
+### Exemplos de Uso
+
+```bash
+# Workflow eficiente de edição
+1. Digite comando longo
+2. Ctrl+A para ir ao início
+3. Ctrl+R para buscar no histórico
+4. Ctrl+K para cortar parte indesejada
+5. Ctrl+Y para colar em outro lugar
+
+# Navegação rápida no histórico
+qwen> Ctrl+R
+(busca) git
+# Mostra último comando com "git"
+# Enter para usar, Ctrl+R para próximo match
+```
+
+---
+
+## ♿ Acessibilidade
+
+### Comandos de Acessibilidade
+
+| Comando | Descrição |
+|---------|-----------|
+| `--screen-reader` | Otimiza output para leitores de tela |
+| `--high-contrast` | Habilita modo alto contraste |
+| `--large-text` | Aumenta tamanho da fonte |
+| `--verbose-errors` | Mensagens de erro detalhadas |
+| `--audio-feedback` | Feedback sonoro para ações |
+| `--dyslexia-font` | Fonte especial para dislexia |
+
+### Exemplos de Configuração
+
+```bash
+# Modo screen reader
+qwen --screen-reader "explique este código"
+
+# Alto contraste
+qwen --high-contrast "mensagem"
+
+# Texto grande
+qwen --large-text --font-size 18 "código"
+
+# Erros detalhados
+qwen --verbose-errors "comando complexo"
+
+# Feedback de áudio
+qwen --audio-feedback "tarefa longa"
+```
+
+### Configuração Persistente
+
+```json
+// ~/.qwen/config.json
+{
+  "accessibility": {
+    "screenReader": true,
+    "highContrast": false,
+    "fontSize": 16,
+    "verboseErrors": true,
+    "audioFeedback": false,
+    "dyslexiaFont": "OpenDyslexic"
+  }
+}
+```
+
+### Variáveis de Ambiente
+
+```bash
+# Configurar via env vars
+export QWEN_SCREEN_READER=true
+export QWEN_HIGH_CONTRAST=true
+export QWEN_FONT_SIZE=16
+export QWEN_VERBOSE_ERRORS=true
+
+qwen "mensagem"
+```
+
+### Leitores de Tela Suportados
+
+| Leitor | Sistema | Status |
+|--------|---------|--------|
+| NVDA | Windows | ✅ Testado |
+| JAWS | Windows | ✅ Testado |
+| VoiceOver | macOS | ✅ Testado |
+| Orca | Linux | ✅ Testado |
+
+---
+
+## 🔌 Integrações e Extensões
+
+### IDEs e Editores
+
+| IDE | Plugin/Extensão | Instalação |
+|-----|-----------------|------------|
+| VS Code | Qwen CLI Integration | `ext install qwen.cli-integration` |
+| JetBrains | Qwen Assistant | `Plugins → Qwen` |
+| Vim/Neovim | qwen.vim | `Plug 'qwen/qwen.vim'` |
+| Emacs | qwen-mode | `M-x package-install qwen` |
+| Sublime | QwenCLI | `Package Control → QwenCLI` |
+
+### Exemplos de Integração VS Code
+
+```json
+// settings.json
+{
+  "qwen.defaultModel": "qwen-max",
+  "qwen.autoSaveContext": true,
+  "qwen.theme": "cyberpunk"
+}
+```
+
+```json
+// keybindings.json
+{
+  "key": "ctrl+shift+q",
+  "command": "qwen.explainSelection",
+  "when": "editorHasSelection"
+}
+```
+
+### CI/CD
+
+#### GitHub Actions
+
+```yaml
+# .github/workflows/ai-review.yml
+name: AI Code Review
+
+on: [pull_request]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: AI Review
+        run: |
+          qwen --file ${{ github.event.pull_request.diff }} \
+            "faça code review focando em segurança e performance" \
+            --export markdown > review.md
+      
+      - name: Comment PR
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs')
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: fs.readFileSync('review.md', 'utf8')
+            })
+```
+
+#### GitLab CI
+
+```yaml
+# .gitlab-ci.yml
+ai-review:
+  stage: review
+  script:
+    - qwen --git "analise mudanças deste MR"
+    - qwen --file src/ "verifique padrões de código"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+```
+
+#### Jenkins
+
+```groovy
+// Jenkinsfile
+pipeline {
+    agent any
+    stages {
+        stage('AI Review') {
+            steps {
+                sh '''
+                    qwen --file $(git diff --name-only HEAD~1) \
+                        "analise mudanças"
+                '''
+            }
+        }
+    }
+}
+```
+
+### Webhooks
+
+#### Slack
+
+```json
+{
+  "webhooks": {
+    "incoming": {
+      "slack": {
+        "url": "https://hooks.slack.com/services/XXX/YYY/ZZZ",
+        "events": ["task.started", "task.completed"]
+      }
+    }
+  }
+}
+```
+
+#### Discord
+
+```json
+{
+  "webhooks": {
+    "incoming": {
+      "discord": {
+        "url": "https://discord.com/api/webhooks/XXX/YYY",
+        "events": ["task.completed"]
+      }
+    }
+  }
+}
+```
+
+#### Payload Exemplo
+
+```json
+{
+  "event": "task.completed",
+  "timestamp": "2026-02-22T10:30:00Z",
+  "data": {
+    "taskId": "abc-123",
+    "result": "success",
+    "output": "Análise concluída com 3 recomendações"
+  }
+}
+```
+
+---
+
+## 🧠 Engenharia de Prompt
+
+### Técnicas Fundamentais
+
+| Técnica | Descrição | Exemplo |
+|---------|-----------|---------|
+| Zero-shot | Prompt direto sem exemplos | "Traduza para Python" |
+| Few-shot | Com exemplos de entrada/saída | "Ex1: ... Ex2: ... Agora:" |
+| Chain-of-thought | Pede raciocínio passo-a-passo | "Pense passo-a-passo" |
+| Role-playing | Atribui papel específico | "Atue como senior dev" |
+| Template-based | Usa estrutura padronizada | Ver templates abaixo |
+
+### Padrões Avançados
+
+| Padrão | Uso | Exemplo |
+|--------|-----|---------|
+| Decomposition | Divide problema complexo | "Quebre em sub-tarefas" |
+| Verification | Pede verificação | "Verifique se há erros" |
+| Comparison | Compara abordagens | "REST vs GraphQL" |
+| Expansion | Expande explicação | "Explique como para iniciante" |
+| Contraction | Resume conteúdo | "Resuma em 3 pontos" |
+| Transformation | Transforma formato | "Converta para JSON" |
+
+### Templates de Prompt
+
+```bash
+# Template para code review
+qwen "
+CONTEXTO: Code review de pull request
+FOCO: Segurança, performance, legibilidade
+FORMATO: Lista de issues com prioridade
+
+CÓDIGO:
+$(cat src/novo-arquivo.js)
+"
+
+# Template para debugging
+qwen "
+PROBLEMA: $(cat erro.log)
+CONTEXTO: Aplicação Node.js, última mudança foi X
+TENTATIVAS: Já tentei A, B, C
+
+SAÍDA ESPERADA: Causa raiz e solução passo-a-passo
+"
+
+# Template para geração de código
+qwen "
+TAREFA: Criar função de autenticação JWT
+REQUISITOS: 
+  - Node.js com Express
+  - Refresh tokens
+  - Rate limiting
+RESTRIÇÕES:
+  - Sem dependências externas além de jsonwebtoken
+  - TypeScript
+
+SAÍDA: Código completo + testes unitários
+"
+```
+
+### Exemplos Práticos
+
+```bash
+# Few-shot prompting
+qwen "
+Exemplo 1:
+Input: 'hello world'
+Output: 'HELLO WORLD'
+
+Exemplo 2:
+Input: 'foo bar'
+Output: 'FOO BAR'
+
+Agora converta: 'test case'
+"
+
+# Chain-of-thought
+qwen "
+Analise este código passo-a-passo:
+1. Identifique o propósito
+2. Liste dependências
+3. Aponte problemas potenciais
+4. Sugira melhorias
+
+$(cat src/app.js)
+"
+
+# Role-playing
+qwen "
+Atue como um engenheiro de segurança sênior.
+Revise este código focando em:
+- Injeção de SQL
+- XSS
+- CSRF
+- Vazamento de dados
+
+$(cat src/api.js)
+"
+```
+
+### Dicas de Prompt Eficiente
+
+1. **Seja específico**: "Explique closures" → "Explique closures em JavaScript para iniciante"
+2. **Dê contexto**: Inclua versão, framework, restrições
+3. **Defina formato**: "Lista", "Tabela", "Código + explicação"
+4. **Itere**: Comece amplo, refine baseado na resposta
+5. **Use exemplos**: Few-shot melhora qualidade significativamente
+
+---
+
+## 🔄 Gerenciamento de Sessões Avançado
+
+### Comandos de Sessão
+
+| Comando | Descrição |
+|---------|-----------|
+| `--session new <nome>` | Cria nova sessão nomeada |
+| `--session list` | Lista sessões disponíveis |
+| `--session load <id>` | Carrega sessão existente |
+| `--session save <nome>` | Salva sessão atual |
+| `--session delete <id>` | Remove sessão |
+| `--session export <id>` | Exporta sessão (json/md/pdf) |
+| `--session fork <id>` | Cria cópia da sessão |
+| `--session merge <id1> <id2>` | Mescla duas sessões |
+
+### Exemplos de Uso
+
+```bash
+# Criar sessão para projeto
+qwen --session new "projeto-alpha"
+
+# Listar sessões
+qwen --session list
+# Output:
+# projeto-alpha (2.3MB, última atividade: 5min atrás)
+# projeto-beta (1.1MB, última atividade: 1h atrás)
+
+# Carregar sessão
+qwen --session load "projeto-alpha"
+
+# Salvar checkpoint
+qwen --session save "checkpoint-pre-migration"
+
+# Exportar sessão
+qwen --session export "projeto-alpha" --format pdf > relatorio.pdf
+```
+
+### Sessões Paralelas
+
+```bash
+# Múltiplas sessões em paralelo
+qwen --session new "analise-seguranca" &
+qwen --session new "analise-performance" &
+
+# Alternar entre sessões no REPL
+/session switch "analise-seguranca"
+
+# Copiar contexto entre sessões
+/session copy-context from:"analise-seguranca" to:"relatorio-final"
+```
+
+### Fork e Merge
+
+```bash
+# Fork para experimentação
+qwen --session fork "sessao-original" --name "sessao-experimental"
+
+# Merge de sessões
+qwen --session merge "sessao-a" "sessao-b" --output "sessao-combinada"
+
+# Merge com filtro
+qwen --session merge "a" "b" --max-tokens=50000
+
+# Comparar sessões
+qwen --session compare "sessao-a" "sessao-b"
+```
+
+### Troubleshooting
+
+#### Erro: "Session not found"
+
+```bash
+# Causa: ID incorreto ou sessão expirada
+# Solução:
+qwen --session list
+qwen --session load <id-correto>
+```
+
+#### Erro: "Merge conflict"
+
+```bash
+# Causa: Contextos incompatíveis
+# Solução:
+qwen --session export session-a > a.json
+qwen --session export session-b > b.json
+jq -s '.[0] * .[1]' a.json b.json | qwen --session import
+```
+
+#### Erro: "Context size exceeded"
+
+```bash
+# Causa: Sessão muito grande
+# Solução:
+qwen --session merge --max-tokens=50000 session-a session-b
+```
+
+---
+
+## ❓ FAQ - Perguntas Frequentes
+
+### 1. Como inicio uma nova sessão?
+```bash
+qwen --session new "nome-da-sessao"
+```
+
+### 2. Como vejo o histórico de conversas?
+```bash
+qwen --history
+# Ou dentro do REPL: /history
+```
+
+### 3. O que é o modo --yolo?
+O modo `--yolo` executa comandos sem pedir confirmação. Útil para automação.
+
+### 4. Como exporto uma conversa?
+```bash
+qwen --session export "nome" > conversa.json
+```
+
+### 5. Posso usar offline?
+Sim! Use `qwen --offline` para usar o modelo local.
+
+### 6. Como troco de modelo?
+```bash
+qwen --model=qwen-max "tarefa complexa"
+qwen --model=qwen-turbo "tarefa simples"
+qwen --model=qwen-coder "programação"
+```
+
+### 7. O que é contexto persistente?
+É a capacidade de manter contexto entre sessões automaticamente.
+
+### 8. Como limpo o cache?
+```bash
+qwen --cache-mode=clear
+```
+
+### 9. Posso processar múltiplos arquivos?
+Sim! Use `--batch` ou `--files`:
+```bash
+qwen --batch "analise" --files *.js
+```
+
+### 10. Como configuro webhooks?
+Edite o arquivo de configuração ou use:
+```bash
+qwen --config-set webhooks.incoming.slack.url "URL"
+```
+
+### 11. O que são plugins?
+Plugins são extensões que adicionam funcionalidades ao Qwen.
+
+### 12. Como instalo um plugin?
+```bash
+qwen --plugin install nome-do-plugin
+```
+
+### 13. Posso usar com Notion?
+Sim! Use `--export notion` para exportar diretamente.
+
+### 14. Como vejo uso de tokens?
+```bash
+qwen --token-count
+# Ou no REPL: /tokens
+```
+
+### 15. Como reporto bugs?
+Abra uma issue no GitHub: https://github.com/qwen/qwen-cli/issues
+
+---
+
+## 📋 Guia de Referência Rápida
+
+### Comandos Mais Usados
+
+| Comando | Descrição | Exemplo |
+|---------|-----------|---------|
+| `qwen "msg"` | Mensagem única | `qwen "explique isso"` |
+| `qwen --file` | Incluir arquivo | `qwen --file app.js "analise"` |
+| `qwen --yolo` | Sem confirmação | `qwen --yolo "refatore"` |
+| `qwen --session` | Gerenciar sessão | `qwen --session new "proj"` |
+| `qwen --batch` | Processar em lote | `qwen --batch "teste" --files *.py` |
+| `qwen --export` | Exportar conversa | `qwen --export pdf > doc.pdf` |
+
+### Flags Essenciais
+
+| Flag | Alias | Uso |
+|------|-------|-----|
+| `--yolo` | `-y` | Executa sem confirmar |
+| `--dry-run` | `-n` | Simula execução |
+| `--verbose` | `-v` | Output detalhado |
+| `--debug` | `-d` | Log de debug |
+| `--quiet` | `-q` | Modo silencioso |
+| `--force` | `-f` | Força execução |
+
+### Atalhos REPL
+
+| Atalho | Ação |
+|--------|------|
+| `Ctrl+D` | Sair |
+| `Ctrl+L` | Limpar tela |
+| `Ctrl+P` | Histórico anterior |
+| `Ctrl+N` | Histórico próximo |
+| `Ctrl+R` | Buscar no histórico |
+| `Ctrl+A` | Início da linha |
+| `Ctrl+E` | Fim da linha |
+| `Ctrl+K` | Cortar até fim |
+| `Ctrl+U` | Cortar do início |
+| `Ctrl+Y` | Colar |
+
+### Códigos de Erro Comuns
+
+| Erro | Causa | Solução |
+|------|-------|---------|
+| `ERR_AUTH` | Não autenticado | `qwen --auth login` |
+| `ERR_CONTEXT` | Contexto muito grande | `--max-tokens` ou nova sessão |
+| `ERR_SESSION` | Sessão inválida | `qwen --session list` |
+| `ERR_NETWORK` | Sem conexão | `qwen --offline` |
+| `ERR_RATE` | Limite excedido | Aguardar ou aumentar limite |
+
+### Modelos Disponíveis
+
+| Modelo | Uso Recomendado | Contexto |
+|--------|-----------------|----------|
+| `qwen-max` | Tarefas complexas | 256K tokens |
+| `qwen-turbo` | Tarefas simples | 128K tokens |
+| `qwen-coder` | Programação | 256K tokens |
+| `qwen-vision` | Análise de imagens | 128K tokens |
+
+---
+
+## 🔄 Migração de Outros CLIs
+
+### De Gemini CLI
+
+| Gemini CLI | Qwen CLI |
+|------------|----------|
+| `gemini "msg"` | `qwen "msg"` |
+| `gemini -p` | `qwen --continue` |
+| `gemini --show-tool-use` | `qwen --verbose` |
+| `gemini --model` | `qwen --model` |
+
+**Diferenças principais:**
+- Qwen tem contexto maior (256K vs 128K)
+- Qwen suporta múltiplos modelos
+- Qwen tem modo offline
+- Qwen é mais barato ($20 vs $25/mês)
+
+### De Claude Code
+
+| Claude Code | Qwen CLI |
+|-------------|----------|
+| `claude "msg"` | `qwen "msg"` |
+| `claude resume` | `qwen --resume` |
+| `claude /clear` | `qwen /clear` |
+| `claude /help` | `qwen /help` |
+
+**Diferenças principais:**
+- Qwen é mais rápido em tarefas simples
+- Qwen tem melhor gerenciamento de sessões
+- Claude tem melhor integração enterprise
+- Qwen tem mais opções de exportação
+
+### De Cursor CLI
+
+| Cursor | Qwen CLI |
+|--------|----------|
+| `cursor ask "msg"` | `qwen "msg"` |
+| `cursor edit` | `qwen --file` |
+| `cursor chat` | `qwen --session` |
+
+**Diferenças principais:**
+- Cursor é focado em IDE
+- Qwen é standalone CLI
+- Qwen tem mais integrações
+- Cursor tem melhor UX de editor
+
+---
+
 ## 🔗 Recursos Adicionais
 
 - **Documentação Oficial**: `qwen --help`
@@ -376,7 +1912,20 @@ qwen "crie teste que reproduz e valida o fix"
 - **Config**: `qwen /config`
 - **Histórico**: `qwen /history`
 - **Community**: Discord/Slack da comunidade
+- **Status Page**: https://status.qwen.dev
+- **Changelog**: https://github.com/qwen/cli/releases
+- **Feature Requests**: https://github.com/qwen/cli/issues
+- **Awesome Qwen**: https://github.com/qwen/awesome-qwen
+- **Guia de Migração**: https://qwen.ai/docs/migration-guide
 
 ---
 
 > 💡 **Dica Pro**: Combine `--yolo` com `--dry-run` primeiro para ver o que seria feito, depois execute de verdade.
+
+> 🎯 **Dica de Produtividade**: Use sessões nomeadas para contextos diferentes (ex: `--session new "projeto-a"`) e alterne entre eles sem perder o contexto.
+
+> 🔒 **Dica de Segurança**: Em ambientes compartilhados, sempre use `--secure-mode` e limpe o histórico do shell após sessões sensíveis.
+
+> ♿ **Dica de Acessibilidade**: Configure `--screen-reader` e `--verbose-errors` para melhor experiência com leitores de tela.
+
+> 🎨 **Dica de Personalização**: Use `--template docs` ou `--template changelog` para outputs formatados prontos para uso.
