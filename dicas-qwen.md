@@ -1929,3 +1929,573 @@ Abra uma issue no GitHub: https://github.com/qwen/qwen-cli/issues
 > ♿ **Dica de Acessibilidade**: Configure `--screen-reader` e `--verbose-errors` para melhor experiência com leitores de tela.
 
 > 🎨 **Dica de Personalização**: Use `--template docs` ou `--template changelog` para outputs formatados prontos para uso.
+
+---
+
+# 🟡 Micro Editor - Guia Completo
+
+> Editor de texto moderno para terminal com suporte a mouse e atalhos convencionais
+
+---
+
+## 📦 Instalação
+
+### Linux
+
+```bash
+# Método recomendado (todos os distros)
+curl https://getmic.ro | bash
+sudo mv micro /usr/local/bin/
+
+# Ubuntu/Debian (Snap)
+sudo snap install micro --classic
+
+# Arch Linux
+sudo pacman -S micro
+
+# Fedora
+sudo dnf install micro
+
+# openSUSE
+sudo zypper install micro
+```
+
+### macOS
+
+```bash
+# Homebrew (recomendado)
+brew install micro
+
+# MacPorts
+sudo port install micro
+```
+
+### Windows
+
+```powershell
+# Scoop (recomendado)
+scoop install micro
+
+# Chocolatey
+choco install micro-editor
+
+# Winget
+winget install zyedidia.micro
+```
+
+### Verificar Instalação
+
+```bash
+# Verificar versão
+micro --version
+
+# Verificar ajuda
+micro --help
+```
+
+---
+
+## 🎯 Comandos de Linha de Comando
+
+### Sintaxe Básica
+
+```bash
+micro [opções] <arquivo>[:<linha>:<coluna>] [...]
+```
+
+### Flags e Opções
+
+| Flag | Alias | Descrição | Exemplo |
+|------|-------|-----------|---------|
+| `+<linha>:<coluna>` | `-startpos` | Posição inicial do cursor | `micro +10:5 file.txt` |
+| `-diff` | | Modo diff entre arquivos | `micro -diff a.txt b.txt` |
+| `-readonly` | | Abre em modo somente leitura | `micro -readonly config.json` |
+| `-nomouse` | | Desabilita suporte a mouse | `micro -nomouse file.txt` |
+| `-syntax <lang>` | | Define sintaxe manualmente | `micro -syntax python script.py` |
+| `-config <dir>` | | Diretório de configuração | `micro -config ~/.config/micro` |
+| `-debug` | | Modo de debug | `micro -debug file.txt` |
+| `--help` | `-h` | Mostra ajuda | `micro --help` |
+| `--version` | `-v` | Mostra versão | `micro --version` |
+
+### Exemplos de Uso
+
+```bash
+# Abrir arquivo simples
+micro arquivo.txt
+
+# Abrir na linha 42
+micro +42 arquivo.txt
+
+# Abrir múltiplos arquivos (abas)
+micro arquivo1.txt arquivo2.txt arquivo3.txt
+
+# Modo diff
+micro -diff original.txt modificado.txt
+
+# Somente leitura
+micro -readonly /etc/config.json
+
+# Abrir com sintaxe específica
+micro -syntax python script.py
+
+# Abrir arquivo em diretório específico
+micro /path/to/file.txt
+```
+
+---
+
+## ⌨️ Atalhos de Teclado
+
+### Básicos
+
+| Atalho | Ação |
+|--------|------|
+| `Ctrl+S` | Salvar |
+| `Ctrl+Q` | Sair |
+| `Ctrl+O` | Salvar como |
+| `Ctrl+N` | Novo arquivo |
+| `Ctrl+Z` | Desfazer |
+| `Ctrl+Y` | Refazer |
+| `Ctrl+C` | Copiar |
+| `Ctrl+X` | Cortar |
+| `Ctrl+V` | Colar |
+| `Ctrl+F` | Localizar |
+| `Ctrl+H` | Localizar e substituir |
+| `Ctrl+K` | Cortar linha |
+| `Ctrl+J` | Colar linha |
+
+### Navegação
+
+| Atalho | Ação |
+|--------|------|
+| `Setas` | Mover cursor |
+| `Ctrl+A` | Início da linha |
+| `Ctrl+E` | Fim da linha |
+| `Ctrl+Home` | Início do arquivo |
+| `Ctrl+End` | Fim do arquivo |
+| `Ctrl+P` | Página anterior |
+| `Ctrl+N` | Próxima página |
+| `Alt+<` | Início do arquivo |
+| `Alt+>` | Fim do arquivo |
+| `Ctrl+D` | Meia página abaixo |
+| `Ctrl+U` | Meia página acima |
+
+### Seleção
+
+| Atalho | Ação |
+|--------|------|
+| `Shift+Setas` | Selecionar texto |
+| `Ctrl+Shift+A` | Selecionar até início da linha |
+| `Ctrl+Shift+E` | Selecionar até fim da linha |
+| `Ctrl+Shift+Home` | Selecionar até início do arquivo |
+| `Ctrl+Shift+End` | Selecionar até fim do arquivo |
+| `Alt+Shift+<` | Selecionar tudo |
+| `Ctrl+Shift+I` | Selecionar palavra atual |
+
+### Múltiplos Cursores
+
+| Atalho | Ação |
+|--------|------|
+| `Alt+Shift+Setas` | Adicionar cursor |
+| `Alt+Click` | Adicionar cursor com mouse |
+| `Ctrl+Shift+Up/Down` | Adicionar cursor acima/abaixo |
+| `Esc` | Remover cursores extras |
+
+### Janelas e Abas
+
+| Atalho | Ação |
+|--------|------|
+| `Ctrl+E, vsplit` | Divisão vertical |
+| `Ctrl+E, hsplit` | Divisão horizontal |
+| `Ctrl+Tab` | Alternar abas |
+| `Ctrl+Shift+Tab` | Alternar abas (reverso) |
+| `Ctrl+W, q` | Fechar janela |
+| `Ctrl+W, v` | Dividir vertical |
+| `Ctrl+W, s` | Dividir horizontal |
+
+### Comandos Internos (Ctrl+E)
+
+| Comando | Descrição |
+|---------|-----------|
+| `vsplit` | Dividir verticalmente |
+| `hsplit` | Dividir horizontalmente |
+| `termon` | Abrir terminal interno |
+| `termoff` | Fechar terminal interno |
+| `save` | Salvar arquivo |
+| `saveas <file>` | Salvar como |
+| `open <file>` | Abrir arquivo |
+| `tab <file>` | Abrir em nova aba |
+| `goto <linha>` | Ir para linha |
+| `find <texto>` | Localizar texto |
+| `replace <a> <b>` | Substituir a por b |
+| `set <opção> <valor>` | Configurar opção |
+| `plugin install <nome>` | Instalar plugin |
+| `plugin remove <nome>` | Remover plugin |
+| `quit` | Sair |
+
+---
+
+## 🔌 Plugins
+
+### Instalação de Plugins
+
+```bash
+# Dentro do Micro (Ctrl+E)
+plugin install <nome-do-plugin>
+
+# Exemplos
+plugin install autospell
+plugin install markdown
+plugin install gofmt
+```
+
+### Plugins Essenciais
+
+| Plugin | Descrição | Instalação |
+|--------|-----------|------------|
+| `autospell` | Verificação ortográfica automática | `plugin install autospell` |
+| `markdown` | Preview de Markdown | `plugin install markdown` |
+| `gofmt` | Formatação automática de Go | `plugin install gofmt` |
+| `python-indent` | Indentação Python inteligente | `plugin install python-indent` |
+| `comment` | Comentários rápidos | `plugin install comment` |
+| `multiple-cursors` | Múltiplos cursores avançados | `plugin install multiple-cursors` |
+| `open` | Abrir arquivos com sistema | `plugin install open` |
+| `rainbow` | Parênteses coloridos | `plugin install rainbow` |
+
+### Gerenciando Plugins
+
+```bash
+# Listar plugins instalados
+plugin list
+
+# Atualizar todos os plugins
+plugin update all
+
+# Remover plugin
+plugin remove <nome>
+
+# Verificar atualizações
+plugin update
+```
+
+---
+
+## ⚙️ Configuração
+
+### Arquivo de Configuração
+
+**Localização:** `~/.config/micro/settings.json`
+
+### Configurações Principais
+
+```json
+{
+  "colorscheme": "monokai",
+  "tabsize": 4,
+  "tabstospaces": true,
+  "softwrap": true,
+  "autosave": 30,
+  "backup": true,
+  "ignorecase": false,
+  "incsearch": true,
+  "hlsearch": true,
+  "number": true,
+  "relativenumber": false,
+  "colorcolumn": 80,
+  "autoindent": true,
+  "smartpaste": true,
+  "splitright": true,
+  "splitbottom": true,
+  "mouse": true,
+  "syntax": true
+}
+```
+
+### Temas Disponíveis
+
+```bash
+# Listar temas
+ls ~/.config/micro/colorschemes/
+
+# Temas incluídos:
+# - default
+# - monokai
+# - solarized-dark
+# - solarized-light
+# - dracula
+# - nord
+# - gruvbox
+# - one-dark
+# - atom-one-dark
+# - zenburn
+```
+
+### Mudar Tema
+
+```bash
+# Dentro do Micro (Ctrl+E)
+set colorscheme dracula
+
+# Ou no settings.json
+{
+  "colorscheme": "dracula"
+}
+```
+
+### Bindings Personalizados
+
+**Arquivo:** `~/.config/micro/bindings.json`
+
+```json
+{
+  "Ctrl-S": "command:save",
+  "Ctrl-Q": "command:quit",
+  "Ctrl-/": "command:comment",
+  "F5": "command:termon",
+  "Alt-h": "command:hsplit",
+  "Alt-v": "command:vsplit"
+}
+```
+
+---
+
+## 🔄 Comparativo: Micro vs Outros Editores
+
+### Micro vs Nano
+
+| Feature | Micro | Nano |
+|---------|-------|------|
+| Suporte a mouse | ✅ | ❌ (novo: sim) |
+| Syntax highlighting | ✅ | ✅ |
+| Plugins | ✅ | ❌ |
+| Múltiplos cursores | ✅ | ❌ |
+| Divisão de janelas | ✅ | ❌ |
+| Abas | ✅ | ✅ |
+| Curva de aprendizado | Baixa | Baixa |
+| Tamanho | ~5MB | ~200KB |
+
+**Veredito:** Micro é melhor para desenvolvimento, Nano para edições rápidas.
+
+### Micro vs Vim
+
+| Feature | Micro | Vim |
+|---------|-------|-----|
+| Atalhos convencionais | ✅ | ❌ |
+| Suporte a mouse | ✅ | ⚠️ (limitado) |
+| Curva de aprendizado | Baixa | Alta |
+| Poder/flexibilidade | Médio | Alto |
+| Plugins | ✅ | ✅ (mais) |
+| Modo visual | ✅ | ✅ |
+| Macros | ⚠️ | ✅ |
+| Registradores | ❌ | ✅ |
+
+**Veredito:** Micro para produtividade imediata, Vim para poder máximo.
+
+### Micro vs VS Code
+
+| Feature | Micro | VS Code |
+|---------|-------|---------|
+| Leveza | ✅ (5MB) | ❌ (500MB+) |
+| Inicialização | ✅ (<1s) | ❌ (5-10s) |
+| Terminal nativo | ✅ | ⚠️ (integrado) |
+| SSH/Remote | ✅ | ⚠️ (extensão) |
+| Extensões | ⚠️ (limitadas) | ✅ (milhares) |
+| Debug | ❌ | ✅ |
+| Git | ⚠️ (básico) | ✅ |
+
+**Veredito:** Micro para edição rápida em terminal, VS Code para IDE completa.
+
+---
+
+## 🐛 Troubleshooting
+
+### Problemas Comuns
+
+#### 1. Micro não abre arquivos grandes
+
+```bash
+# Solução: desabilitar syntax highlighting para arquivos grandes
+micro -syntax off arquivo-grande.log
+
+# Ou no settings.json
+{
+  "syntax": false
+}
+```
+
+#### 2. Mouse não funciona
+
+```bash
+# Verificar se mouse está habilitado
+set mouse
+
+# Habilitar mouse
+set mouse true
+
+# Ou iniciar com
+micro -nomouse arquivo.txt  # Para desabilitar
+```
+
+#### 3. Plugins não carregam
+
+```bash
+# Listar plugins instalados
+plugin list
+
+# Reinstalar plugins
+plugin remove all
+plugin install <nome>
+
+# Verificar diretório de plugins
+ls ~/.config/micro/plugins/
+```
+
+#### 4. Cores não aparecem corretamente
+
+```bash
+# Verificar tipo de terminal
+echo $TERM
+
+# Deve ser xterm-256color ou similar
+export TERM=xterm-256color
+
+# Adicionar ao ~/.bashrc ou ~/.zshrc
+```
+
+#### 5. Atalhos não funcionam
+
+```bash
+# Verificar bindings
+# Ctrl+E, then type: show bindings
+
+# Resetar bindings
+rm ~/.config/micro/bindings.json
+```
+
+#### 6. Syntax highlighting não funciona
+
+```bash
+# Forçar sintaxe
+micro -syntax python arquivo.py
+
+# Verificar se arquivo tem extensão reconhecida
+# Ou adicionar no settings.json
+{
+  "syntax": true
+}
+```
+
+#### 7. Micro trava com arquivos grandes
+
+```bash
+# Desabilitar features pesadas
+micro -syntax off -autosave 0 arquivo-grande.log
+
+# Ou usar alternativas para arquivos muito grandes
+head -100 arquivo-grande.log | micro
+```
+
+#### 8. Configurações não persistem
+
+```bash
+# Verificar permissões do arquivo
+ls -la ~/.config/micro/settings.json
+
+# Corrigir permissões
+chmod 644 ~/.config/micro/settings.json
+
+# Verificar se JSON é válido
+cat ~/.config/micro/settings.json | python -m json.tool
+```
+
+---
+
+## ❓ FAQ - Micro Editor
+
+### 1. Como copiar e colar no terminal?
+Use `Ctrl+Shift+C` e `Ctrl+Shift+V` no terminal, ou `Ctrl+C` e `Ctrl+V` dentro do Micro.
+
+### 2. Como habilitar números de linha?
+```bash
+# Dentro do Micro
+set number
+
+# Ou no settings.json
+{"number": true}
+```
+
+### 3. Como mudar o tamanho do tab?
+```bash
+set tabsize 2  # ou 4, 8, etc.
+```
+
+### 4. Como habilitar word wrap?
+```bash
+set softwrap true
+```
+
+### 5. Como abrir arquivo em linha específica?
+```bash
+micro +42 arquivo.txt  # Linha 42
+micro +10:5 arquivo.txt  # Linha 10, coluna 5
+```
+
+### 6. Como comparar dois arquivos?
+```bash
+micro -diff arquivo1.txt arquivo2.txt
+```
+
+### 7. Como instalar plugins?
+```bash
+# Dentro do Micro (Ctrl+E)
+plugin install <nome>
+```
+
+### 8. Onde ficam as configurações?
+`~/.config/micro/settings.json`
+
+### 9. Como criar macros?
+Micro não suporta macros nativamente, mas use o plugin `multiple-cursors`.
+
+### 10. Como habilitar autosave?
+```bash
+set autosave 30  # Salva a cada 30 segundos
+```
+
+### 11. Como abrir terminal interno?
+```bash
+# Ctrl+E, depois digite:
+termon
+```
+
+### 12. Como sair do Micro?
+```bash
+Ctrl+Q
+```
+
+---
+
+## 💡 Dicas de Produtividade
+
+1. **Use múltiplos cursores** para editar várias linhas simultaneamente
+2. **Habilite números de linha** para navegação rápida
+3. **Use `goto` (Ctrl+E, goto)** para pular para linhas específicas
+4. **Aprenda atalhos de seleção** para editar blocos rapidamente
+5. **Instale o plugin `comment`** para comentar código rapidamente
+6. **Use `vsplit` e `hsplit`** para comparar arquivos lado a lado
+7. **Habilite `autosave`** para não perder trabalho
+8. **Personalize bindings** para atalhos que você mais usa
+9. **Use o terminal interno** para rodar comandos sem sair do editor
+10. **Instale tema que reduz fadiga ocular** para sessões longas
+
+---
+
+## 🔗 Recursos Adicionais
+
+- **Site Oficial**: https://micro-editor.github.io/
+- **GitHub**: https://github.com/zyedidia/micro
+- **Documentação**: https://github.com/zyedidia/micro/blob/master/runtime/help/help.md
+- **Plugins**: https://github.com/micro-editor/plugin-channel
+- **Fórum**: https://github.com/zyedidia/micro/discussions
+
+---
