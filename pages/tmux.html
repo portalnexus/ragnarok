@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tmux - Ragnarok WIKI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">RAGNAROK</div>
+                <div class="logo-subtitle">TERMINAL WIKI v1.0</div>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="nav-section-title">📚 Wiki</div>
+                    <ul class="nav-list">
+                        <li><a href="../index.html">🏠 Início</a></li>
+                        <li><a href="tmux.html" class="active">🟢 tmux</a></li>
+                        <li><a href="mc.html">🔵 Midnight Commander</a></li>
+                        <li><a href="micro.html">🟡 Micro Editor</a></li>
+                        <li><a href="git.html">📦 Git</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">🤖 Qwen CLI</div>
+                    <ul class="nav-list">
+                        <li><a href="qwen.html">🏠 Principal</a></li>
+                        <li><a href="qwen-seguranca.html">🔐 Segurança</a></li>
+                        <li><a href="qwen-temas.html">🎨 Temas</a></li>
+                        <li><a href="qwen-colaboracao.html">🤝 Colaboração</a></li>
+                        <li><a href="qwen-atalhos.html">⌨️ Atalhos</a></li>
+                        <li><a href="qwen-acessibilidade.html">♿ Acessibilidade</a></li>
+                        <li><a href="qwen-integracoes.html">🔌 Integrações</a></li>
+                        <li><a href="qwen-prompts.html">🧠 Prompts</a></li>
+                        <li><a href="qwen-sessoes.html">🔄 Sessões</a></li>
+                        <li><a href="qwen-faq.html">❓ FAQ</a></li>
+                        <li><a href="qwen-referencia.html">📋 Referência</a></li>
+                        <li><a href="qwen-migracao.html">🔄 Migração</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">📋 Outras Ferramentas</div>
+                    <ul class="nav-list">
+                        <li><a href="gemini.html">⭐ Gemini CLI</a></li>
+                        <li><a href="btop.html">📊 btop</a></li>
+                        <li><a href="fastfetch.html">⚡ fastfetch</a></li>
+                        <li><a href="ssh.html">🔐 SSH</a></li>
+                        <li><a href="python.html">🐍 Python</a></li>
+                        <li><a href="nodejs.html">📜 Node.js</a></li>
+                        <li><a href="cpp.html">⚙️ C/C++</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="theme-toggle">
+                <button class="theme-btn" onclick="toggleTheme()">🌓 Tema</button>
+                <button class="theme-btn" onclick="toggleCRT()">📺 CRT</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search -->
+            <div class="search-container">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Buscar comandos..." oninput="searchContent()">
+                    <span class="search-shortcut">Ctrl+K</span>
+                </div>
+            </div>
+
+            <!-- tmux Section -->
+            <section id="tmux" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">🟢</span>
+                    <h2 class="section-title">tmux</h2>
+                    <span class="section-badge">Terminal Multiplexer</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag beginner">beginner</span>
+                </div>
+                <p>O <strong>tmux</strong> permite gerenciar múltiplas sessões de terminal em uma única janela. Prefixo padrão: <code>Ctrl+b</code></p>
+
+                <div class="content-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">📋</span>
+                            <h3 class="card-title">Sessões</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">tmux new -s nome</span>
+                                    <p class="cheat-desc">Criar nova sessão</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">tmux attach -t nome</span>
+                                    <p class="cheat-desc">Conectar à sessão</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">tmux ls</span>
+                                    <p class="cheat-desc">Listar sessões</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b d</span>
+                                    <p class="cheat-desc">Desconectar (detach)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🪟</span>
+                            <h3 class="card-title">Janelas</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b c</span>
+                                    <p class="cheat-desc">Criar janela</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b n / p</span>
+                                    <p class="cheat-desc">Próxima/Anterior</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b 0..9</span>
+                                    <p class="cheat-desc">Ir para janela #</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b ,</span>
+                                    <p class="cheat-desc">Renomear janela</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">📐</span>
+                            <h3 class="card-title">Painéis</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="cheatsheet">
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b |</span>
+                                    <p class="cheat-desc">Dividir vertical</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b -</span>
+                                    <p class="cheat-desc">Dividir horizontal</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b setas</span>
+                                    <p class="cheat-desc">Navegar painéis</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b x</span>
+                                    <p class="cheat-desc">Fechar painel</p>
+                                </div>
+                                <div class="cheat-card">
+                                    <span class="cheat-key">Ctrl+b z</span>
+                                    <p class="cheat-desc">Maximizar painel</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                        <span class="terminal-title">bash</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div><span class="terminal-prompt">$</span> <span class="terminal-command">tmux new -s dev<span class="cursor"></span></span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="wiki-footer">
+                <p>RAGNAROK TERMINAL WIKI // 2026</p>
+                <p>Feito com ⚡ para desenvolvedores de terminal</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

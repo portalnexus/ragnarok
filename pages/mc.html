@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midnight Commander - Ragnarok WIKI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+
+    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">RAGNAROK</div>
+                <div class="logo-subtitle">TERMINAL WIKI v1.0</div>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="nav-section-title">📚 Wiki</div>
+                    <ul class="nav-list">
+                        <li><a href="../index.html">🏠 Início</a></li>
+                        <li><a href="tmux.html">🟢 tmux</a></li>
+                        <li><a href="mc.html" class="active">🔵 Midnight Commander</a></li>
+                        <li><a href="micro.html">🟡 Micro Editor</a></li>
+                        <li><a href="git.html">📦 Git</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">🤖 Qwen CLI</div>
+                    <ul class="nav-list">
+                        <li><a href="qwen.html">🏠 Principal</a></li>
+                        <li><a href="qwen-seguranca.html">🔐 Segurança</a></li>
+                        <li><a href="qwen-temas.html">🎨 Temas</a></li>
+                        <li><a href="qwen-colaboracao.html">🤝 Colaboração</a></li>
+                        <li><a href="qwen-atalhos.html">⌨️ Atalhos</a></li>
+                        <li><a href="qwen-acessibilidade.html">♿ Acessibilidade</a></li>
+                        <li><a href="qwen-integracoes.html">🔌 Integrações</a></li>
+                        <li><a href="qwen-prompts.html">🧠 Prompts</a></li>
+                        <li><a href="qwen-sessoes.html">🔄 Sessões</a></li>
+                        <li><a href="qwen-faq.html">❓ FAQ</a></li>
+                        <li><a href="qwen-referencia.html">📋 Referência</a></li>
+                        <li><a href="qwen-migracao.html">🔄 Migração</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">📋 Outras Ferramentas</div>
+                    <ul class="nav-list">
+                        <li><a href="gemini.html">⭐ Gemini CLI</a></li>
+                        <li><a href="btop.html">📊 btop</a></li>
+                        <li><a href="fastfetch.html">⚡ fastfetch</a></li>
+                        <li><a href="ssh.html">🔐 SSH</a></li>
+                        <li><a href="python.html">🐍 Python</a></li>
+                        <li><a href="nodejs.html">📜 Node.js</a></li>
+                        <li><a href="cpp.html">⚙️ C/C++</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="theme-toggle">
+                <button class="theme-btn" onclick="toggleTheme()">🌓 Tema</button>
+                <button class="theme-btn" onclick="toggleCRT()">📺 CRT</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search -->
+            <div class="search-container">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Buscar comandos..." oninput="searchContent()">
+                    <span class="search-shortcut">Ctrl+K</span>
+                </div>
+            </div>
+
+            <!-- Midnight Commander Section -->
+            <section id="midnight-commander" class="wiki-section">
+                <div class="section-header">
+                    <span class="section-icon">🔵</span>
+                    <h2 class="section-title">Midnight Commander</h2>
+                    <span class="section-badge">File Manager</span>
+                </div>
+                <div class="tags">
+                    <span class="tag tool">tool</span>
+                    <span class="tag beginner">beginner</span>
+                </div>
+                <p>Gerenciador de arquivos visual para terminal. Execute com <code>mc</code>.</p>
+
+                <table class="wiki-table">
+                    <thead>
+                        <tr>
+                            <th>Tecla</th>
+                            <th>Ação</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>F3</code></td>
+                            <td>View</td>
+                            <td>Visualizar arquivo</td>
+                        </tr>
+                        <tr>
+                            <td><code>F4</code></td>
+                            <td>Edit</td>
+                            <td>Editar arquivo</td>
+                        </tr>
+                        <tr>
+                            <td><code>F5</code></td>
+                            <td>Copy</td>
+                            <td>Copiar arquivo/diretório</td>
+                        </tr>
+                        <tr>
+                            <td><code>F6</code></td>
+                            <td>Move</td>
+                            <td>Mover arquivo/diretório</td>
+                        </tr>
+                        <tr>
+                            <td><code>F7</code></td>
+                            <td>Mkdir</td>
+                            <td>Criar novo diretório</td>
+                        </tr>
+                        <tr>
+                            <td><code>F8</code></td>
+                            <td>Delete</td>
+                            <td>Excluir arquivo/diretório</td>
+                        </tr>
+                        <tr>
+                            <td><code>Tab</code></td>
+                            <td>Panel</td>
+                            <td>Alternar entre painéis</td>
+                        </tr>
+                        <tr>
+                            <td><code>Alt+.</code></td>
+                            <td>Hidden</td>
+                            <td>Mostrar/ocultar dotfiles</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl+o</code></td>
+                            <td>Shell</td>
+                            <td>Alternar terminal/MC</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Footer -->
+            <footer class="wiki-footer">
+                <p>RAGNAROK TERMINAL WIKI // 2026</p>
+                <p>Feito com ⚡ para desenvolvedores de terminal</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
