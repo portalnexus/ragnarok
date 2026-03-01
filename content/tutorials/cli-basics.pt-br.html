@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de CLI - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.pt-br.html" class="nav-link">Início</a></li>
+                    <li><a href="what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="cli-basics.pt-br.html" class="nav-link active">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.pt-br.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="#">Tutoriais</a></span>
+                <span class="breadcrumb-item">Fundamentos de CLI</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar documentação...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="cli-basics.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="cli-basics.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Tutorial</span>
+                <h1 class="page-title">Fundamentos de CLI</h1>
+                <p class="page-subtitle">Fundamentos de design de Command Line Interface</p>
+            </header>
+
+            <section class="content-section">
+                <h2>O que é uma CLI?</h2>
+                <p>
+                    Uma <strong>Command Line Interface (CLI)</strong> ou Interface de Linha de Comando é uma 
+                    interface baseada em texto onde usuários interagem com software digitando comandos. 
+                    CLIs são a fundação dos sistemas Unix/Linux e permanecem essenciais para desenvolvedores, 
+                    administradores de sistema e usuários avançados.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Estrutura de Comando</h2>
+                <div class="code-block">
+                    <pre><code class="language-bash">comando [opções] [argumentos]</code></pre>
+                </div>
+                <p>Exemplo:</p>
+                <div class="code-block">
+                    <pre><code class="language-bash">git commit -m "Commit inicial"</code></pre>
+                </div>
+                <ul>
+                    <li><code>git</code> - O comando/programa</li>
+                    <li><code>commit</code> - O subcomando</li>
+                    <li><code>-m</code> - A opção/flag</li>
+                    <li><code>"Commit inicial"</code> - O argumento</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Tipos de Argumentos</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Exemplo</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Flag curta</td>
+                            <td><code>-v</code></td>
+                            <td>Letra única, pode combinar: <code>-la</code></td>
+                        </tr>
+                        <tr>
+                            <td>Flag longa</td>
+                            <td><code>--verbose</code></td>
+                            <td>Nome descritivo, mais legível</td>
+                        </tr>
+                        <tr>
+                            <td>Flag com valor</td>
+                            <td><code>--output=arquivo.txt</code></td>
+                            <td>Opção que requer um valor</td>
+                        </tr>
+                        <tr>
+                            <td>Posicional</td>
+                            <td><code>arquivo.txt</code></td>
+                            <td>Ordem importa, sem prefixo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2>Códigos de Saída</h2>
+                <p>Programas CLI comunicam sucesso/falha através de códigos de saída:</p>
+                <div class="code-block">
+                    <pre><code class="language-bash">0   # Sucesso
+1   # Erro geral
+2   # Uso incorreto de builtins do shell
+126 # Comando não pode ser executado
+127 # Comando não encontrado
+128 # Argumento de saída inválido
+130 # Script terminado com Ctrl+C</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Streams: stdin, stdout, stderr</h2>
+                <ul>
+                    <li><strong>stdin (0)</strong> - Entrada padrão, onde o programa lê entrada</li>
+                    <li><strong>stdout (1)</strong> - Saída padrão, onde o programa escreve saída normal</li>
+                    <li><strong>stderr (2)</strong> - Erro padrão, onde o programa escreve mensagens de erro</li>
+                </ul>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Redirecionar stdout para arquivo
+comando > saida.txt
+
+# Redirecionar stderr para arquivo
+comando 2> erro.txt
+
+# Redirecionar ambos para arquivo
+comando &> tudo.txt
+
+# Encanar stdout para outro comando
+comando1 | comando2</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Princípios de Design</h2>
+                <div class="feature-grid">
+                    <div class="info-card">
+                        <h3>📝 Uma Coisa Bem</h3>
+                        <p>Cada comando deve fazer uma coisa e fazê-la bem. Use pipes para combinar comandos.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔤 Texto é Universal</h3>
+                        <p>Saída deve ser baseada em texto para fácil parsing e encanamento para outras ferramentas.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>⚡ Silencioso por Padrão</h3>
+                        <p>Apenas faça output quando necessário. Use <code>--verbose</code> para output detalhado.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>❌ Erros Claros</h3>
+                        <p>Mensagens de erro devem ser acionáveis e explicar o que deu errado.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Documentação de Ajuda</h2>
+                <p>Toda CLI deve ter ajuda abrangente:</p>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Flags de ajuda padrão
+meuapp --help
+meuapp -h
+meuapp help
+
+# Info de versão
+meuapp --version
+meuapp -v</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Veja Também</h2>
+                <ul class="see-also">
+                    <li><a href="what-is-tui.pt-br.html">O que é TUI?</a></li>
+                    <li><a href="../best-practices/cli-parsing.pt-br.html">Análise de Argumentos CLI</a></li>
+                    <li><a href="../frameworks/python-rich.pt-br.html">Python Rich</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

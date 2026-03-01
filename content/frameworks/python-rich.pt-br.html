@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Rich - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.pt-br.html" class="nav-link">Início</a></li>
+                    <li><a href="../tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="python-rich.pt-br.html" class="nav-link active">Python Rich</a></li>
+                    <li><a href="rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.pt-br.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="#">Frameworks</a></span>
+                <span class="breadcrumb-item">Python Rich</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar documentação...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="python-rich.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="python-rich.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Framework</span>
+                <span class="badge badge-success">Python</span>
+                <h1 class="page-title">Python Rich</h1>
+                <p class="page-subtitle">Saída de terminal bonita em Python</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Visão Geral</h2>
+                <p>
+                    <strong>Rich</strong> é uma biblioteca Python para escrever texto rico (com cor 
+                    e estilo) no terminal. Pode exibir tabelas bonitas, código com syntax highlighting, 
+                    barras de progresso e muito mais.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Instalação</h2>
+                <div class="code-block">
+                    <pre><code class="language-bash">pip install rich</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Uso Básico</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">from rich import print
+from rich.text import Text
+
+# Saída colorida
+print("[bold red]Olá[/bold red] [green]Mundo![/green]")
+
+# Usando objeto Text
+texto = Text("Texto estilizado", style="bold blue on yellow")
+print(texto)</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Tabelas</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">from rich.table import Table
+from rich.console import Console
+
+console = Console()
+tabela = Table(title="Filmes Star Wars")
+
+tabela.add_column("Lançamento", style="cyan")
+tabela.add_column("Título", style="magenta")
+tabela.add_column("Bilheteria", justify="right", style="green")
+
+tabela.add_row("20 Dez, 2019", "Star Wars: Ascensão Skywalker", "$952,110,690")
+tabela.add_row("25 Mai, 2018", "Solo: Uma História Star Wars", "$393,151,347")
+
+console.print(tabela)</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Syntax Highlighting</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">from rich.console import Console
+from rich.syntax import Syntax
+
+console = Console()
+codigo = '''
+def ola_mundo():
+    print("Olá, Mundo!")
+'''
+syntax = Syntax(codigo, "python", theme="monokai", line_numbers=True)
+console.print(syntax)</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Barras de Progresso</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">from rich.progress import Progress
+import time
+
+with Progress() as progress:
+    tarefa = progress.add_task("Carregando...", total=100)
+    while not progress.finished:
+        progress.update(tarefa, advance=1)
+        time.sleep(0.02)</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Painéis e Layouts</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">from rich.panel import Panel
+from rich.layout import Layout
+
+layout = Layout()
+layout.split(
+    Layout(name="cabecalho", size=3),
+    Layout(name="corpo"),
+    Layout(name="rodape", size=3)
+)
+
+layout["corpo"].update(Panel("Conteúdo aqui"))
+console.print(layout)</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Referência de Estilos</h2>
+                <table class="data-table">
+                    <thead><tr><th>Estilo</th><th>Exemplo</th></tr></thead>
+                    <tbody>
+                        <tr><td>Cores</td><td><code>red, green, blue, yellow, magenta, cyan</code></td></tr>
+                        <tr><td>Estilos</td><td><code>bold, dim, italic, underline, blink, reverse</code></td></tr>
+                        <tr><td>Fundo</td><td><code>on_red, on_green, on_blue</code></td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2>Veja Também</h2>
+                <ul class="see-also">
+                    <li><a href="python-textual.pt-br.html">Python Textual</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html">Barras de Progresso</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html">Esquemas de Cores</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

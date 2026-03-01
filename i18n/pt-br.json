@@ -1,0 +1,211 @@
+{
+  "locale": "pt-BR",
+  "language": "Português Brasileiro",
+  "translations": {
+    "nav": {
+      "home": "Início",
+      "gettingStarted": "Primeiros Passos",
+      "whatIsTui": "O que é TUI?",
+      "cliBasics": "Fundamentos de CLI",
+      "frameworks": "Frameworks",
+      "bestPractices": "Melhores Práticas",
+      "snippets": "Trechos de Código",
+      "tutorials": "Tutoriais",
+      "cliParsing": "Análise de Argumentos CLI",
+      "tuiAccessibility": "Acessibilidade em TUI",
+      "colorSchemes": "Esquemas de Cores",
+      "loadingSpinners": "Spinners de Carregamento",
+      "progressBars": "Barras de Progresso",
+      "dataTables": "Tabelas de Dados"
+    },
+    "common": {
+      "search": "Buscar...",
+      "searchPlaceholder": "Buscar documentação... (Pressione / para focar)",
+      "toggleTheme": "Alternar tema",
+      "toggleSidebar": "Alternar menu",
+      "copyCode": "Copiar código",
+      "copied": "Copiado!",
+      "loading": "Carregando...",
+      "welcome": "Bem-vindo(a)",
+      "overview": "Visão Geral",
+      "installation": "Instalação",
+      "usage": "Uso",
+      "examples": "Exemplos",
+      "resources": "Recursos",
+      "seeAlso": "Veja Também",
+      "builtBy": "Construído com ⚡ pela Equipe Ragnarok",
+      "hostedOn": "Hospedado no GitHub Pages",
+      "viewOnGitHub": "Ver no GitHub"
+    },
+    "home": {
+      "title": "Bem-vindo à TUI/CLI Wiki",
+      "subtitle": "Seu guia completo para construir belas Text User Interfaces e Command Line Interfaces em múltiplas linguagens de programação.",
+      "startLearning": "Começar a Aprender →",
+      "browseFrameworks": "Navegar Frameworks"
+    },
+    "features": {
+      "whyTuiCli": "Por que TUI/CLI?",
+      "lightningFast": "Ultra Rápido",
+      "lightningFastDesc": "Sem overhead de navegador. Execute diretamente no seu terminal com inicialização instantânea.",
+      "remoteReady": "Pronto para Remoto",
+      "remoteReadyDesc": "SSH em qualquer servidor e tenha uma interface interativa completa na ponta dos dedos.",
+      "accessible": "Acessível",
+      "accessibleDesc": "Design focado em teclado torna TUIs naturalmente acessíveis para todos os usuários.",
+      "lightweight": "Leve",
+      "lightweightDesc": "Dependências mínimas e bundles pequenos, perfeito para qualquer ambiente."
+    },
+    "team": {
+      "meetTheTeam": "Conheça a Equipe",
+      "agentManager": "Gerente de Agentes",
+      "frontendDev": "Desenvolvedor Frontend",
+      "tuiEngineer": "Engenheiro TUI/CLI",
+      "techWriter": "Redator Técnico",
+      "devOps": "DevOps & Integração",
+      "ragnarok": "Ragnarok",
+      "loki": "Loki",
+      "thor": "Thor",
+      "odin": "Odin",
+      "heimdall": "Heimdall",
+      "ragnarokDesc": "Coordena a equipe multidisciplinar de agentes.",
+      "lokiDesc": "Especialista em HTML, CSS, JavaScript e UI/UX.",
+      "thorDesc": "Fornece exemplos de código e melhores práticas.",
+      "odinDesc": "Cria conteúdo didático e documentação.",
+      "heimdallDesc": "Gerencia scripts de integração QWEN/GEMINI CLI."
+    },
+    "frameworks": {
+      "supportedFrameworks": "Frameworks Suportados",
+      "python": "Python",
+      "rust": "Rust",
+      "go": "Go",
+      "nodejs": "Node.js",
+      "frameworksCount": "frameworks"
+    },
+    "quickStart": {
+      "title": "Início Rápido"
+    },
+    "footer": {
+      "copyright": "© 2026 TUI/CLI Wiki. Todos os direitos reservados.",
+      "builtBy": "Construído com ⚡ pela Equipe Ragnarok"
+    },
+    "tutorials": {
+      "whatIsTui": {
+        "title": "O que é TUI?",
+        "subtitle": "Uma introdução a Text User Interfaces",
+        "definition": "Definição",
+        "history": "História",
+        "comparison": "TUI vs CLI vs GUI",
+        "whyUse": "Por que usar TUI em 2026?",
+        "modernApps": "Aplicações TUI Modernas",
+        "gettingStarted": "Começar"
+      },
+      "cliBasics": {
+        "title": "Fundamentos de CLI",
+        "subtitle": "Fundamentos de design de Command Line Interface",
+        "whatIsCli": "O que é uma CLI?",
+        "commandStructure": "Estrutura de Comando",
+        "argumentTypes": "Tipos de Argumentos",
+        "exitCodes": "Códigos de Saída",
+        "streams": "Streams: stdin, stdout, stderr",
+        "designPrinciples": "Princípios de Design",
+        "helpDocumentation": "Documentação de Ajuda"
+      }
+    },
+    "bestPractices": {
+      "cliParsing": {
+        "title": "Análise de Argumentos CLI",
+        "subtitle": "Melhores práticas para análise de argumentos de linha de comando",
+        "overview": "Visão Geral",
+        "conventions": "Padrões de Convenção",
+        "python": "Python",
+        "rust": "Rust",
+        "go": "Go",
+        "nodejs": "Node.js"
+      },
+      "accessibility": {
+        "title": "Acessibilidade em TUI",
+        "subtitle": "Tornando interfaces de terminal acessíveis para todos",
+        "whyMatters": "Por que Acessibilidade Importa",
+        "screenReader": "Suporte a Leitores de Tela",
+        "keyboardNav": "Navegação por Teclado",
+        "colorConsiderations": "Considerações de Cor",
+        "focusIndicators": "Indicadores de Foco",
+        "errorMessages": "Mensagens de Erro",
+        "progressIndicators": "Indicadores de Progresso",
+        "textScaling": "Escala de Texto",
+        "checklist": "Lista de Verificação de Acessibilidade"
+      },
+      "colorSchemes": {
+        "title": "Esquemas de Cores",
+        "subtitle": "Guia para escolher e implementar esquemas de cores",
+        "colorSystems": "Sistemas de Cores do Terminal",
+        "ansiColors": "Cores ANSI Padrão (16)",
+        "popularThemes": "Temas de Cores Populares",
+        "implementing": "Implementando Temas",
+        "bestPractices": "Melhores Práticas",
+        "colorBlind": "Considerações para Daltonismo"
+      }
+    },
+    "snippets": {
+      "spinners": {
+        "title": "Spinners de Carregamento",
+        "subtitle": "Coleção de implementações de spinners",
+        "python": "Python",
+        "nodejs": "Node.js",
+        "rust": "Rust",
+        "go": "Go",
+        "bash": "Bash",
+        "asciiFrames": "Frames ASCII para Spinners"
+      },
+      "progressBars": {
+        "title": "Barras de Progresso",
+        "subtitle": "Implementações de barra de progresso para tarefas longas",
+        "python": "Python",
+        "nodejs": "Node.js",
+        "rust": "Rust",
+        "go": "Go",
+        "bash": "Bash",
+        "barCharacters": "Caracteres de Barra"
+      },
+      "tables": {
+        "title": "Tabelas de Dados",
+        "subtitle": "Criando e estilizando tabelas em interfaces de terminal",
+        "python": "Python",
+        "rust": "Rust",
+        "go": "Go",
+        "nodejs": "Node.js",
+        "asciiBorders": "Bordas ASCII para Tabelas",
+        "bestPractices": "Melhores Práticas para Tabelas"
+      }
+    },
+    "badges": {
+      "tutorial": "Tutorial",
+      "framework": "Framework",
+      "bestPractice": "Melhor Prática",
+      "snippet": "Trecho de Código",
+      "python": "Python",
+      "rust": "Rust",
+      "go": "Go",
+      "nodejs": "Node.js"
+    },
+    "comparison": {
+      "feature": "Recurso",
+      "cli": "CLI",
+      "tui": "TUI",
+      "gui": "GUI",
+      "visualElements": "Elementos Visuais",
+      "learningCurve": "Curva de Aprendizado",
+      "resourceUsage": "Uso de Recursos",
+      "remoteAccess": "Acesso Remoto",
+      "textOnly": "Somente texto",
+      "textGraphics": "Gráficos em texto",
+      "fullGraphics": "Gráficos completos",
+      "steep": "Íngreme",
+      "moderate": "Moderada",
+      "low": "Baixa",
+      "minimal": "Mínimo",
+      "high": "Alto",
+      "excellent": "Excelente",
+      "limited": "Limitado"
+    }
+  }
+}

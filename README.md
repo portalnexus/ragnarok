@@ -1,57 +1,59 @@
 # ⚡ TUI/CLI Wiki
 
-A comprehensive static wiki for **Text User Interface (TUI)** and **Command Line Interface (CLI)** development. Built with pure HTML/CSS/JavaScript for maximum performance and simplicity.
+Uma wiki estática abrangente para desenvolvimento de **Text User Interface (TUI)** e **Command Line Interface (CLI)**. Construída com HTML/CSS/JavaScript puro para máxima performance e simplicidade.
 
 ![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue?logo=github)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Active-success)
+![Languages](https://img.shields.io/badge/Languages-EN%20%7C%20PT--BR-orange)
 
 ## 🌟 Features
 
-- **⚡ Lightning Fast** - Static HTML/CSS/JS, no build process required
-- **🎨 Terminal-Modern Theme** - Dark mode native, inspired by Dracula/Gruvbox
-- **📱 Fully Responsive** - Works on desktop, tablet, and mobile
-- **🔍 Client-Side Search** - Fast, indexed search without a server
-- **♿ Accessible** - Keyboard navigation, screen reader friendly
-- **🌙 Light/Dark Theme** - Toggle between themes instantly
-- **📋 Copy-to-Clipboard** - One-click code copying
+- **⚡ Ultra Rápida** - HTML/CSS/JS estático, sem build process
+- **🎨 Tema Terminal-Moderno** - Dark mode nativo, inspirado em Dracula/Gruvbox
+- **📱 Totalmente Responsiva** - Funciona em desktop, tablet e mobile
+- **🔍 Busca Client-Side** - Busca indexada rápida sem servidor
+- **♿ Acessível** - Navegação por teclado, screen reader friendly
+- **🌙 Light/Dark Theme** - Alternância instantânea de temas
+- **📋 Copiar Código** - Cópia de código com um clique
+- **🌐 Bilingue** - Português e Inglês
 
-## 📚 Content
+## 📚 Conteúdo
 
-### Tutorials
-- [What is TUI?](./wiki-tui-cli/content/tutorials/what-is-tui.html)
-- [CLI Basics](./wiki-tui-cli/content/tutorials/cli-basics.html)
+### Tutoriais
+- [O que é TUI?](content/tutorials/what-is-tui.pt-br.html) | [EN](content/tutorials/what-is-tui.html)
+- [Fundamentos de CLI](content/tutorials/cli-basics.pt-br.html) | [EN](content/tutorials/cli-basics.html)
 
 ### Frameworks
-| Language | Framework | Description |
-|----------|-----------|-------------|
-| 🐍 Python | [Textual](./wiki-tui-cli/content/frameworks/python-textual.html) | Modern async TUI framework |
-| 🐍 Python | [Rich](./wiki-tui-cli/content/frameworks/python-rich.html) | Beautiful terminal output |
-| 🦀 Rust | [Ratatui](./wiki-tui-cli/content/frameworks/rust-ratatui.html) | Terminal UI library |
-| 🔵 Go | [Bubble Tea](./wiki-tui-cli/content/frameworks/go-bubbletea.html) | Elm architecture for TUI |
-| 🟢 Node.js | [Ink](./wiki-tui-cli/content/frameworks/nodejs-ink.html) | React for CLI |
+| Linguagem | Framework | PT-BR | EN |
+|-----------|-----------|-------|-----|
+| 🐍 Python | [Textual](content/frameworks/python-textual.pt-br.html) | ✅ | [✅](content/frameworks/python-textual.html) |
+| 🐍 Python | [Rich](content/frameworks/python-rich.pt-br.html) | ✅ | [✅](content/frameworks/python-rich.html) |
+| 🦀 Rust | [Ratatui](content/frameworks/rust-ratatui.pt-br.html) | ✅ | [✅](content/frameworks/rust-ratatui.html) |
+| 🔵 Go | [Bubble Tea](content/frameworks/go-bubbletea.pt-br.html) | ✅ | [✅](content/frameworks/go-bubbletea.html) |
+| 🟢 Node.js | [Ink](content/frameworks/nodejs-ink.pt-br.html) | ✅ | [✅](content/frameworks/nodejs-ink.html) |
 
-### Best Practices
-- [CLI Argument Parsing](./wiki-tui-cli/content/best-practices/cli-parsing.html)
-- [TUI Accessibility](./wiki-tui-cli/content/best-practices/tui-accessibility.html)
-- [Color Schemes](./wiki-tui-cli/content/best-practices/color-schemes.html)
+### Melhores Práticas
+- [Análise de Argumentos CLI](content/best-practices/cli-parsing.pt-br.html) | [EN](content/best-practices/cli-parsing.html)
+- [Acessibilidade em TUI](content/best-practices/tui-accessibility.pt-br.html) | [EN](content/best-practices/tui-accessibility.html)
+- [Esquemas de Cores](content/best-practices/color-schemes.pt-br.html) | [EN](content/best-practices/color-schemes.html)
 
-### Code Snippets
-- [Loading Spinners](./wiki-tui-cli/content/snippets/loading-spinners.html)
-- [Progress Bars](./wiki-tui-cli/content/snippets/progress-bars.html)
-- [Data Tables](./wiki-tui-cli/content/snippets/tables.html)
+### Trechos de Código
+- [Spinners de Carregamento](content/snippets/loading-spinners.pt-br.html) | [EN](content/snippets/loading-spinners.html)
+- [Barras de Progresso](content/snippets/progress-bars.pt-br.html) | [EN](content/snippets/progress-bars.html)
+- [Tabelas de Dados](content/snippets/tables.pt-br.html) | [EN](content/snippets/tables.html)
 
 ## 🚀 Quick Start
 
-### Local Development
+### Desenvolvimento Local
 
-1. Clone the repository:
+1. Clone o repositório:
 ```bash
 git clone https://github.com/yourusername/ragnarok.git
-cd ragnarok/wiki-tui-cli
+cd ragnarok
 ```
 
-2. Open `index.html` in your browser, or use a local server:
+2. Abra `index.html` ou `index.pt-br.html` no navegador, ou use um servidor local:
 ```bash
 # Python
 python -m http.server 8000
@@ -63,116 +65,160 @@ npx serve .
 python -m http.server 8000
 ```
 
-3. Visit `http://localhost:8000`
+3. Acesse `http://localhost:8000`
 
 ### GitHub Pages Deployment
 
-The wiki automatically deploys to GitHub Pages when you push to the `main` branch.
+A wiki é automaticamente deployada para GitHub Pages ao fazer push na branch `main`.
 
-1. Go to your repository **Settings** → **Pages**
-2. Set **Source** to "GitHub Actions"
-3. Push changes to trigger deployment
+1. Vá em **Settings** → **Pages**
+2. Configure **Source** como "GitHub Actions"
+3. Faça push das mudanças para triggerar o deploy
 
-Your wiki will be available at: `https://yourusername.github.io/ragnarok`
+Sua wiki estará disponível em: `https://yourusername.github.io/ragnarok`
 
-## 🤖 Agent Team
+## 🤖 Equipe de Agentes
 
-This wiki is maintained by a team of AI agents coordinated by **Ragnarok**:
+Esta wiki é mantida por uma equipe de agentes de IA coordenados por **Ragnarok**:
 
-| Agent | Role | Specialty |
-|-------|------|-----------|
-| 🦊 Loki | Frontend Developer | HTML, CSS, JavaScript |
-| ⚡ Thor | TUI/CLI Engineer | Code examples, frameworks |
-| 📜 Odin | Technical Writer | Documentation, tutorials |
-| 👁️ Heimdall | DevOps & Integration | Scripts, automation |
+| Agente | Papel | Especialidade |
+|--------|-------|---------------|
+| 🧙 Ragnarok | Gerente de Agentes | Coordenação geral |
+| 🦊 Loki | Desenvolvedor Frontend | HTML, CSS, JavaScript |
+| ⚡ Thor | Engenheiro TUI/CLI | Exemplos de código |
+| 📜 Odin | Redator Técnico | Documentação, tradução |
+| 👁️ Heimdall | DevOps & Integração | Scripts, automação |
 
-### Invoking Agents
+### Invocando Agentes
 
-Use the unified invocation script:
+Use o script unificado de invocação:
 
 ```bash
-# Invoke Loki (Frontend) via QWEN CLI
-./scripts/invoke.sh --agent loki --cli qwen --task "Create new page"
+# Invocar Loki (Frontend) via QWEN CLI
+./scripts/invoke.sh --agent loki --cli qwen --task "Criar nova página"
 
-# Invoke Thor (TUI Expert) via GEMINI CLI
-./scripts/invoke.sh --agent thor --cli gemini --task "Review code example"
+# Invocar Thor (TUI Expert) via GEMINI CLI
+./scripts/invoke.sh --agent thor --cli gemini --task "Revisar código exemplo"
 
-# List available agents
+# Invocar Odin (Writer) para tradução
+./scripts/invoke.sh --agent odin --cli qwen --task "Traduzir página para PT-BR"
+
+# Listar agentes disponíveis
 ./scripts/invoke.sh --list-agents
 ```
 
-## 📁 Project Structure
+## 📁 Estrutura do Projeto
 
 ```
-wiki-tui-cli/
-├── index.html                 # Home page
+ragnarok/
+├── index.html                 # Página inicial (EN)
+├── index.pt-br.html           # Página inicial (PT-BR)
+├── PLANO ESTRATEGICO.md       # Plano estratégico 2026
+├── README.md
 ├── css/
-│   ├── style.css              # Global styles
-│   └── terminal-theme.css     # Theme colors
+│   ├── style.css              # Estilos globais
+│   └── terminal-theme.css     # Tema terminal
 ├── js/
-│   ├── main.js                # UI interactions
-│   └── search.js              # Search functionality
+│   ├── main.js                # Interações UI
+│   └── search.js              # Busca + índice PT-BR/EN
 ├── content/
-│   ├── tutorials/             # Tutorial pages
-│   ├── frameworks/            # Framework docs
-│   ├── best-practices/        # Guidelines
-│   └── snippets/              # Code snippets
+│   ├── tutorials/             # Tutoriais (EN + PT-BR)
+│   ├── frameworks/            # Documentação frameworks
+│   ├── best-practices/        # Melhores práticas
+│   └── snippets/              # Trechos de código
 ├── scripts/
-│   ├── invoke.sh              # Agent invocation
-│   └── agents.json            # Agent configuration
+│   ├── invoke.sh              # Invocação de agentes
+│   ├── translate.sh           # Tradução automatizada
+│   ├── agents.json            # Configuração agentes
+│   └── session_log.md         # Log de sessões
+├── i18n/
+│   ├── pt-br.json             # Dicionário PT-BR
+│   └── TRADUCAO_PT_BR.md      # Plano de tradução
 └── assets/
-    └── fonts/                 # Custom fonts
+    └── fonts/                 # Fontes customizadas
 ```
 
-## 🎨 Keyboard Shortcuts
+## 🌐 Idiomas
 
-| Key | Action |
-|-----|--------|
-| `/` | Focus search |
-| `t` | Toggle theme |
-| `b` | Toggle sidebar |
-| `Esc` | Close sidebar/search |
+A wiki está disponível em:
 
-## 🛠️ Customization
+| Idioma | Código | Status | Páginas |
+|--------|--------|--------|---------|
+| 🇺🇸 Inglês | EN | ✅ Completo | 14 |
+| 🇧🇷 Português | PT-BR | ✅ Completo | 14 |
+| 🇪🇸 Espanhol | ES | 📋 Planejado | Q3 2026 |
 
-### Adding New Pages
+### Alternar Idioma
 
-1. Create a new HTML file in the appropriate `content/` subfolder
-2. Copy the structure from an existing page
-3. Update the sidebar navigation
-4. Add the page to the search index in `js/search.js`
+Use o seletor de idioma no canto superior direito de qualquer página, ou:
 
-### Custom Themes
+- **Início em Português:** [`index.pt-br.html`](index.pt-br.html)
+- **Home in English:** [`index.html`](index.html)
 
-Edit `css/terminal-theme.css` to create custom color schemes:
+## ⌨️ Atalhos de Teclado
 
-```css
-:root {
-    --accent-primary: #your-color;
-    --bg-primary: #your-background;
-    /* ... */
-}
+| Tecla | Ação |
+|-------|------|
+| `/` | Focar busca |
+| `t` | Alternar tema |
+| `b` | Alternar sidebar |
+| `Esc` | Fechar sidebar/busca |
+
+## 🛠️ Scripts Disponíveis
+
+### invoke.sh
+Invoca agentes de IA para tarefas específicas.
+
+```bash
+./scripts/invoke.sh --agent <nome> --cli <tipo> --task "<descrição>"
 ```
 
-## 📄 License
+### translate.sh
+Automatiza traduções PT-BR.
 
-MIT License - See [LICENSE](LICENSE) for details.
+```bash
+# Traduzir página específica
+./scripts/translate.sh --page index.html --target pt-br
 
-## 🤝 Contributing
+# Listar páginas traduzidas
+./scripts/translate.sh --list-translated
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+# Listar páginas pendentes
+./scripts/translate.sh --list-pending
+```
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## 📊 Estatísticas
 
-## 📞 Support
+| Categoria | EN | PT-BR | Total |
+|-----------|----|-------|-------|
+| Tutoriais | 2 | 2 | 4 |
+| Frameworks | 5 | 5 | 10 |
+| Best Practices | 3 | 3 | 6 |
+| Snippets | 3 | 3 | 6 |
+| **Total** | **13** | **13** | **26** |
+
+## 📄 Licença
+
+Licença MIT - Veja [LICENSE](LICENSE) para detalhes.
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se livre para submeter um Pull Request.
+
+1. Fork o repositório
+2. Crie sua branch de feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📞 Suporte
 
 - **Issues:** [GitHub Issues](https://github.com/yourusername/ragnarok/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/ragnarok/discussions)
+- **Discussões:** [GitHub Discussions](https://github.com/yourusername/ragnarok/discussions)
+- **Plano Estratégico:** [PLANO ESTRATEGICO.md](PLANO%20ESTRATEGICO.md)
 
 ---
 
-Built with ⚡ by the **Ragnarok Team** | Hosted on GitHub Pages
+Construído com ⚡ pela **Equipe Ragnarok** | Hospedado no GitHub Pages
+
+*Última atualização: 2026-03-01*

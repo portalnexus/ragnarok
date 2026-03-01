@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é TUI? - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">TUI/CLI Wiki</span>
+            </h1>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Alternar menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.pt-br.html" class="nav-link">Início</a></li>
+                    <li><a href="what-is-tui.pt-br.html" class="nav-link active">O que é TUI?</a></li>
+                    <li><a href="cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.pt-br.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="#">Tutoriais</a></span>
+                <span class="breadcrumb-item">O que é TUI?</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar documentação...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="what-is-tui.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="what-is-tui.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Tutorial</span>
+                <h1 class="page-title">O que é TUI?</h1>
+                <p class="page-subtitle">Uma introdução a Text User Interfaces</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Definição</h2>
+                <p>
+                    Uma <strong>Text User Interface (TUI)</strong> ou Interface de Usuário em Texto é um tipo 
+                    de interface que usa texto e caracteres para exibir informações e aceitar entrada dos usuários. 
+                    Diferente das Command Line Interfaces (CLI) que apenas aceitam comandos de texto, as TUIs 
+                    fornecem elementos visuais como janelas, menus, botões e formulários — tudo renderizado 
+                    usando caracteres de texto.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>História</h2>
+                <p>
+                    As TUIs surgiram nas décadas de 1970 e 1980 como uma evolução dos sistemas CLI puros. 
+                    Foram popularizadas por aplicações como:
+                </p>
+                <ul>
+                    <li><strong>Norton Commander</strong> (1986) - Gerenciador de arquivos com painéis duplos</li>
+                    <li><strong>Midnight Commander</strong> (1994) - Gerenciador de arquivos open source ainda usado hoje</li>
+                    <li><strong>Pine/Alpine</strong> - Cliente de email com interface baseada em menus</li>
+                    <li><strong>Vim/Emacs</strong> - Editores de texto com recursos complexos de TUI</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>TUI vs CLI vs GUI</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Recurso</th>
+                                <th>CLI</th>
+                                <th>TUI</th>
+                                <th>GUI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Elementos Visuais</td>
+                                <td>Somente texto</td>
+                                <td>Gráficos em texto</td>
+                                <td>Gráficos completos</td>
+                            </tr>
+                            <tr>
+                                <td>Curva de Aprendizado</td>
+                                <td>Íngreme</td>
+                                <td>Moderada</td>
+                                <td>Baixa</td>
+                            </tr>
+                            <tr>
+                                <td>Uso de Recursos</td>
+                                <td>Mínimo</td>
+                                <td>Baixo</td>
+                                <td>Alto</td>
+                            </tr>
+                            <tr>
+                                <td>Acesso Remoto</td>
+                                <td>Excelente</td>
+                                <td>Excelente</td>
+                                <td>Limitado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Por que usar TUI em 2026?</h2>
+                <div class="feature-grid">
+                    <div class="info-card">
+                        <h3>🚀 Performance</h3>
+                        <p>TUIs são incrivelmente leves, iniciando instantaneamente e usando RAM mínima comparado a aplicações GUI.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔧 Amigável para SSH</h3>
+                        <p>Perfeito para gerenciamento remoto de servidores. Sem necessidade de X11 forwarding ou VNC.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>⌨️ Focado em Teclado</h3>
+                        <p>Projetado para usuários avançados que preferem atalhos de teclado ao invés de navegação por mouse.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>♿ Acessibilidade</h3>
+                        <p>Leitores de tela e tecnologias assistivas funcionam excelentemente com interfaces baseadas em texto.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Aplicações TUI Modernas</h2>
+                <p>Muitas ferramentas modernas populares usam TUI:</p>
+                <ul>
+                    <li><strong>k9s</strong> - Gerenciamento de Kubernetes</li>
+                    <li><strong>lazygit</strong> - Interface terminal para Git</li>
+                    <li><strong>htop/btop</strong> - Monitoramento de sistema</li>
+                    <li><strong>ranger</strong> - Gerenciador de arquivos</li>
+                    <li><strong>ncmpcpp</strong> - Player de música</li>
+                    <li><strong>taskwarrior + tasksh</strong> - Gerenciamento de tarefas</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Começar</h2>
+                <p>Pronto para construir sua primeira TUI? Confira nossos guias de frameworks:</p>
+                <div class="action-buttons">
+                    <a href="../frameworks/python-textual.pt-br.html" class="btn btn-primary">Python Textual</a>
+                    <a href="../frameworks/rust-ratatui.pt-br.html" class="btn btn-secondary">Rust Ratatui</a>
+                    <a href="../frameworks/go-bubbletea.pt-br.html" class="btn btn-secondary">Go Bubble Tea</a>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Veja Também</h2>
+                <ul class="see-also">
+                    <li><a href="cli-basics.pt-br.html">Fundamentos de CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html">Esquemas de Cores</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

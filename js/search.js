@@ -12,12 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
    Add new pages here as they are created
    ============================================ */
 const searchIndex = [
+    /* ===========================
+       ENGLISH PAGES
+       =========================== */
     {
         title: 'Home',
         path: 'index.html',
         category: 'Navigation',
         description: 'Welcome page with overview of TUI/CLI frameworks and quick start guide.',
         keywords: ['home', 'welcome', 'dashboard', 'overview', 'start']
+    },
+    /* ===========================
+       PORTUGUESE (PT-BR) PAGES
+       =========================== */
+    {
+        title: 'Início',
+        path: 'index.pt-br.html',
+        category: 'Navigation',
+        description: 'Página inicial com visão geral dos frameworks TUI/CLI e guia de início rápido.',
+        keywords: ['início', 'home', 'bem-vindo', 'dashboard', 'visão', 'geral', 'começar']
     },
     {
         title: 'What is TUI?',
@@ -27,11 +40,25 @@ const searchIndex = [
         keywords: ['tui', 'text', 'interface', 'terminal', 'introduction', 'basics']
     },
     {
+        title: 'O que é TUI?',
+        path: 'content/tutorials/what-is-tui.pt-br.html',
+        category: 'Tutorial',
+        description: 'Introdução a Text User Interfaces - história, benefícios e casos de uso.',
+        keywords: ['tui', 'texto', 'interface', 'terminal', 'introdução', 'básico', 'o que é']
+    },
+    {
         title: 'CLI Basics',
         path: 'content/tutorials/cli-basics.html',
         category: 'Tutorial',
         description: 'Fundamentals of Command Line Interface design and best practices.',
         keywords: ['cli', 'command', 'line', 'interface', 'basics', 'fundamentals']
+    },
+    {
+        title: 'Fundamentos de CLI',
+        path: 'content/tutorials/cli-basics.pt-br.html',
+        category: 'Tutorial',
+        description: 'Fundamentos de design de Command Line Interface e melhores práticas.',
+        keywords: ['cli', 'comando', 'linha', 'interface', 'básico', 'fundamentos']
     },
     {
         title: 'Python Textual',

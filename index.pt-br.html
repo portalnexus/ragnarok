@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUI/CLI Wiki - Interface de Usuário em Texto e Linha de Comando</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/terminal-theme.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">TUI/CLI Wiki</span>
+            </h1>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Alternar menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="index.pt-br.html" class="nav-link active">Início</a></li>
+                    <li><a href="content/tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="content/tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="content/frameworks/python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="content/frameworks/python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="content/frameworks/rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="content/frameworks/go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="content/frameworks/nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="content/best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="content/best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="content/best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="content/snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="content/snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="content/snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Bar with Search -->
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item">Início</span>
+            </div>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Buscar documentação... (Pressione / para focar)"
+                    aria-label="Buscar"
+                >
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn" aria-label="Alternar tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="index.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="index.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <!-- Page Content -->
+        <article class="content-wrapper">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="typing-effect">Bem-vindo à TUI/CLI Wiki</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Seu guia completo para construir belas Text User Interfaces 
+                        e Command Line Interfaces em múltiplas linguagens de programação.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="content/tutorials/what-is-tui.pt-br.html" class="btn btn-primary">
+                            Começar a Aprender →
+                        </a>
+                        <a href="content/frameworks/python-textual.pt-br.html" class="btn btn-secondary">
+                            Navegar Frameworks
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-terminal">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">demo.py</span>
+                        </div>
+                        <div class="terminal-body">
+                            <pre><code class="language-python"><span class="keyword">from</span> textual.app <span class="keyword">import</span> App, ComposeResult
+<span class="keyword">from</span> textual.widgets <span class="keyword">import</span> Header, Footer, Static
+
+<span class="keyword">class</span> <span class="class-name">OlaMundo</span>(App):
+    <span class="keyword">def</span> <span class="function-name">compose</span>(self) -> ComposeResult:
+        <span class="keyword">yield</span> Header()
+        <span class="keyword">yield</span> Static(<span class="string">"Olá, Mundo!"</span>)
+        <span class="keyword">yield</span> Footer()
+
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    app = OlaMundo()
+    app.run()</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2 class="section-title">Por que TUI/CLI?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>Ultra Rápido</h3>
+                        <p>Sem overhead de navegador. Execute diretamente no seu terminal com inicialização instantânea.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>Pronto para Remoto</h3>
+                        <p>SSH em qualquer servidor e tenha uma interface interativa completa na ponta dos dedos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">♿</div>
+                        <h3>Acessível</h3>
+                        <p>Design focado em teclado torna TUIs naturalmente acessíveis para todos os usuários.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📦</div>
+                        <h3>Leve</h3>
+                        <p>Dependências mínimas e bundles pequenos, perfeito para qualquer ambiente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="frameworks-overview">
+                <h2 class="section-title">Frameworks Suportados</h2>
+                <div class="frameworks-grid">
+                    <a href="content/frameworks/python-textual.pt-br.html" class="framework-card python">
+                        <div class="framework-logo">🐍</div>
+                        <h3>Python</h3>
+                        <p>Textual, Rich, Blessed, Urwid</p>
+                        <span class="framework-count">4 frameworks</span>
+                    </a>
+                    <a href="content/frameworks/rust-ratatui.pt-br.html" class="framework-card rust">
+                        <div class="framework-logo">🦀</div>
+                        <h3>Rust</h3>
+                        <p>Ratatui, Termion, Cursive</p>
+                        <span class="framework-count">3 frameworks</span>
+                    </a>
+                    <a href="content/frameworks/go-bubbletea.pt-br.html" class="framework-card go">
+                        <div class="framework-logo">🔵</div>
+                        <h3>Go</h3>
+                        <p>Bubble Tea, Termbox, Tview</p>
+                        <span class="framework-count">3 frameworks</span>
+                    </a>
+                    <a href="content/frameworks/nodejs-ink.pt-br.html" class="framework-card nodejs">
+                        <div class="framework-logo">🟢</div>
+                        <h3>Node.js</h3>
+                        <p>Ink, Inquirer, Blessed, Cliui</p>
+                        <span class="framework-count">4 frameworks</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="quick-start">
+                <h2 class="section-title">Início Rápido</h2>
+                <div class="tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="python">Python</button>
+                        <button class="tab-btn" data-tab="rust">Rust</button>
+                        <button class="tab-btn" data-tab="go">Go</button>
+                        <button class="tab-btn" data-tab="nodejs">Node.js</button>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="python-tab">
+                            <div class="code-block">
+                                <button class="copy-btn" aria-label="Copiar código">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                                <pre><code class="language-bash">pip install textual
+textual create meu_app</code></pre>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="rust-tab">
+                            <div class="code-block">
+                                <button class="copy-btn" aria-label="Copiar código">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                                <pre><code class="language-bash">cargo new meu_tui
+cd meu_tui
+cargo add ratatui crossterm</code></pre>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="go-tab">
+                            <div class="code-block">
+                                <button class="copy-btn" aria-label="Copiar código">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                                <pre><code class="language-bash">go mod init meuapp
+go get github.com/charmbracelet/bubbletea</code></pre>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="nodejs-tab">
+                            <div class="code-block">
+                                <button class="copy-btn" aria-label="Copiar código">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                                <pre><code class="language-bash">npm init -y
+npm install ink react</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="team-section">
+                <h2 class="section-title">Conheça a Equipe</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">🧙</div>
+                        <h3>Ragnarok</h3>
+                        <p class="team-role">Gerente de Agentes</p>
+                        <p class="team-desc">Coordena a equipe multidisciplinar de agentes.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">🦊</div>
+                        <h3>Loki</h3>
+                        <p class="team-role">Desenvolvedor Frontend</p>
+                        <p class="team-desc">Especialista em HTML, CSS, JavaScript e UI/UX.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">⚡</div>
+                        <h3>Thor</h3>
+                        <p class="team-role">Engenheiro TUI/CLI</p>
+                        <p class="team-desc">Fornece exemplos de código e melhores práticas.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">📜</div>
+                        <h3>Odin</h3>
+                        <p class="team-role">Redator Técnico</p>
+                        <p class="team-desc">Cria conteúdo didático e documentação.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">👁️</div>
+                        <h3>Heimdall</h3>
+                        <p class="team-role">DevOps & Integração</p>
+                        <p class="team-desc">Gerencia scripts de integração QWEN/GEMINI CLI.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- Footer -->
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+            <p>Hospedado no GitHub Pages | <a href="#">Ver no GitHub</a></p>
+        </footer>
+    </main>
+
+    <!-- Search Overlay (Mobile) -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-modal">
+            <input 
+                type="text" 
+                class="search-modal-input" 
+                placeholder="Buscar..."
+                id="searchModalInput"
+            >
+            <button class="search-close" id="searchClose">&times;</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

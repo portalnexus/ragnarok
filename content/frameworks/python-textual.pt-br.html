@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Textual - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.pt-br.html" class="nav-link">Início</a></li>
+                    <li><a href="../tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="python-textual.pt-br.html" class="nav-link active">Python Textual</a></li>
+                    <li><a href="python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.pt-br.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="#">Frameworks</a></span>
+                <span class="breadcrumb-item">Python Textual</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar documentação...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="python-textual.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="python-textual.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Framework</span>
+                <span class="badge badge-success">Python</span>
+                <h1 class="page-title">Python Textual</h1>
+                <p class="page-subtitle">Construa belas aplicações TUI com Python</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Visão Geral</h2>
+                <p>
+                    <strong>Textual</strong> é um framework Python moderno para construir aplicações 
+                    de terminal ricas. Criado pelos desenvolvedores do Rich, usa uma arquitetura 
+                    async-first e estilização tipo CSS para widgets.
+                </p>
+                <div class="info-box">
+                    <strong>Principais Recursos:</strong>
+                    <ul>
+                        <li>Suporte async/await para UIs responsivas</li>
+                        <li>Stylesheet tipo CSS para estilizar widgets</li>
+                        <li>Widgets built-in (Button, Input, DataTable, etc.)</li>
+                        <li>Cross-platform (Linux, macOS, Windows)</li>
+                        <li>Suporte a mouse</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Instalação</h2>
+                <div class="code-block">
+                    <button class="copy-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                    <pre><code class="language-bash">pip install textual</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Olá Mundo</h2>
+                <div class="code-block">
+                    <button class="copy-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+                    <pre><code class="language-python">from textual.app import App, ComposeResult
+from textual.widgets import Header, Footer, Static
+
+class OlaMundo(App):
+    def compose(self) -> ComposeResult:
+        yield Header()
+        yield Static("Olá, Mundo!")
+        yield Footer()
+
+if __name__ == "__main__":
+    app = OlaMundo()
+    app.run()</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Widgets</h2>
+                <p>Textual inclui muitos widgets built-in:</p>
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Widget</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>Static</code></td><td>Exibir texto estático</td></tr>
+                        <tr><td><code>Button</code></td><td>Botão clicável</td></tr>
+                        <tr><td><code>Input</code></td><td>Campo de entrada de texto</td></tr>
+                        <tr><td><code>DataTable</code></td><td>Exibir dados tabulares</td></tr>
+                        <tr><td><code>ProgressBar</code></td><td>Mostrar progresso</td></tr>
+                        <tr><td><code>Switch</code></td><td>Interruptor toggle</td></tr>
+                        <tr><td><code>Checkbox</code></td><td>Input checkbox</td></tr>
+                        <tr><td><code>RadioBox</code></td><td>Grupo de botões radio</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2>Estilização CSS</h2>
+                <p>Textual usa sintaxe tipo CSS para estilização:</p>
+                <div class="code-block">
+                    <pre><code class="language-css">/* app.tcss */
+Screen {
+    background: #1a1b26;
+}
+
+Header {
+    background: #7aa2f7;
+    color: #1a1b26;
+}
+
+Button {
+    background: #bb9af7;
+    color: #1a1b26;
+}
+
+Button:hover {
+    background: #9d7cd8;
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Manipulação de Eventos</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">from textual.app import App
+from textual.widgets import Button
+from textual.events import Key
+
+class MyApp(App):
+    def compose(self):
+        yield Button("Clique em mim!", id="meu-botao")
+    
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        self.notify("Botão foi pressionado!")
+    
+    def on_key(self, event: Key) -> None:
+        if event.key == "q":
+            self.exit()</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Recursos</h2>
+                <ul class="see-also">
+                    <li><a href="https://textual.textualize.io/" target="_blank">Documentação Oficial</a></li>
+                    <li><a href="https://github.com/Textualize/textual" target="_blank">Repositório GitHub</a></li>
+                    <li><a href="https://discord.gg/Enf6Z3qhVr" target="_blank">Comunidade Discord</a></li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Veja Também</h2>
+                <ul class="see-also">
+                    <li><a href="python-rich.pt-br.html">Python Rich</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html">Esquemas de Cores</a></li>
+                    <li><a href="../snippets/tables.pt-br.html">Tabelas de Dados</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

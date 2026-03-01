@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Bubble Tea - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.pt-br.html" class="nav-link">Início</a></li>
+                    <li><a href="../tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="go-bubbletea.pt-br.html" class="nav-link active">Go Bubble Tea</a></li>
+                    <li><a href="nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.pt-br.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="#">Frameworks</a></span>
+                <span class="breadcrumb-item">Go Bubble Tea</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar documentação...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="go-bubbletea.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="go-bubbletea.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Framework</span>
+                <span class="badge badge-info">Go</span>
+                <h1 class="page-title">Go Bubble Tea</h1>
+                <p class="page-subtitle">The Elm Architecture para UIs de terminal</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Visão Geral</h2>
+                <p>
+                    <strong>Bubble Tea</strong> é um framework Go funcional para construir aplicações 
+                    de terminal baseado na Elm Architecture. Criado pela Charmbracelet, fornece uma 
+                    maneira limpa e componível de construir TUIs com gerenciamento de estado adequado.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Instalação</h2>
+                <div class="code-block">
+                    <pre><code class="language-bash">go mod init meuapp
+go get github.com/charmbracelet/bubbletea</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Elm Architecture</h2>
+                <p>Bubble Tea segue três conceitos principais:</p>
+                <ul>
+                    <li><strong>Model</strong> - O estado da sua aplicação</li>
+                    <li><strong>Update</strong> - Como o estado muda baseado em mensagens</li>
+                    <li><strong>View</strong> - Como o estado é renderizado</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Olá Mundo</h2>
+                <div class="code-block">
+                    <pre><code class="language-go">package main
+
+import (
+    "fmt"
+    "os"
+    "github.com/charmbracelet/bubbletea"
+)
+
+type model struct {
+    cursor int
+    choice string
+}
+
+func (m model) Init() tea.Cmd {
+    return nil
+}
+
+func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+    switch msg := msg.(type) {
+    case tea.KeyMsg:
+        switch msg.String() {
+        case "ctrl+c", "q":
+            return m, tea.Quit
+        }
+    }
+    return m, nil
+}
+
+func (m model) View() string {
+    return fmt.Sprintf("\n  Olá, %s!\n\n  Pressione q para sair.\n", m.choice)
+}
+
+func main() {
+    p := tea.NewProgram(model{choice: "Mundo"})
+    if _, err := p.Run(); err != nil {
+        fmt.Printf("Erro: %v", err)
+        os.Exit(1)
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Mensagens e Commands</h2>
+                <div class="code-block">
+                    <pre><code class="language-go">// Mensagens triggeram updates
+type tickMsg time.Time
+type errMsg error
+
+// Commands são operações async
+func tickEvery(d time.Duration) tea.Cmd {
+    return tea.Tick(d, func(t time.Time) tea.Msg {
+        return tickMsg(t)
+    })
+}
+
+// No Update, retorne um command
+func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+    switch msg.(type) {
+    case tickMsg:
+        return m, tickEvery(time.Second)
+    }
+    return m, nil
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Bubbles (Componentes)</h2>
+                <p>Charmbracelet fornece componentes pré-construídos chamados "Bubbles":</p>
+                <table class="data-table">
+                    <thead><tr><th>Bubble</th><th>Descrição</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>textinput</code></td><td>Campo de entrada de texto</td></tr>
+                        <tr><td><code>textarea</code></td><td>Entrada de texto multi-linha</td></tr>
+                        <tr><td><code>list</code></td><td>Lista scrollável</td></tr>
+                        <tr><td><code>table</code></td><td>Tabela de dados</td></tr>
+                        <tr><td><code>spinner</code></td><td>Spinner de carregamento</td></tr>
+                        <tr><td><code>progress</code></td><td>Barra de progresso</td></tr>
+                        <tr><td><code>viewport</code></td><td>Área scrollável</td></tr>
+                        <tr><td><code>paginator</code></td><td>Controles de paginação</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2>Estilizando com Lip Gloss</h2>
+                <div class="code-block">
+                    <pre><code class="language-go">import "github.com/charmbracelet/lipgloss"
+
+var (
+    titleStyle = lipgloss.NewStyle().
+        Bold(true).
+        Foreground(lipgloss.Color("#FAFAFA")).
+        Background(lipgloss.Color("#7D56F4"))
+    
+    selectedStyle = lipgloss.NewStyle().
+        Foreground(lipgloss.Color("#FFF7DB"))
+)
+
+func (m model) View() string {
+    return titleStyle.Render("Meu App")
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Recursos</h2>
+                <ul class="see-also">
+                    <li><a href="https://github.com/charmbracelet/bubbletea" target="_blank">Repositório GitHub</a></li>
+                    <li><a href="https://github.com/charmbracelet/bubbles" target="_blank">Componentes Bubbles</a></li>
+                    <li><a href="https://github.com/charmbracelet/lipgloss" target="_blank">Estilização Lip Gloss</a></li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Veja Também</h2>
+                <ul class="see-also">
+                    <li><a href="rust-ratatui.pt-br.html">Rust Ratatui</a></li>
+                    <li><a href="../snippets/loading-spinners.pt-br.html">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html">Barras de Progresso</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Ink - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.pt-br.html" class="nav-link">Início</a></li>
+                    <li><a href="../tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="nodejs-ink.pt-br.html" class="nav-link active">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.pt-br.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="#">Frameworks</a></span>
+                <span class="breadcrumb-item">Node.js Ink</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar documentação...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="nodejs-ink.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="nodejs-ink.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Framework</span>
+                <span class="badge badge-success">Node.js</span>
+                <h1 class="page-title">Node.js Ink</h1>
+                <p class="page-subtitle">Construa interfaces CLI com React</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Visão Geral</h2>
+                <p>
+                    <strong>Ink</strong> é um renderizador React para construir interfaces de terminal 
+                    interativas. Se você sabe React, já sabe construir TUIs com Ink. É usado por 
+                    ferramentas populares como CLI da Vercel e Copilot CLI do GitHub.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Instalação</h2>
+                <div class="code-block">
+                    <pre><code class="language-bash">npm init -y
+npm install ink react</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Olá Mundo</h2>
+                <div class="code-block">
+                    <pre><code class="language-jsx">import {render, Text} from 'ink';
+
+const App = () => (
+    &lt;Text color="green">Olá, Mundo!&lt;/Text>
+);
+
+render(&lt;App />);</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Componentes Principais</h2>
+                <table class="data-table">
+                    <thead><tr><th>Componente</th><th>Descrição</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>&lt;Text></code></td><td>Texto estilizado com cores</td></tr>
+                        <tr><td><code>&lt;Box></code></td><td>Container Flexbox</td></tr>
+                        <tr><td><code>&lt;Static></code></td><td>Output que não re-renderiza</td></tr>
+                        <tr><td><code>&lt;Newline></code></td><td>Quebra de linha</td></tr>
+                        <tr><td><code>&lt;Spacer></code></td><td>Espaço flexível</td></tr>
+                        <tr><td><code>&lt;Transform></code></td><td>Transforma output dos children</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2>Exemplo Interativo</h2>
+                <div class="code-block">
+                    <pre><code class="language-jsx">import {render, Text, useInput} from 'ink';
+import {useState, useEffect} from 'react';
+
+const Contador = () => {
+    const [count, setCount] = useState(0);
+    
+    useInput((input, key) => {
+        if (key.upArrow) setCount(c => c + 1);
+        if (key.downArrow) setCount(c => c - 1);
+        if (input === 'q') process.exit();
+    });
+    
+    return (
+        &lt;Box flexDirection="column">
+            &lt;Text>Contador: {count}&lt;/Text>
+            &lt;Text color="gray">Use ↑↓ para mudar, q para sair&lt;/Text>
+        &lt;/Box>
+    );
+};
+
+render(&lt;Contador />);</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Hooks</h2>
+                <div class="code-block">
+                    <pre><code class="language-jsx">import {useInput, useApp, useStdin} from 'ink';
+
+// Manipular input de teclado
+useInput((input, key) => {
+    if (key.ctrl && input === 'c') exit();
+});
+
+// Acessar métodos do app
+const {exit} = useApp();
+
+// Acessar stdin
+const {stdin, setRawMode} = useStdin();</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Componentes de Terceiros</h2>
+                <p>Bibliotecas de componentes Ink populares:</p>
+                <ul>
+                    <li><strong>ink-select-input</strong> - Dropdown select</li>
+                    <li><strong>ink-text-input</strong> - Campo de entrada de texto</li>
+                    <li><strong>ink-spinner</strong> - Spinner de carregamento</li>
+                    <li><strong>ink-progress-bar</strong> - Indicador de progresso</li>
+                    <li><strong>ink-table</strong> - Tabela de dados</li>
+                    <li><strong>ink-gradient</strong> - Texto com gradiente</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Estilização</h2>
+                <div class="code-block">
+                    <pre><code class="language-jsx">&lt;Text color="red" backgroundColor="white" bold>
+    Vermelho no branco, negrito
+&lt;/Text>
+
+&lt;Text dimColor>Texto escurecido&lt;/Text>
+&lt;Text underline>Sublinhado&lt;/Text>
+&lt;Text strikethrough>Tachado&lt;/Text>
+
+// Cores disponíveis:
+// black, red, green, yellow, blue, magenta, cyan, white
+// gray, grey, redBright, greenBright, etc.</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Recursos</h2>
+                <ul class="see-also">
+                    <li><a href="https://github.com/vadimdemedes/ink" target="_blank">Repositório GitHub</a></li>
+                    <li><a href="https://github.com/vadimdemedes/ink/blob/master/readme.md" target="_blank">Documentação</a></li>
+                    <li><a href="https://github.com/sindresorhus/awesome-ink" target="_blank">Awesome Ink Components</a></li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Veja Também</h2>
+                <ul class="see-also">
+                    <li><a href="python-textual.pt-br.html">Python Textual</a></li>
+                    <li><a href="../snippets/loading-spinners.pt-br.html">Spinners de Carregamento</a></li>
+                    <li><a href="../best-practices/cli-parsing.pt-br.html">Análise de Argumentos CLI</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

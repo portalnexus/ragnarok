@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Ratatui - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.pt-br.html" class="nav-link">Início</a></li>
+                    <li><a href="../tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="rust-ratatui.pt-br.html" class="nav-link active">Rust Ratatui</a></li>
+                    <li><a href="go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.pt-br.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="#">Frameworks</a></span>
+                <span class="breadcrumb-item">Rust Ratatui</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar documentação...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="rust-ratatui.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="rust-ratatui.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Framework</span>
+                <span class="badge badge-warning">Rust</span>
+                <h1 class="page-title">Rust Ratatui</h1>
+                <p class="page-subtitle">Biblioteca de UI de terminal para Rust</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Visão Geral</h2>
+                <p>
+                    <strong>Ratatui</strong> (antigo tui-rs) é um crate Rust para construir UIs de terminal. 
+                    Fornece uma API de alto nível para renderizar widgets e manipular eventos, com excelente 
+                    performance graças às garantias de segurança de memória do Rust.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Instalação</h2>
+                <div class="code-block">
+                    <pre><code class="language-bash">cargo new meu_tui
+cd meu_tui
+cargo add ratatui crossterm</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Olá Mundo</h2>
+                <div class="code-block">
+                    <pre><code class="language-rust">use ratatui::{
+    prelude::*,
+    widgets::{Block, Borders, Paragraph},
+};
+use crossterm::event;
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let mut terminal = Terminal::new(CrosstermBackend::new(stdout()))?;
+    
+    loop {
+        terminal.draw(|frame| {
+            let area = frame.size();
+            let paragraph = Paragraph::new("Olá, Mundo!")
+                .block(Block::default().borders(Borders::ALL));
+            frame.render_widget(paragraph, area);
+        })?;
+        
+        if event::poll(std::time::Duration::from_millis(100))? {
+            if let event::Event::Key(key) = event::read()? {
+                if key.code == KeyCode::Char('q') {
+                    break;
+                }
+            }
+        }
+    }
+    
+    Ok(())
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Widgets</h2>
+                <table class="data-table">
+                    <thead><tr><th>Widget</th><th>Descrição</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>Paragraph</code></td><td>Exibir texto com estilo</td></tr>
+                        <tr><td><code>Block</code></td><td>Container com borda para widgets</td></tr>
+                        <tr><td><code>List</code></td><td>Lista vertical de itens</td></tr>
+                        <tr><td><code>Table</code></td><td>Exibição de dados tabulares</td></tr>
+                        <tr><td><code>Chart</code></td><td>Gráficos de linha e barra</td></tr>
+                        <tr><td><code>Gauge</code></td><td>Indicador de progresso</td></tr>
+                        <tr><td><code>Sparkline</code></td><td>Mini gráfico de linha</td></tr>
+                        <tr><td><code>BarChart</code></td><td>Visualização em gráfico de barras</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2>Sistema de Layout</h2>
+                <div class="code-block">
+                    <pre><code class="language-rust">use ratatui::layout::{Layout, Direction, Constraint};
+
+let chunks = Layout::default()
+    .direction(Direction::Vertical)
+    .margin(1)
+    .constraints([
+        Constraint::Length(3),
+        Constraint::Min(1),
+        Constraint::Length(3),
+    ])
+    .split(area);</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Cores e Estilos</h2>
+                <div class="code-block">
+                    <pre><code class="language-rust">use ratatui::style::{Color, Style, Modifier};
+
+let style = Style::default()
+    .fg(Color::Cyan)
+    .bg(Color::Black)
+    .add_modifier(Modifier::BOLD | Modifier::ITALIC);</code></pre>
+                </div>
+                <p><strong>Cores Disponíveis:</strong> Black, Red, Green, Yellow, Blue, Magenta, Cyan, Gray, DarkGray, White, RGB, Indexed</p>
+            </section>
+
+            <section class="content-section">
+                <h2>Manipulação de Eventos</h2>
+                <div class="code-block">
+                    <pre><code class="language-rust">use crossterm::event::{self, Event, KeyCode, KeyEventKind};
+
+loop {
+    if event::poll(Duration::from_millis(100))? {
+        if let Event::Key(key) = event::read()? {
+            if key.kind == KeyEventKind::Press {
+                match key.code {
+                    KeyCode::Char('q') => break,
+                    KeyCode::Up => {/* handle up */},
+                    KeyCode::Down => {/* handle down */},
+                    KeyCode::Enter => {/* handle enter */},
+                    _ => {}
+                }
+            }
+        }
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Recursos</h2>
+                <ul class="see-also">
+                    <li><a href="https://ratatui.rs/" target="_blank">Documentação Oficial</a></li>
+                    <li><a href="https://github.com/ratatui-org/ratatui" target="_blank">Repositório GitHub</a></li>
+                    <li><a href="https://github.com/ratatui-org/ratatui/tree/main/examples" target="_blank">Exemplos</a></li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Veja Também</h2>
+                <ul class="see-also">
+                    <li><a href="go-bubbletea.pt-br.html">Go Bubble Tea</a></li>
+                    <li><a href="../snippets/tables.pt-br.html">Tabelas de Dados</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html">Esquemas de Cores</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>
