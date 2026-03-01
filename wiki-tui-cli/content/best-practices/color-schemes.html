@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Schemes - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Getting Started</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../tutorials/what-is-tui.html" class="nav-link">What is TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.html" class="nav-link">CLI Basics</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Best Practices</h3>
+                <ul class="nav-list">
+                    <li><a href="cli-parsing.html" class="nav-link">CLI Argument Parsing</a></li>
+                    <li><a href="tui-accessibility.html" class="nav-link">TUI Accessibility</a></li>
+                    <li><a href="color-schemes.html" class="nav-link active">Color Schemes</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Snippets</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.html" class="nav-link">Loading Spinners</a></li>
+                    <li><a href="../snippets/progress-bars.html" class="nav-link">Progress Bars</a></li>
+                    <li><a href="../snippets/tables.html" class="nav-link">Data Tables</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Built with ⚡ by Ragnarok Team</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.html">Home</a></span>
+                <span class="breadcrumb-item"><a href="#">Best Practices</a></span>
+                <span class="breadcrumb-item">Color Schemes</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search documentation...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Best Practice</span>
+                <h1 class="page-title">Color Schemes</h1>
+                <p class="page-subtitle">Guide to choosing and implementing color schemes</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Terminal Color Systems</h2>
+                <p>Terminals support different color depths:</p>
+                <table class="data-table">
+                    <thead><tr><th>Type</th><th>Colors</th><th>Example</th></tr></thead>
+                    <tbody>
+                        <tr><td>Monochrome</td><td>2</td><td>Black, White</td></tr>
+                        <tr><td>16 Color</td><td>16</td><td>Standard ANSI</td></tr>
+                        <tr><td>256 Color</td><td>256</td><td>Extended palette</td></tr>
+                        <tr><td>True Color</td><td>16.7M</td><td>24-bit RGB</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2>Standard ANSI Colors (16)</h2>
+                <div class="color-grid">
+                    <div class="color-swatch" style="background:#000000;color:#fff">Black<br>#000000</div>
+                    <div class="color-swatch" style="background:#cd3131;color:#fff">Red<br>#cd3131</div>
+                    <div class="color-swatch" style="background:#0dbc79;color:#000">Green<br>#0dbc79</div>
+                    <div class="color-swatch" style="background:#e5e510;color:#000">Yellow<br>#e5e510</div>
+                    <div class="color-swatch" style="background:#2472c8;color:#fff">Blue<br>#2472c8</div>
+                    <div class="color-swatch" style="background:#bc3fbc;color:#fff">Magenta<br>#bc3fbc</div>
+                    <div class="color-swatch" style="background:#11a8cd;color:#000">Cyan<br>#11a8cd</div>
+                    <div class="color-swatch" style="background:#e5e5e5;color:#000">White<br>#e5e5e5</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Popular Color Themes</h2>
+                
+                <h3>Dracula</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Dracula Theme
+Background: #282a36
+Foreground: #f8f8f2
+Comment:    #6272a4
+Cyan:       #8be9fd
+Green:      #50fa7b
+Orange:     #ffb86c
+Pink:       #ff79c6
+Purple:     #bd93f9
+Red:        #ff5555
+Yellow:     #f1fa8c</code></pre>
+                </div>
+
+                <h3>Gruvbox Dark</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Gruvbox Dark
+Background: #282828
+Foreground: #ebdbb2
+Black:      #282828
+Red:        #cc241d
+Green:      #98971a
+Yellow:     #d79921
+Blue:       #458588
+Purple:     #b16286
+Aqua:       #689d6a
+White:      #a89984</code></pre>
+                </div>
+
+                <h3>Nord</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Nord Theme
+Background:     #2e3440
+Foreground:     #d8dee9
+Black:          #3b4252
+Red:            #bf616a
+Green:          #a3be8c
+Yellow:         #ebcb8b
+Blue:           #81a1c1
+Purple:         #b48ead
+Cyan:           #88c0d0
+White:          #e5e9f0</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Implementing Themes</h2>
+                
+                <h3>Python (Rich)</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">from rich.style import Style
+from rich.color import Color
+
+# Define theme colors
+THEME = {
+    "background": Color.parse("#282a36"),
+    "foreground": Color.parse("#f8f8f2"),
+    "accent": Color.parse("#bd93f9"),
+    "success": Color.parse("#50fa7b"),
+    "error": Color.parse("#ff5555"),
+}
+
+# Apply to text
+style = Style(color=THEME["foreground"], 
+              bgcolor=THEME["background"])
+print(style.render("Themed text"))</code></pre>
+                </div>
+
+                <h3>Rust (Ratatui)</h3>
+                <div class="code-block">
+                    <pre><code class="language-rust">use ratatui::style::{Color, Style};
+
+// Define theme
+struct Theme {
+    bg: Color,
+    fg: Color,
+    accent: Color,
+}
+
+impl Theme {
+    fn dracula() -> Self {
+        Self {
+            bg: Color::Rgb(40, 42, 54),
+            fg: Color::Rgb(248, 248, 242),
+            accent: Color::Rgb(189, 147, 249),
+        }
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Best Practices</h2>
+                <div class="feature-grid">
+                    <div class="info-card">
+                        <h3>🎨 Respect User Settings</h3>
+                        <p>Detect and use the terminal's configured colors when possible.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔆 Ensure Contrast</h3>
+                        <p>Maintain at least 4.5:1 contrast ratio for readability.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🌈 Provide Options</h3>
+                        <p>Offer light and dark theme variants.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>⚠️ Graceful Degradation</h3>
+                        <p>Fall back gracefully on terminals with limited color support.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Color Blind Considerations</h2>
+                <p>Approximately 8% of men have color vision deficiency:</p>
+                <ul>
+                    <li><strong>Avoid:</strong> Red/Green combinations</li>
+                    <li><strong>Use:</strong> Blue/Orange or Blue/Red</li>
+                    <li><strong>Add:</strong> Icons, patterns, or text labels</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>See Also</h2>
+                <ul class="see-also">
+                    <li><a href="tui-accessibility.html">TUI Accessibility</a></li>
+                    <li><a href="../frameworks/python-rich.html">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.html">Rust Ratatui</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

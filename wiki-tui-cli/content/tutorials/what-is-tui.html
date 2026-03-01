@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is TUI? - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">TUI/CLI Wiki</span>
+            </h1>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Getting Started</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="what-is-tui.html" class="nav-link active">What is TUI?</a></li>
+                    <li><a href="cli-basics.html" class="nav-link">CLI Basics</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Best Practices</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.html" class="nav-link">CLI Argument Parsing</a></li>
+                    <li><a href="../best-practices/tui-accessibility.html" class="nav-link">TUI Accessibility</a></li>
+                    <li><a href="../best-practices/color-schemes.html" class="nav-link">Color Schemes</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Snippets</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.html" class="nav-link">Loading Spinners</a></li>
+                    <li><a href="../snippets/progress-bars.html" class="nav-link">Progress Bars</a></li>
+                    <li><a href="../snippets/tables.html" class="nav-link">Data Tables</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <p class="footer-text">Built with ⚡ by Ragnarok Team</p>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Bar with Search -->
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.html">Home</a></span>
+                <span class="breadcrumb-item"><a href="#">Tutorials</a></span>
+                <span class="breadcrumb-item">What is TUI?</span>
+            </div>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search documentation... (Press / to focus)"
+                    aria-label="Search"
+                >
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Tutorial</span>
+                <h1 class="page-title">What is TUI?</h1>
+                <p class="page-subtitle">An introduction to Text User Interfaces</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Definition</h2>
+                <p>
+                    A <strong>Text User Interface (TUI)</strong> is a type of user interface that uses text 
+                    and characters to display information and accept input from users. Unlike Command Line 
+                    Interfaces (CLI) that only accept text commands, TUIs provide visual elements like 
+                    windows, menus, buttons, and forms—all rendered using text characters.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>History</h2>
+                <p>
+                    TUIs emerged in the 1970s and 1980s as an evolution from pure CLI systems. They were 
+                    popularized by applications like:
+                </p>
+                <ul>
+                    <li><strong>Norton Commander</strong> (1986) - File manager with dual panels</li>
+                    <li><strong>Midnight Commander</strong> (1994) - Open source file manager still used today</li>
+                    <li><strong>Pine/Alpine</strong> - Email client with menu-driven interface</li>
+                    <li><strong>Vim/Emacs</strong> - Text editors with complex TUI features</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>TUI vs CLI vs GUI</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>CLI</th>
+                                <th>TUI</th>
+                                <th>GUI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Visual Elements</td>
+                                <td>Text only</td>
+                                <td>Text-based graphics</td>
+                                <td>Full graphics</td>
+                            </tr>
+                            <tr>
+                                <td>Learning Curve</td>
+                                <td>Steep</td>
+                                <td>Moderate</td>
+                                <td>Low</td>
+                            </tr>
+                            <tr>
+                                <td>Resource Usage</td>
+                                <td>Minimal</td>
+                                <td>Low</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>Remote Access</td>
+                                <td>Excellent</td>
+                                <td>Excellent</td>
+                                <td>Limited</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Why Use TUI in 2026?</h2>
+                <div class="feature-grid">
+                    <div class="info-card">
+                        <h3>🚀 Performance</h3>
+                        <p>TUIs are incredibly lightweight, starting instantly and using minimal RAM compared to GUI applications.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔧 SSH-Friendly</h3>
+                        <p>Perfect for remote server management. No X11 forwarding or VNC needed.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>⌨️ Keyboard-First</h3>
+                        <p>Designed for power users who prefer keyboard shortcuts over mouse navigation.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>♿ Accessibility</h3>
+                        <p>Screen readers and assistive technologies work excellently with text-based interfaces.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Modern TUI Applications</h2>
+                <p>Many popular modern tools use TUI:</p>
+                <ul>
+                    <li><strong>k9s</strong> - Kubernetes management</li>
+                    <li><strong>lazygit</strong> - Git terminal UI</li>
+                    <li><strong>htop/btop</strong> - System monitoring</li>
+                    <li><strong>ranger</strong> - File manager</li>
+                    <li><strong>ncmpcpp</strong> - Music player</li>
+                    <li><strong>taskwarrior + tasksh</strong> - Task management</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Getting Started</h2>
+                <p>Ready to build your first TUI? Check out our framework guides:</p>
+                <div class="action-buttons">
+                    <a href="../frameworks/python-textual.html" class="btn btn-primary">Python Textual</a>
+                    <a href="../frameworks/rust-ratatui.html" class="btn btn-secondary">Rust Ratatui</a>
+                    <a href="../frameworks/go-bubbletea.html" class="btn btn-secondary">Go Bubble Tea</a>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>See Also</h2>
+                <ul class="see-also">
+                    <li><a href="cli-basics.html">CLI Basics</a></li>
+                    <li><a href="../best-practices/tui-accessibility.html">TUI Accessibility</a></li>
+                    <li><a href="../best-practices/color-schemes.html">Color Schemes</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <!-- Footer -->
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+            <p>Hosted on GitHub Pages | <a href="#">View on GitHub</a></p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

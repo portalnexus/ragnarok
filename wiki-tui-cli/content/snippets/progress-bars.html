@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bars - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Getting Started</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../tutorials/what-is-tui.html" class="nav-link">What is TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.html" class="nav-link">CLI Basics</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Best Practices</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.html" class="nav-link">CLI Argument Parsing</a></li>
+                    <li><a href="../best-practices/tui-accessibility.html" class="nav-link">TUI Accessibility</a></li>
+                    <li><a href="../best-practices/color-schemes.html" class="nav-link">Color Schemes</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Snippets</h3>
+                <ul class="nav-list">
+                    <li><a href="loading-spinners.html" class="nav-link">Loading Spinners</a></li>
+                    <li><a href="progress-bars.html" class="nav-link active">Progress Bars</a></li>
+                    <li><a href="tables.html" class="nav-link">Data Tables</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Built with ⚡ by Ragnarok Team</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.html">Home</a></span>
+                <span class="breadcrumb-item"><a href="#">Snippets</a></span>
+                <span class="breadcrumb-item">Progress Bars</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search documentation...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Snippet</span>
+                <h1 class="page-title">Progress Bars</h1>
+                <p class="page-subtitle">Progress bar implementations for long-running tasks</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Python - Rich Progress</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">from rich.progress import (
+    Progress, 
+    BarColumn, 
+    TextColumn, 
+    TimeRemainingColumn,
+    DownloadColumn,
+    TransferSpeedColumn
+)
+import time
+
+# Basic progress bar
+with Progress() as progress:
+    task = progress.add_task("Processing...", total=100)
+    while not progress.finished:
+        progress.update(task, advance=1)
+        time.sleep(0.02)
+
+# Advanced with multiple columns
+with Progress(
+    TextColumn("[bold blue]{task.description}"),
+    BarColumn(bar_width=40),
+    TextColumn("[progress.percentage]{task.percentage:>3.1f}%"),
+    TextColumn("•"),
+    TimeRemainingColumn(),
+    TextColumn("•"),
+    DownloadColumn(),
+) as progress:
+    task = progress.add_task("Downloading", total=1000000)
+    # Your download code here</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Python - tqdm</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">from tqdm import tqdm
+import time
+
+# Basic usage
+for i in tqdm(range(100)):
+    time.sleep(0.01)
+
+# With description
+for i in tqdm(range(100), desc="Processing"):
+    time.sleep(0.01)
+
+# Manual update
+with tqdm(total=100) as pbar:
+    for i in range(10):
+        time.sleep(0.1)
+        pbar.update(10)
+
+# Nested progress bars
+with tqdm(total=100, desc="Outer") as pbar1:
+    for i in range(10):
+        with tqdm(total=10, desc="Inner", leave=False) as pbar2:
+            for j in range(10):
+                time.sleep(0.01)
+                pbar2.update(1)
+        pbar1.update(1)</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Node.js - CLI Progress</h2>
+                <div class="code-block">
+                    <pre><code class="language-js">import cliProgress from 'cli-progress';
+
+// Basic progress bar
+const bar = new cliProgress.SingleBar({}, 
+    cliProgress.Presets.shades_classic);
+
+bar.start(100, 0);
+for (let i = 0; i < 100; i++) {
+    bar.update(i);
+    await sleep(10);
+}
+bar.stop();
+
+// With options
+const bar = new cliProgress.SingleBar({
+    format: '{bar} {percentage}% | {value}/{total}',
+    barCompleteChar: '█',
+    barIncompleteChar: '░',
+    hideCursor: true
+});
+
+// Multi progress
+const multibar = new cliProgress.MultiBar({
+    format: '{bar} {percentage}% | {label}'
+});
+
+const bar1 = multibar.create(100, 0, {label: 'Download'});
+const bar2 = multibar.create(100, 0, {label: 'Extract'});</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Rust - Indicatif</h2>
+                <div class="code-block">
+                    <pre><code class="language-rust">use indicatif::{ProgressBar, ProgressStyle};
+use std::thread;
+use std::time::Duration;
+
+// Basic progress bar
+let pb = ProgressBar::new(100);
+for i in 0..100 {
+    thread::sleep(Duration::from_millis(10));
+    pb.set_position(i);
+}
+pb.finish();
+
+// With style
+let pb = ProgressBar::new(100);
+pb.set_style(ProgressStyle::default_bar()
+    .template("{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/blue}] {pos}/{len} ({eta})")
+    .unwrap()
+    .progress_chars("#>-"));
+
+// Multiple bars
+let m = indicatif::MultiProgress::new();
+let pb1 = m.add(ProgressBar::new(100));
+let pb2 = m.add(ProgressBar::new(100));</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Go - Progress Bar</h2>
+                <div class="code-block">
+                    <pre><code class="language-go">import (
+    "github.com/schollz/progressbar/v3"
+    "time"
+)
+
+// Basic progress bar
+bar := progressbar.Default(100)
+for i := 0; i < 100; i++ {
+    bar.Add(1)
+    time.Sleep(10 * time.Millisecond)
+}
+
+// With options
+bar := progressbar.NewOptions(1000,
+    progressbar.OptionSetDescription("Downloading"),
+    progressbar.OptionSetWidth(40),
+    progressbar.OptionShowCount(),
+    progressbar.OptionShowIts(),
+    progressbar.OptionSetItsString("items"),
+    progressbar.OptionSetPredictTime(true),
+    progressbar.OptionSetTheme(progressbar.Theme{
+        BarStart: "[",
+        BarEnd: "]",
+        Current: "█",
+        CurrentEmpty: "░",
+    }),
+)
+
+// Spinner for unknown total
+spinner := progressbar.NewSpinner("Processing...")
+for {
+    spinner.Add(1)
+    time.Sleep(100 * time.Millisecond)
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Bash - Progress Bar</h2>
+                <div class="code-block">
+                    <pre><code class="language-bash">#!/bin/bash
+
+progress_bar() {
+    local total=$1
+    local current=0
+    
+    while read -r line; do
+        ((current++))
+        local percent=$((current * 100 / total))
+        local filled=$((percent / 5))
+        local empty=$((20 - filled))
+        
+        printf "\r[%${filled}s%${empty}s] %d%%" \
+            | tr ' ' '#' | tr ' ' '-' \
+            "$current" "$percent"
+    done
+}
+
+# Usage
+for i in {1..100}; do
+    echo "$i"
+    sleep 0.05
+done | progress_bar 100
+echo</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Bar Characters</h2>
+                <p>Common characters for progress bars:</p>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Block characters
+█ ▓ ▒ ░
+
+# Line characters
+─ │ ━ ┃ ─━ ┃━
+
+# Arrows
+← ↑ → ↓
+
+# Custom themes
+Classic:  [████████░░░░]
+Modern:   ▓▓▓▓▓▓▓▓░░░░
+Minimal:  ========----
+Dots:     ●●●●●●○○○○</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>See Also</h2>
+                <ul class="see-also">
+                    <li><a href="loading-spinners.html">Loading Spinners</a></li>
+                    <li><a href="tables.html">Data Tables</a></li>
+                    <li><a href="../frameworks/python-rich.html">Python Rich</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLI Argument Parsing - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Getting Started</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../tutorials/what-is-tui.html" class="nav-link">What is TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.html" class="nav-link">CLI Basics</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Best Practices</h3>
+                <ul class="nav-list">
+                    <li><a href="cli-parsing.html" class="nav-link active">CLI Argument Parsing</a></li>
+                    <li><a href="tui-accessibility.html" class="nav-link">TUI Accessibility</a></li>
+                    <li><a href="color-schemes.html" class="nav-link">Color Schemes</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Snippets</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.html" class="nav-link">Loading Spinners</a></li>
+                    <li><a href="../snippets/progress-bars.html" class="nav-link">Progress Bars</a></li>
+                    <li><a href="../snippets/tables.html" class="nav-link">Data Tables</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Built with ⚡ by Ragnarok Team</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.html">Home</a></span>
+                <span class="breadcrumb-item"><a href="#">Best Practices</a></span>
+                <span class="breadcrumb-item">CLI Parsing</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search documentation...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Best Practice</span>
+                <h1 class="page-title">CLI Argument Parsing</h1>
+                <p class="page-subtitle">Best practices for parsing command line arguments</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Overview</h2>
+                <p>
+                    Proper argument parsing is crucial for creating user-friendly CLI tools. 
+                    This guide covers conventions and libraries across different languages.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Convention Standards</h2>
+                <div class="info-box">
+                    <strong>GNU Convention:</strong>
+                    <ul>
+                        <li>Short options: <code>-f</code> (single letter)</li>
+                        <li>Long options: <code>--file</code> (descriptive)</li>
+                        <li>Combine short options: <code>-la</code> = <code>-l -a</code></li>
+                        <li>Option with value: <code>-f file.txt</code> or <code>--file=file.txt</code></li>
+                        <li><code>--</code> marks end of options</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Python - argparse</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">import argparse
+
+parser = argparse.ArgumentParser(
+    description="Process some files."
+)
+parser.add_argument(
+    "files",
+    nargs="+",
+    help="Files to process"
+)
+parser.add_argument(
+    "-v", "--verbose",
+    action="store_true",
+    help="Enable verbose output"
+)
+parser.add_argument(
+    "-o", "--output",
+    default="output.txt",
+    help="Output file (default: output.txt)"
+)
+parser.add_argument(
+    "-f", "--force",
+    action="store_true",
+    help="Overwrite existing files"
+)
+
+args = parser.parse_args()</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Python - Click (Modern)</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">import click
+
+@click.command()
+@click.argument("files", nargs=-1)
+@click.option("-v", "--verbose", is_flag=True)
+@click.option("-o", "--output", default="output.txt")
+@click.option("-f", "--force", is_flag=True)
+def process(files, verbose, output, force):
+    """Process some files."""
+    if verbose:
+        click.echo(f"Processing {files}")
+    click.echo(f"Output: {output}")
+
+if __name__ == "__main__":
+    process()</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Rust - clap</h2>
+                <div class="code-block">
+                    <pre><code class="language-rust">use clap::{Parser, Subcommand};
+
+#[derive(Parser)]
+#[command(name = "myapp")]
+#[command(about = "Process some files", long_about = None)]
+struct Args {
+    /// Files to process
+    #[arg(required = true)]
+    files: Vec<String>,
+
+    /// Enable verbose output
+    #[arg(short, long)]
+    verbose: bool,
+
+    /// Output file
+    #[arg(short, long, default_value = "output.txt")]
+    output: String,
+
+    /// Overwrite existing files
+    #[arg(short, long)]
+    force: bool,
+}
+
+fn main() {
+    let args = Args::parse();
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Go - flag</h2>
+                <div class="code-block">
+                    <pre><code class="language-go">package main
+
+import (
+    "flag"
+    "fmt"
+)
+
+func main() {
+    verbose := flag.Bool("v", false, "verbose output")
+    output := flag.String("o", "output.txt", "output file")
+    force := flag.Bool("force", false, "overwrite files")
+    
+    flag.Parse()
+    files := flag.Args()
+    
+    fmt.Printf("Files: %v\n", files)
+    fmt.Printf("Verbose: %v\n", *verbose)
+    fmt.Printf("Output: %s\n", *output)
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Node.js - Commander</h2>
+                <div class="code-block">
+                    <pre><code class="language-js">import { Command } from 'commander';
+const program = new Command();
+
+program
+    .name('myapp')
+    .description('Process some files')
+    .argument('&lt;files...>', 'files to process')
+    .option('-v, --verbose', 'verbose output')
+    .option('-o, --output &lt;file>', 'output file', 'output.txt')
+    .option('-f, --force', 'overwrite existing files')
+    .action((files, options) => {
+        console.log('Files:', files);
+        console.log('Verbose:', options.verbose);
+        console.log('Output:', options.output);
+    });
+
+program.parse();</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Best Practices</h2>
+                <div class="feature-grid">
+                    <div class="info-card">
+                        <h3>📝 Descriptive Help</h3>
+                        <p>Every option should have clear help text. Users shouldn't need external docs.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>⚡ Sensible Defaults</h3>
+                        <p>Provide reasonable defaults so users don't need to specify every option.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>❌ Clear Errors</h3>
+                        <p>When parsing fails, explain what went wrong and how to fix it.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔄 Backward Compatible</h3>
+                        <p>Don't break existing scripts. Deprecate options gradually.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>See Also</h2>
+                <ul class="see-also">
+                    <li><a href="../tutorials/cli-basics.html">CLI Basics</a></li>
+                    <li><a href="tui-accessibility.html">TUI Accessibility</a></li>
+                    <li><a href="../frameworks/python-textual.html">Python Textual</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

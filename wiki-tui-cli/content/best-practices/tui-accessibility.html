@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUI Accessibility - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Getting Started</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../tutorials/what-is-tui.html" class="nav-link">What is TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.html" class="nav-link">CLI Basics</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Best Practices</h3>
+                <ul class="nav-list">
+                    <li><a href="cli-parsing.html" class="nav-link">CLI Argument Parsing</a></li>
+                    <li><a href="tui-accessibility.html" class="nav-link active">TUI Accessibility</a></li>
+                    <li><a href="color-schemes.html" class="nav-link">Color Schemes</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Snippets</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.html" class="nav-link">Loading Spinners</a></li>
+                    <li><a href="../snippets/progress-bars.html" class="nav-link">Progress Bars</a></li>
+                    <li><a href="../snippets/tables.html" class="nav-link">Data Tables</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Built with ⚡ by Ragnarok Team</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.html">Home</a></span>
+                <span class="breadcrumb-item"><a href="#">Best Practices</a></span>
+                <span class="breadcrumb-item">Accessibility</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search documentation...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Best Practice</span>
+                <h1 class="page-title">TUI Accessibility</h1>
+                <p class="page-subtitle">Making terminal interfaces accessible to all users</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Why Accessibility Matters</h2>
+                <p>
+                    TUIs are inherently more accessible than GUIs, but there are still important 
+                    considerations to ensure everyone can use your application effectively.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>Screen Reader Support</h2>
+                <div class="info-box">
+                    <strong>Best Practices:</strong>
+                    <ul>
+                        <li>Use semantic text structure (headings, lists)</li>
+                        <li>Provide text alternatives for visual elements</li>
+                        <li>Announce state changes (loading, completed)</li>
+                        <li>Use clear, descriptive labels</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Keyboard Navigation</h2>
+                <p>Ensure all functionality is accessible via keyboard:</p>
+                <table class="data-table">
+                    <thead><tr><th>Key</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>Tab</code></td><td>Move to next interactive element</td></tr>
+                        <tr><td><code>Shift+Tab</code></td><td>Move to previous element</td></tr>
+                        <tr><td><code>Enter</code></td><td>Activate selected element</td></tr>
+                        <tr><td><code>Space</code></td><td>Toggle checkbox/button</td></tr>
+                        <tr><td><code>↑↓←→</code></td><td>Navigate within components</td></tr>
+                        <tr><td><code>Esc</code></td><td>Close modal/cancel action</td></tr>
+                        <tr><td><code>?</code></td><td>Show help/keyboard shortcuts</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="content-section">
+                <h2>Color Considerations</h2>
+                <div class="feature-grid">
+                    <div class="info-card">
+                        <h3>🎨 Don't Rely on Color Alone</h3>
+                        <p>Use icons, text labels, or patterns in addition to color to convey information.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔆 Sufficient Contrast</h3>
+                        <p>Ensure text has at least 4.5:1 contrast ratio against background.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🌈 Color Blind Friendly</h3>
+                        <p>Avoid red/green combinations. Use blue/orange or add patterns.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>⚫ High Contrast Mode</h3>
+                        <p>Support terminal's high contrast settings when available.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Focus Indicators</h2>
+                <p>Always show which element has focus:</p>
+                <div class="code-block">
+                    <pre><code class="language-python"># Good: Clear focus indicator
+[✓] Option A (focused)
+[ ] Option B
+[ ] Option C
+
+# Bad: No visible focus
+[✓] Option A
+[ ] Option B
+[ ] Option C</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Error Messages</h2>
+                <p>Make errors clear and actionable:</p>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Good: Clear and actionable
+Error: File not found: config.json
+Hint: Run 'myapp init' to create a default config
+
+# Bad: Vague
+Error: Failed (code: 1)</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Progress Indicators</h2>
+                <p>For long operations, provide clear progress:</p>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Good: Shows progress and ETA
+Processing files: [████████░░] 80% (4/5) - ETA: 2s
+
+# Bad: Unclear
+Processing...</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Text Scaling</h2>
+                <p>Support different terminal font sizes:</p>
+                <ul>
+                    <li>Use relative sizing where possible</li>
+                    <li>Test with various terminal sizes</li>
+                    <li>Avoid fixed-width layouts</li>
+                    <li>Allow content to wrap naturally</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>Accessibility Checklist</h2>
+                <div class="info-box">
+                    <strong>Before releasing, verify:</strong>
+                    <ul>
+                        <li>☐ All features work with keyboard only</li>
+                        <li>☐ Focus is always visible</li>
+                        <li>☐ Color is not the only indicator</li>
+                        <li>☐ Error messages are clear</li>
+                        <li>☐ Help documentation is available</li>
+                        <li>☐ Works with screen readers</li>
+                        <li>☐ Supports high contrast mode</li>
+                        <li>☐ Text is readable at different sizes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>See Also</h2>
+                <ul class="see-also">
+                    <li><a href="color-schemes.html">Color Schemes</a></li>
+                    <li><a href="cli-parsing.html">CLI Argument Parsing</a></li>
+                    <li><a href="../tutorials/what-is-tui.html">What is TUI?</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

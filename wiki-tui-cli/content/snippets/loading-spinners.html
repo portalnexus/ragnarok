@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Spinners - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Getting Started</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../tutorials/what-is-tui.html" class="nav-link">What is TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.html" class="nav-link">CLI Basics</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Best Practices</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.html" class="nav-link">CLI Argument Parsing</a></li>
+                    <li><a href="../best-practices/tui-accessibility.html" class="nav-link">TUI Accessibility</a></li>
+                    <li><a href="../best-practices/color-schemes.html" class="nav-link">Color Schemes</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Snippets</h3>
+                <ul class="nav-list">
+                    <li><a href="loading-spinners.html" class="nav-link active">Loading Spinners</a></li>
+                    <li><a href="progress-bars.html" class="nav-link">Progress Bars</a></li>
+                    <li><a href="tables.html" class="nav-link">Data Tables</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Built with ⚡ by Ragnarok Team</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.html">Home</a></span>
+                <span class="breadcrumb-item"><a href="#">Snippets</a></span>
+                <span class="breadcrumb-item">Spinners</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search documentation...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Snippet</span>
+                <h1 class="page-title">Loading Spinners</h1>
+                <p class="page-subtitle">Collection of loading spinner implementations</p>
+            </header>
+
+            <section class="content-section">
+                <h2>Python - Rich</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">from rich.console import Console
+from rich.live import Live
+from rich.spinner import Spinner
+from rich.text import Text
+import time
+
+console = Console()
+
+# Simple spinner
+spinner = Spinner("dots", text="Loading...")
+console.print(spinner)
+
+# Animated spinner with Live
+with Live(Spinner("dots", text="Processing..."), 
+          refresh_per_second=10) as live:
+    time.sleep(3)
+    live.update(Spinner("dots", text="Almost done...", 
+                        style="green"))
+    time.sleep(1)
+
+# Available spinner styles:
+# dots, dots2, dots3, dots4, dots5, dots6, dots7
+# dots8, dots9, dots10, dots11, dots12
+# line, line2, bar, bar2
+# triangle, simpleDotsScrolling</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Python - Custom Spinner</h2>
+                <div class="code-block">
+                    <pre><code class="language-python">import sys
+import time
+import itertools
+
+def spinner(message="Loading", duration=0.1):
+    frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+    spinner_iter = itertools.cycle(frames)
+    
+    try:
+        while True:
+            frame = next(spinner_iter)
+            sys.stdout.write(f"\r{frame} {message}")
+            sys.stdout.flush()
+            time.sleep(duration)
+            yield
+    except KeyboardInterrupt:
+        sys.stdout.write("\r✓ Done!\n")
+        sys.stdout.flush()
+
+# Usage
+for _ in spinner("Processing data"):
+    # Your work here
+    if done:
+        break</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Node.js - Ink Spinner</h2>
+                <div class="code-block">
+                    <pre><code class="language-jsx">import {Text} from 'ink';
+import Spinner from 'ink-spinner';
+
+const Loading = () => (
+    &lt;Text>
+        &lt;Spinner type="ball"/>
+        {' Loading...'}
+    &lt;/Text>
+);
+
+// Spinner types:
+// ball, ball2, arc, arc2, bar
+// dots, dots2, dots3, dots4
+// triangle, toggle
+// star, star2</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Rust - Ratatui Spinner</h2>
+                <div class="code-block">
+                    <pre><code class="language-rust">use ratatui::{
+    Frame,
+    widgets::{Block, Borders, Paragraph},
+};
+
+fn render_spinner(frame: &mut Frame, area: Rect, frame_num: u64) {
+    let spinner = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
+    let current = spinner[frame_num as usize % spinner.len()];
+    
+    let paragraph = Paragraph::new(format!("{} Loading...", current))
+        .block(Block::default().borders(Borders::ALL));
+    
+    frame.render_widget(paragraph, area);
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Go - Bubble Tea Spinner</h2>
+                <div class="code-block">
+                    <pre><code class="language-go">import (
+    "github.com/charmbracelet/bubbles/spinner"
+    tea "github.com/charmbracelet/bubbletea"
+)
+
+type model struct {
+    spinner spinner.Model
+}
+
+func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+    var cmd tea.Cmd
+    m.spinner, cmd = m.spinner.Update(msg)
+    return m, cmd
+}
+
+func (m model) View() string {
+    return m.spinner.View() + " Loading..."
+}
+
+// Spinner types: Line, Dot, MiniDot, Jump, 
+// Pulse, Points, Globe, Moon, Monkey</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Bash - Simple Spinner</h2>
+                <div class="code-block">
+                    <pre><code class="language-bash">#!/bin/bash
+
+spinner() {
+    local pid=$1
+    local delay=0.1
+    local spinstr='|/-\'
+    
+    while [ "$(ps a | awk '{print $1}' | grep -w $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c] Loading..." "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"
+    done
+    printf "    \r"
+}
+
+# Usage
+long_command &
+spinner $!
+echo "Done!"</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>ASCII Spinner Frames</h2>
+                <p>Copy these frames for custom implementations:</p>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Classic
+| / - \
+
+# Dots
+⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏
+
+# Simple dots
+⣾ ⣽ ⣻ ⢿ ⡿ ⣟ ⣯ ⣷
+
+# Line
+⠁ ⠂ ⠄ ⠈
+
+# Circle
+◐ ◓ ◑ ◒
+
+# Toggle
+⣶ ⣧ ⣇ ⣆ ⣅ ⣄ ⣂ ⣀
+
+# Arrows
+← ↖ ↑ ↗ → ↘ ↓ ↙</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>See Also</h2>
+                <ul class="see-also">
+                    <li><a href="progress-bars.html">Progress Bars</a></li>
+                    <li><a href="../frameworks/python-rich.html">Python Rich</a></li>
+                    <li><a href="../frameworks/go-bubbletea.html">Go Bubble Tea</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>
