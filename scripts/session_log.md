@@ -82,4 +82,3 @@ The following agents were configured in `scripts/agents.json`:
 Log new agent interactions below:
 
 ---
-
