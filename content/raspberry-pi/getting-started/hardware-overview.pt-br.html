@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visão Geral do Hardware Raspberry Pi 3B - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">TUI/CLI Wiki</span>
+            </h1>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Alternar menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link">Início</a></li>
+                    <li><a href="../tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">👶 Exemplos para Iniciantes</h3>
+                <ul class="nav-list">
+                    <li><a href="../beginner/python-basics.pt-br.html" class="nav-link">Python Básico</a></li>
+                    <li><a href="../beginner/rust-basics.pt-br.html" class="nav-link">Rust Básico</a></li>
+                    <li><a href="../beginner/go-basics.pt-br.html" class="nav-link">Go Básico</a></li>
+                    <li><a href="../beginner/nodejs-basics.pt-br.html" class="nav-link">Node.js Básico</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">🥧 Raspberry Pi</h3>
+                <ul class="nav-list">
+                    <li><a href="../index.pt-br.html" class="nav-link">Raspberry Pi 3B</a></li>
+                    <li><a href="hardware-overview.pt-br.html" class="nav-link active">Visão Geral do Hardware</a></li>
+                    <li><a href="os-installation.pt-br.html" class="nav-link">Instalação do SO</a></li>
+                    <li><a href="first-boot.pt-br.html" class="nav-link">Primeira Inicialização</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="../index.pt-br.html">Raspberry Pi</a></span>
+                <span class="breadcrumb-item">Visão Geral do Hardware</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar documentação... (Pressione / para focar)">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="hardware-overview.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="hardware-overview.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Raspberry Pi</span>
+                <span class="badge badge-success">Primeiros Passos</span>
+                <h1 class="page-title">Visão Geral do Hardware Raspberry Pi 3B</h1>
+                <p class="page-subtitle">Guia completo dos componentes físicos e layout do Pi 3B</p>
+            </header>
+
+            <section class="content-section">
+                <h2>📋 Layout da Placa</h2>
+                <p>
+                    O Raspberry Pi 3B é um computador de placa única compacto medindo 85,6 × 56,5 mm.
+                    Entender o layout é essencial para configuração adequada e planejamento de projetos.
+                </p>
+                
+                <div class="info-box">
+                    <strong>Áreas Principais:</strong>
+                    <ul>
+                        <li><strong>Borda Superior:</strong> Cabeçalho GPIO (40 pinos)</li>
+                        <li><strong>Lado Direito:</strong> Portas USB e Ethernet</li>
+                        <li><strong>Borda Inferior:</strong> HDMI, áudio/composto, energia MicroUSB</li>
+                        <li><strong>Lado Esquerdo:</strong> Slot para cartão MicroSD</li>
+                        <li><strong>Centro:</strong> SoC (System on Chip) com RAM empilhada</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>🔌 Portas e Conectores</h2>
+                
+                <h3>Energia (MicroUSB)</h3>
+                <p>
+                    <strong>Localização:</strong> Borda inferior, perto do jack de áudio<br>
+                    <strong>Especificação:</strong> 5V/2.5A recomendado<br>
+                    <strong>Notas:</strong> Use uma fonte de qualidade. Energia insuficiente causa instabilidade.
+                </p>
+
+                <h3>Portas USB 2.0 (4x)</h3>
+                <p>
+                    <strong>Localização:</strong> Lado direito, empilhadas<br>
+                    <strong>Especificação:</strong> USB 2.0, até 480 Mbps<br>
+                    <strong>Uso:</strong> Teclado, mouse, adaptador WiFi, armazenamento externo
+                </p>
+                <div class="info-box">
+                    <strong>⚠️ Limitação de Energia:</strong> Corrente USB total limitada a 1.2A. Para dispositivos de alta potência, use um hub USB alimentado.
+                </div>
+
+                <h3>Ethernet (RJ45)</h3>
+                <p>
+                    <strong>Localização:</strong> Lado direito, abaixo das portas USB<br>
+                    <strong>Especificação:</strong> 10/100 Mbps (Fast Ethernet)<br>
+                    <strong>Notas:</strong> Barramento USB compartilhado limita throughput a ~300 Mbps máx
+                </p>
+
+                <h3>HDMI (Tamanho Completo)</h3>
+                <p>
+                    <strong>Localização:</strong> Borda inferior<br>
+                    <strong>Especificação:</strong> HDMI 1.4, até 1080p60<br>
+                    <strong>Uso:</strong> Saída de display primária
+                </p>
+
+                <h3>Áudio/Composto (Jack 3.5mm)</h3>
+                <p>
+                    <strong>Localização:</strong> Borda inferior, próximo ao HDMI<br>
+                    <strong>Especificação:</strong> Áudio estéreo analógico + vídeo composto<br>
+                    <strong>Notas:</strong> Requer cabo especial com conector TRRS
+                </p>
+
+                <h3>Slot para Cartão MicroSD</h3>
+                <p>
+                    <strong>Localização:</strong> Borda inferior (parte inferior)<br>
+                    <strong>Especificação:</strong> Suporta até 256GB+ (testado)<br>
+                    <strong>Notas:</strong> Empurre para inserir/ejetar. O cartão clica no lugar.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>📌 Cabeçalho GPIO (40 pinos)</h2>
+                <p>
+                    O cabeçalho General Purpose Input/Output (GPIO) permite interação com hardware.
+                    É isso que torna o Raspberry Pi perfeito para projetos de computação física.
+                </p>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pin</th>
+                                <th>Função</th>
+                                <th>Pin</th>
+                                <th>Função</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Energia 3.3V</td><td>2</td><td>Energia 5V</td></tr>
+                            <tr><td>3</td><td>GPIO 2 (I2C SDA)</td><td>4</td><td>Energia 5V</td></tr>
+                            <tr><td>5</td><td>GPIO 3 (I2C SCL)</td><td>6</td><td>Terra</td></tr>
+                            <tr><td>7</td><td>GPIO 4</td><td>8</td><td>GPIO 14 (UART TX)</td></tr>
+                            <tr><td>9</td><td>Terra</td><td>10</td><td>GPIO 15 (UART RX)</td></tr>
+                            <tr><td>11</td><td>GPIO 17</td><td>12</td><td>GPIO 18 (PWM)</td></tr>
+                            <tr><td>13</td><td>GPIO 27</td><td>14</td><td>Terra</td></tr>
+                            <tr><td>15</td><td>GPIO 22</td><td>16</td><td>GPIO 23</td></tr>
+                            <tr><td>17</td><td>Energia 3.3V</td><td>18</td><td>GPIO 24</td></tr>
+                            <tr><td>19</td><td>GPIO 10 (SPI MOSI)</td><td>20</td><td>Terra</td></tr>
+                            <tr><td>21</td><td>GPIO 9 (SPI MISO)</td><td>22</td><td>GPIO 25</td></tr>
+                            <tr><td>23</td><td>GPIO 11 (SPI SCLK)</td><td>24</td><td>GPIO 8 (SPI CE0)</td></tr>
+                            <tr><td>25</td><td>Terra</td><td>26</td><td>GPIO 7 (SPI CE1)</td></tr>
+                            <tr><td>27</td><td>GPIO 0 (I2C ID_SD)</td><td>28</td><td>GPIO 1 (I2C ID_SC)</td></tr>
+                            <tr><td>29</td><td>GPIO 5</td><td>30</td><td>Terra</td></tr>
+                            <tr><td>31</td><td>GPIO 6</td><td>32</td><td>GPIO 12</td></tr>
+                            <tr><td>33</td><td>GPIO 13</td><td>34</td><td>Terra</td></tr>
+                            <tr><td>35</td><td>GPIO 19</td><td>36</td><td>GPIO 16</td></tr>
+                            <tr><td>37</td><td>GPIO 26</td><td>38</td><td>GPIO 20</td></tr>
+                            <tr><td>39</td><td>Terra</td><td>40</td><td>GPIO 21</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box">
+                    <strong>⚠️ Segurança GPIO:</strong>
+                    <ul>
+                        <li>Pinos GPIO são <strong>lógica 3.3V</strong> - NÃO toleram 5V!</li>
+                        <li>Corrente máxima por pino: <strong>16mA</strong></li>
+                        <li>Corrente total de todos os pinos: <strong>máx 50mA</strong></li>
+                        <li>Sempre use resistores limitadores de corrente com LEDs</li>
+                        <li>Use level shifters para dispositivos 5V</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>💾 Opções de Armazenamento</h2>
+                
+                <h3>Cartão MicroSD (Primário)</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Especificações recomendadas:
+- Capacidade: 32GB mínimo, 64GB+ recomendado
+- Velocidade: Class 10 / UHS-I
+- Formato: FAT32 (para partição de boot)
+- Marcas: SanDisk, Samsung, Kingston</code></pre>
+                </div>
+
+                <h3>Boot USB (Alternativo)</h3>
+                <p>
+                    O Pi 3B pode inicializar de armazenamento USB com bootloader atualizado:
+                </p>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Habilitar boot USB
+echo program_usb_boot_mode=1 | sudo tee -a /boot/config.txt
+sudo reboot
+vcgencmd otp_dump | grep 17:  # Deve retornar 17:3020000a</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>🌡️ Energia e Térmica</h2>
+                
+                <h3>Consumo de Energia</h3>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Estado</th>
+                                <th>Corrente</th>
+                                <th>Potência</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ocioso (desktop)</td><td>~350mA</td><td>~1.75W</td></tr>
+                            <tr><td>Ocioso (CLI)</td><td>~250mA</td><td>~1.25W</td></tr>
+                            <tr><td>Carga (4 núcleos)</td><td>~600mA</td><td>~3W</td></tr>
+                            <tr><td>Máx (com periféricos)</td><td>~2.5A</td><td>~12.5W</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Considerações Térmicas</h3>
+                <p>
+                    O Pi 3B pode sofrer throttling em temperaturas acima de 85°C. Para desenvolvimento TUI/CLI:
+                </p>
+                <ul>
+                    <li><strong>Ocioso:</strong> Sem dissipador necessário para trabalho CLI básico</li>
+                    <li><strong>Carga sustentada:</strong> Dissipadores recomendados</li>
+                    <li><strong>Projetos em gabinete:</strong> Resfriamento ativo (ventoinha) aconselhado</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>🔧 Acessórios Recomendados</h2>
+                
+                <h3>Essenciais</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash">✓ Fonte de alimentação 5V/2.5A de qualidade (com MicroUSB)
+✓ Cartão MicroSD 32GB+ (Class 10)
+✓ Cabo HDMI
+✓ Teclado e mouse USB
+✓ Gabinete com ventilação</code></pre>
+                </div>
+
+                <h3>Para Projetos GPIO</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash">✓ Protoboard (400+ pontos)
+✓ Jumpers (M-M, M-F, F-F)
+✓ LEDs (cores variadas)
+✓ Resistores (220Ω, 330Ω, 1kΩ, 10kΩ)
+✓ Botões push-button
+✓ Placa de expansão GPIO</code></pre>
+                </div>
+
+                <h3>Opcionais mas Úteis</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash">✓ Adaptador WiFi USB (se não usar o integrado)
+✓ Adaptador Ethernet USB (para Gigabit via hub USB 3.0)
+✓ Dissipadores ou ventoinha
+✓ Hub USB (alimentado, para múltiplos periféricos)
+✓ Módulo RTC (para cronometragem sem rede)</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>📚 Próximos Passos</h2>
+                <p>Agora que você entende o hardware, continue com:</p>
+                <div class="action-buttons">
+                    <a href="os-installation.pt-br.html" class="btn btn-primary">Instalação do SO →</a>
+                    <a href="../index.pt-br.html" class="btn btn-secondary">← Voltar à Introdução</a>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Veja Também</h2>
+                <ul class="see-also">
+                    <li><a href="../index.pt-br.html">Introdução ao Raspberry Pi 3B</a></li>
+                    <li><a href="os-installation.pt-br.html">Guia de Instalação do SO</a></li>
+                    <li><a href="../beginner/python-basics.pt-br.html">Python Básico para GPIO</a></li>
+                    <li><a href="https://pinout.xyz/" target="_blank">Pinout.xyz - Pinout GPIO Interativo</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

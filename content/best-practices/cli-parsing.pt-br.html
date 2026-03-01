@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLI Argument Parsing - TUI/CLI Wiki</title>
+    <title>Análise de Argumentos CLI - TUI/CLI Wiki</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/terminal-theme.css">
 </head>
@@ -15,11 +15,11 @@
         </div>
         <nav class="sidebar-nav">
             <div class="nav-section">
-                <h3 class="nav-section-title">📚 Getting Started</h3>
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
                 <ul class="nav-list">
-                    <li><a href="../index.html" class="nav-link">Home</a></li>
-                    <li><a href="../tutorials/what-is-tui.pt-br.html" class="nav-link">What is TUI?</a></li>
-                    <li><a href="../tutorials/cli-basics.pt-br.html" class="nav-link">CLI Basics</a></li>
+                    <li><a href="../index.html" class="nav-link">Início</a></li>
+                    <li><a href="../tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
                 </ul>
             </div>
             <div class="nav-section">
@@ -33,34 +33,34 @@
                 </ul>
             </div>
             <div class="nav-section">
-                <h3 class="nav-section-title">✨ Best Practices</h3>
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
                 <ul class="nav-list">
-                    <li><a href="cli-parsing.pt-br.html" class="nav-link active">CLI Argument Parsing</a></li>
-                    <li><a href="tui-accessibility.pt-br.html" class="nav-link">TUI Accessibility</a></li>
-                    <li><a href="color-schemes.pt-br.html" class="nav-link">Color Schemes</a></li>
+                    <li><a href="cli-parsing.pt-br.html" class="nav-link active">Análise de Argumentos CLI</a></li>
+                    <li><a href="tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
                 </ul>
             </div>
             <div class="nav-section">
-                <h3 class="nav-section-title">📝 Snippets</h3>
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
                 <ul class="nav-list">
-                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Loading Spinners</a></li>
-                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Progress Bars</a></li>
-                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Data Tables</a></li>
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
                 </ul>
             </div>
         </nav>
-        <div class="sidebar-footer"><p class="footer-text">Built with ⚡ by Ragnarok Team</p></div>
+        <div class="sidebar-footer"><p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p></div>
     </aside>
 
     <main class="main-content">
         <header class="top-bar">
             <div class="breadcrumbs">
-                <span class="breadcrumb-item"><a href="../index.html">Home</a></span>
-                <span class="breadcrumb-item"><a href="#">Best Practices</a></span>
-                <span class="breadcrumb-item">CLI Parsing</span>
+                <span class="breadcrumb-item"><a href="../index.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="#">Melhores Práticas</a></span>
+                <span class="breadcrumb-item">Análise de Argumentos CLI</span>
             </div>
             <div class="search-container">
-                <input type="text" id="searchInput" class="search-input" placeholder="Search documentation...">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar documentação... (Pressione / para focar)">
                 <div class="search-results" id="searchResults"></div>
             </div>
             <div class="theme-toggle">
@@ -70,66 +70,73 @@
 
         <!-- Language Selector -->
         <div class="language-selector">
-            <a href="index-en.html" class="lang-link" title="English">🇺🇸 EN</a>
-            <a href="index.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+            <a href="cli-parsing.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="cli-parsing.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
         </div>
 
         <article class="content-wrapper">
             <header class="page-header">
-                <span class="badge badge-primary">Best Practice</span>
-                <h1 class="page-title">CLI Argument Parsing</h1>
-                <p class="page-subtitle">Best practices for parsing command line arguments</p>
+                <span class="badge badge-primary">Melhor Prática</span>
+                <h1 class="page-title">Análise de Argumentos CLI</h1>
+                <p class="page-subtitle">Melhores práticas para analisar argumentos de linha de comando</p>
             </header>
 
             <section class="content-section">
-                <h2>Overview</h2>
+                <h2>Visão Geral</h2>
                 <p>
-                    Proper argument parsing is crucial for creating user-friendly CLI tools. 
-                    This guide covers conventions and libraries across different languages.
+                    A análise adequada de argumentos é crucial para criar ferramentas CLI amigáveis.
+                    Este guia cobre convenções e bibliotecas em diferentes linguagens de programação.
                 </p>
             </section>
 
             <section class="content-section">
-                <h2>Convention Standards</h2>
+                <h2>Padrões de Convenção</h2>
                 <div class="info-box">
-                    <strong>GNU Convention:</strong>
+                    <strong>Convenção GNU:</strong>
                     <ul>
-                        <li>Short options: <code>-f</code> (single letter)</li>
-                        <li>Long options: <code>--file</code> (descriptive)</li>
-                        <li>Combine short options: <code>-la</code> = <code>-l -a</code></li>
-                        <li>Option with value: <code>-f file.txt</code> or <code>--file=file.txt</code></li>
-                        <li><code>--</code> marks end of options</li>
+                        <li>Opções curtas: <code>-f</code> (letra única)</li>
+                        <li>Opções longas: <code>--file</code> (descritivo)</li>
+                        <li>Combinar opções curtas: <code>-la</code> = <code>-l -a</code></li>
+                        <li>Opção com valor: <code>-f arquivo.txt</code> ou <code>--file=arquivo.txt</code></li>
+                        <li><code>--</code> marca o fim das opções</li>
                     </ul>
                 </div>
             </section>
 
             <section class="content-section">
                 <h2>Python - argparse</h2>
+                <p>A biblioteca padrão para análise de argumentos em Python:</p>
                 <div class="code-block">
+                    <button class="copy-btn" aria-label="Copiar código">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
                     <pre><code class="language-python">import argparse
 
 parser = argparse.ArgumentParser(
-    description="Process some files."
+    description="Processar alguns arquivos."
 )
 parser.add_argument(
     "files",
     nargs="+",
-    help="Files to process"
+    help="Arquivos para processar"
 )
 parser.add_argument(
     "-v", "--verbose",
     action="store_true",
-    help="Enable verbose output"
+    help="Habilitar saída detalhada"
 )
 parser.add_argument(
     "-o", "--output",
     default="output.txt",
-    help="Output file (default: output.txt)"
+    help="Arquivo de saída (padrão: output.txt)"
 )
 parser.add_argument(
     "-f", "--force",
     action="store_true",
-    help="Overwrite existing files"
+    help="Sobrescrever arquivos existentes"
 )
 
 args = parser.parse_args()</code></pre>
@@ -137,8 +144,15 @@ args = parser.parse_args()</code></pre>
             </section>
 
             <section class="content-section">
-                <h2>Python - Click (Modern)</h2>
+                <h2>Python - Click (Moderno)</h2>
+                <p>Click é uma biblioteca moderna e elegante para criação de CLIs:</p>
                 <div class="code-block">
+                    <button class="copy-btn" aria-label="Copiar código">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
                     <pre><code class="language-python">import click
 
 @click.command()
@@ -147,10 +161,10 @@ args = parser.parse_args()</code></pre>
 @click.option("-o", "--output", default="output.txt")
 @click.option("-f", "--force", is_flag=True)
 def process(files, verbose, output, force):
-    """Process some files."""
+    """Processar alguns arquivos."""
     if verbose:
-        click.echo(f"Processing {files}")
-    click.echo(f"Output: {output}")
+        click.echo(f"Processando {files}")
+    click.echo(f"Saída: {output}")
 
 if __name__ == "__main__":
     process()</code></pre>
@@ -159,26 +173,33 @@ if __name__ == "__main__":
 
             <section class="content-section">
                 <h2>Rust - clap</h2>
+                <p>Clap é a biblioteca mais popular para parsing de argumentos em Rust:</p>
                 <div class="code-block">
+                    <button class="copy-btn" aria-label="Copiar código">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
                     <pre><code class="language-rust">use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
 #[command(name = "myapp")]
-#[command(about = "Process some files", long_about = None)]
+#[command(about = "Processar alguns arquivos", long_about = None)]
 struct Args {
-    /// Files to process
+    /// Arquivos para processar
     #[arg(required = true)]
-    files: Vec<String>,
+    files: Vec&lt;String&gt;,
 
-    /// Enable verbose output
+    /// Habilitar saída detalhada
     #[arg(short, long)]
     verbose: bool,
 
-    /// Output file
+    /// Arquivo de saída
     #[arg(short, long, default_value = "output.txt")]
     output: String,
 
-    /// Overwrite existing files
+    /// Sobrescrever arquivos existentes
     #[arg(short, long)]
     force: bool,
 }
@@ -191,7 +212,14 @@ fn main() {
 
             <section class="content-section">
                 <h2>Go - flag</h2>
+                <p>A biblioteca padrão flag do Go para parsing de argumentos:</p>
                 <div class="code-block">
+                    <button class="copy-btn" aria-label="Copiar código">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
                     <pre><code class="language-go">package main
 
 import (
@@ -200,37 +228,44 @@ import (
 )
 
 func main() {
-    verbose := flag.Bool("v", false, "verbose output")
-    output := flag.String("o", "output.txt", "output file")
-    force := flag.Bool("force", false, "overwrite files")
-    
+    verbose := flag.Bool("v", false, "saída detalhada")
+    output := flag.String("o", "output.txt", "arquivo de saída")
+    force := flag.Bool("force", false, "sobrescrever arquivos")
+
     flag.Parse()
     files := flag.Args()
-    
-    fmt.Printf("Files: %v\n", files)
-    fmt.Printf("Verbose: %v\n", *verbose)
-    fmt.Printf("Output: %s\n", *output)
+
+    fmt.Printf("Arquivos: %v\n", files)
+    fmt.Printf("Detalhado: %v\n", *verbose)
+    fmt.Printf("Saída: %s\n", *output)
 }</code></pre>
                 </div>
             </section>
 
             <section class="content-section">
                 <h2>Node.js - Commander</h2>
+                <p>Commander é a biblioteca mais popular para CLIs em Node.js:</p>
                 <div class="code-block">
+                    <button class="copy-btn" aria-label="Copiar código">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
                     <pre><code class="language-js">import { Command } from 'commander';
 const program = new Command();
 
 program
     .name('myapp')
-    .description('Process some files')
-    .argument('&lt;files...>', 'files to process')
-    .option('-v, --verbose', 'verbose output')
-    .option('-o, --output &lt;file>', 'output file', 'output.txt')
-    .option('-f, --force', 'overwrite existing files')
+    .description('Processar alguns arquivos')
+    .argument('&lt;files...>', 'arquivos para processar')
+    .option('-v, --verbose', 'saída detalhada')
+    .option('-o, --output &lt;arquivo>', 'arquivo de saída', 'output.txt')
+    .option('-f, --force', 'sobrescrever arquivos existentes')
     .action((files, options) => {
-        console.log('Files:', files);
-        console.log('Verbose:', options.verbose);
-        console.log('Output:', options.output);
+        console.log('Arquivos:', files);
+        console.log('Detalhado:', options.verbose);
+        console.log('Saída:', options.output);
     });
 
 program.parse();</code></pre>
@@ -238,39 +273,39 @@ program.parse();</code></pre>
             </section>
 
             <section class="content-section">
-                <h2>Best Practices</h2>
+                <h2>Melhores Práticas</h2>
                 <div class="feature-grid">
                     <div class="info-card">
-                        <h3>📝 Descriptive Help</h3>
-                        <p>Every option should have clear help text. Users shouldn't need external docs.</p>
+                        <h3>📝 Ajuda Descritiva</h3>
+                        <p>Cada opção deve ter texto de ajuda claro. Usuários não deveriam precisar de documentação externa.</p>
                     </div>
                     <div class="info-card">
-                        <h3>⚡ Sensible Defaults</h3>
-                        <p>Provide reasonable defaults so users don't need to specify every option.</p>
+                        <h3>⚡ Padrões Sensatos</h3>
+                        <p>Forneça padrões razoáveis para que usuários não precisem especificar cada opção.</p>
                     </div>
                     <div class="info-card">
-                        <h3>❌ Clear Errors</h3>
-                        <p>When parsing fails, explain what went wrong and how to fix it.</p>
+                        <h3>❌ Erros Claros</h3>
+                        <p>Quando a análise falhar, explique o que deu errado e como corrigir.</p>
                     </div>
                     <div class="info-card">
-                        <h3>🔄 Backward Compatible</h3>
-                        <p>Don't break existing scripts. Deprecate options gradually.</p>
+                        <h3>🔄 Retrocompatível</h3>
+                        <p>Não quebre scripts existentes. Descontinue opções gradualmente.</p>
                     </div>
                 </div>
             </section>
 
             <section class="content-section">
-                <h2>See Also</h2>
+                <h2>Veja Também</h2>
                 <ul class="see-also">
-                    <li><a href="../tutorials/cli-basics.pt-br.html">CLI Basics</a></li>
-                    <li><a href="tui-accessibility.pt-br.html">TUI Accessibility</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html">Fundamentos de CLI</a></li>
+                    <li><a href="tui-accessibility.pt-br.html">Acessibilidade em TUI</a></li>
                     <li><a href="../frameworks/python-textual.pt-br.html">Python Textual</a></li>
                 </ul>
             </section>
         </article>
 
         <footer class="content-footer">
-            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
         </footer>
     </main>
 

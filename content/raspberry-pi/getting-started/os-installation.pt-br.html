@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi OS Installation - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo"><span class="logo-icon">⚡</span><span class="logo-text">TUI/CLI Wiki</span></h1>
+            <button class="sidebar-toggle" id="sidebarToggle"><span class="hamburger"></span></button>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Getting Started</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../tutorials/what-is-tui.html" class="nav-link">What is TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.html" class="nav-link">CLI Basics</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">🥧 Raspberry Pi</h3>
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Raspberry Pi 3B</a></li>
+                    <li><a href="hardware-overview.html" class="nav-link">Hardware Overview</a></li>
+                    <li><a href="os-installation.html" class="nav-link active">OS Installation</a></li>
+                    <li><a href="first-boot.html" class="nav-link">First Boot</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="sidebar-footer"><p class="footer-text">Built with ⚡ by Ragnarok Team</p></div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.html">Home</a></span>
+                <span class="breadcrumb-item"><a href="../index.html">Raspberry Pi</a></span>
+                <span class="breadcrumb-item">OS Installation</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search documentation...">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn"><span class="theme-icon">🌙</span></button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="os-installation.html" class="lang-link active" title="English">🇺🇸 EN</a>
+            <a href="os-installation.pt-br.html" class="lang-link" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Raspberry Pi</span>
+                <span class="badge badge-success">Getting Started</span>
+                <h1 class="page-title">Raspberry Pi OS Installation</h1>
+                <p class="page-subtitle">Step-by-step guide to installing the operating system</p>
+            </header>
+
+            <section class="content-section">
+                <h2>📋 What You'll Need</h2>
+                <div class="info-box">
+                    <strong>Requirements:</strong>
+                    <ul>
+                        <li>Raspberry Pi 3B board</li>
+                        <li>MicroSD card (16GB minimum, 32GB+ recommended)</li>
+                        <li>Computer with SD card reader (or USB adapter)</li>
+                        <li>Internet connection</li>
+                        <li>5-10 minutes of time</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>📥 Method 1: Raspberry Pi Imager (Recommended)</h2>
+                
+                <h3>Step 1: Download Raspberry Pi Imager</h3>
+                <p>Available for Windows, macOS, and Linux:</p>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Download from:
+# https://www.raspberrypi.com/software/</code></pre>
+                </div>
+
+                <h3>Step 2: Choose OS</h3>
+                <p>For TUI/CLI development, we recommend:</p>
+                <ul>
+                    <li><strong>Raspberry Pi OS Lite (32-bit)</strong> - No desktop, CLI only (recommended)</li>
+                    <li><strong>Raspberry Pi OS (32-bit)</strong> - With desktop environment</li>
+                </ul>
+
+                <h3>Step 3: Choose Storage</h3>
+                <p>Select your MicroSD card from the list.</p>
+
+                <h3>Step 4: Configure (Optional)</h3>
+                <p>Click the gear icon to pre-configure:</p>
+                <ul>
+                    <li>Hostname</li>
+                    <li>SSH access</li>
+                    <li>WiFi credentials</li>
+                    <li>User account</li>
+                </ul>
+
+                <h3>Step 5: Write</h3>
+                <p>Click "Write" and wait for completion (~5-10 minutes).</p>
+            </section>
+
+            <section class="content-section">
+                <h2>📥 Method 2: Manual Installation</h2>
+                
+                <h3>Step 1: Download OS Image</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Download from:
+# https://www.raspberrypi.com/software/operating-systems/
+
+# Or use wget (Linux):
+wget https://downloads.raspberrypi.com/raspios_lite_armhf_latest.zip</code></pre>
+                </div>
+
+                <h3>Step 2: Extract Image</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash">unzip raspios_lite_armhf_latest.zip
+# Results in: *.img file</code></pre>
+                </div>
+
+                <h3>Step 3: Identify SD Card</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Linux:
+lsblk
+
+# macOS:
+diskutil list
+
+# Windows:
+diskpart
+list disk</code></pre>
+                </div>
+
+                <h3>Step 4: Write Image</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Linux/macOS (replace /dev/sdX with your device):
+sudo dd if=raspios_lite_armhf.img of=/dev/sdX bs=4M status=progress
+sync
+
+# Windows: Use Rufus or Win32 Disk Imager</code></pre>
+                </div>
+                <div class="info-box">
+                    <strong>⚠️ Warning:</strong> Double-check the device name! Writing to the wrong device will erase data.
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>⚙️ First-Boot Configuration</h2>
+                <p>Before first boot, you can configure settings:</p>
+                
+                <h3>Enable SSH</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Create empty 'ssh' file in boot partition:
+touch /Volumes/boot/ssh
+
+# Or on Linux:
+touch /media/boot/ssh</code></pre>
+                </div>
+
+                <h3>Configure WiFi</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Create wpa_supplicant.conf in boot partition:
+country=BR
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="YOUR_WIFI_NAME"
+    psk="YOUR_PASSWORD"
+    key_mgmt=WPA-PSK
+}</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>✅ Verify Installation</h2>
+                <p>After writing:</p>
+                <ol class="numbered-list">
+                    <li>Safely eject the MicroSD card</li>
+                    <li>Insert into Raspberry Pi</li>
+                    <li>Connect power</li>
+                    <li>Check for activity LED</li>
+                    <li>Wait 2-3 minutes for first boot</li>
+                </ol>
+            </section>
+
+            <section class="content-section">
+                <h2>📚 Next Steps</h2>
+                <p>Continue with first boot configuration:</p>
+                <div class="action-buttons">
+                    <a href="first-boot.html" class="btn btn-primary">First Boot Configuration →</a>
+                    <a href="hardware-overview.html" class="btn btn-secondary">← Back to Hardware</a>
+                </div>
+            </section>
+        </article>
+
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>
