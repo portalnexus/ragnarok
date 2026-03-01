@@ -136,6 +136,130 @@ const searchIndex = [
         category: 'Snippet',
         description: 'Creating and styling data tables in terminal interfaces.',
         keywords: ['tables', 'data', 'grid', 'rows', 'columns', 'display']
+    },
+    /* ===========================
+       BEGINNER EXAMPLES (EN)
+       =========================== */
+    {
+        title: 'Python Basics for TUI',
+        path: 'content/beginner/python-basics.html',
+        category: 'Beginner',
+        description: 'Learn Python fundamentals for building terminal applications - variables, loops, functions.',
+        keywords: ['python', 'basics', 'beginner', 'variables', 'loops', 'functions', 'tutorial']
+    },
+    {
+        title: 'Rust Basics for TUI',
+        path: 'content/beginner/rust-basics.html',
+        category: 'Beginner',
+        description: 'Learn Rust fundamentals for building terminal applications.',
+        keywords: ['rust', 'basics', 'beginner', 'variables', 'loops', 'functions', 'tutorial']
+    },
+    {
+        title: 'Go Basics for TUI',
+        path: 'content/beginner/go-basics.html',
+        category: 'Beginner',
+        description: 'Learn Go fundamentals for building terminal applications.',
+        keywords: ['go', 'golang', 'basics', 'beginner', 'variables', 'loops', 'functions', 'tutorial']
+    },
+    {
+        title: 'Node.js Basics for TUI',
+        path: 'content/beginner/nodejs-basics.html',
+        category: 'Beginner',
+        description: 'Learn Node.js fundamentals for building terminal applications.',
+        keywords: ['nodejs', 'node', 'javascript', 'basics', 'beginner', 'tutorial']
+    },
+    /* ===========================
+       BEGINNER EXAMPLES (PT-BR)
+       =========================== */
+    {
+        title: 'Python Básico para TUI',
+        path: 'content/beginner/python-basics.pt-br.html',
+        category: 'Beginner',
+        description: 'Aprenda fundamentos de Python para construir aplicações de terminal - variáveis, loops, funções.',
+        keywords: ['python', 'básico', 'iniciante', 'variáveis', 'laços', 'funções', 'tutorial']
+    },
+    {
+        title: 'Rust Básico para TUI',
+        path: 'content/beginner/rust-basics.pt-br.html',
+        category: 'Beginner',
+        description: 'Aprenda fundamentos de Rust para construir aplicações de terminal.',
+        keywords: ['rust', 'básico', 'iniciante', 'variáveis', 'laços', 'funções', 'tutorial']
+    },
+    {
+        title: 'Go Básico para TUI',
+        path: 'content/beginner/go-basics.pt-br.html',
+        category: 'Beginner',
+        description: 'Aprenda fundamentos de Go para construir aplicações de terminal.',
+        keywords: ['go', 'golang', 'básico', 'iniciante', 'variáveis', 'laços', 'funções', 'tutorial']
+    },
+    {
+        title: 'Node.js Básico para TUI',
+        path: 'content/beginner/nodejs-basics.pt-br.html',
+        category: 'Beginner',
+        description: 'Aprenda fundamentos de Node.js para construir aplicações de terminal.',
+        keywords: ['nodejs', 'node', 'javascript', 'básico', 'iniciante', 'tutorial']
+    },
+    /* ===========================
+       RASPBERRY PI (EN)
+       =========================== */
+    {
+        title: 'Introduction to Raspberry Pi 3B',
+        path: 'content/raspberry-pi/index.html',
+        category: 'Raspberry Pi',
+        description: 'Your gateway to learning TUI/CLI development on an affordable single-board computer.',
+        keywords: ['raspberry', 'pi', 'pi3b', 'single-board', 'computer', 'hardware', 'introduction']
+    },
+    {
+        title: 'Raspberry Pi 3B Hardware Overview',
+        path: 'content/raspberry-pi/getting-started/hardware-overview.html',
+        category: 'Raspberry Pi',
+        description: 'Complete guide to Raspberry Pi 3B hardware components and layout.',
+        keywords: ['raspberry', 'pi', 'hardware', 'gpio', 'pins', 'ports', 'layout']
+    },
+    {
+        title: 'Raspberry Pi OS Installation',
+        path: 'content/raspberry-pi/getting-started/os-installation.html',
+        category: 'Raspberry Pi',
+        description: 'Step-by-step guide to installing Raspberry Pi OS on your SD card.',
+        keywords: ['raspberry', 'pi', 'os', 'installation', 'sd', 'card', 'imager']
+    },
+    {
+        title: 'Raspberry Pi First Boot',
+        path: 'content/raspberry-pi/getting-started/first-boot.html',
+        category: 'Raspberry Pi',
+        description: 'Configuration steps for your first Raspberry Pi boot.',
+        keywords: ['raspberry', 'pi', 'boot', 'configuration', 'setup', 'first', 'time']
+    },
+    /* ===========================
+       RASPBERRY PI (PT-BR)
+       =========================== */
+    {
+        title: 'Introdução ao Raspberry Pi 3B',
+        path: 'content/raspberry-pi/index.pt-br.html',
+        category: 'Raspberry Pi',
+        description: 'Seu ponto de partida para aprender desenvolvimento TUI/CLI em um computador de placa única acessível.',
+        keywords: ['raspberry', 'pi', 'pi3b', 'computador', 'placa', 'única', 'hardware', 'introdução']
+    },
+    {
+        title: 'Visão Geral do Hardware Raspberry Pi 3B',
+        path: 'content/raspberry-pi/getting-started/hardware-overview.pt-br.html',
+        category: 'Raspberry Pi',
+        description: 'Guia completo dos componentes de hardware e layout do Raspberry Pi 3B.',
+        keywords: ['raspberry', 'pi', 'hardware', 'gpio', 'pinos', 'portas', 'layout']
+    },
+    {
+        title: 'Instalação do Raspberry Pi OS',
+        path: 'content/raspberry-pi/getting-started/os-installation.pt-br.html',
+        category: 'Raspberry Pi',
+        description: 'Guia passo a passo para instalar o Raspberry Pi OS no seu cartão SD.',
+        keywords: ['raspberry', 'pi', 'os', 'instalação', 'sd', 'cartão', 'imager']
+    },
+    {
+        title: 'Primeira Inicialização do Raspberry Pi',
+        path: 'content/raspberry-pi/getting-started/first-boot.pt-br.html',
+        category: 'Raspberry Pi',
+        description: 'Passos de configuração para a primeira inicialização do seu Raspberry Pi.',
+        keywords: ['raspberry', 'pi', 'inicialização', 'boot', 'configuração', 'setup', 'primeira']
     }
 ];
 
@@ -147,18 +271,18 @@ const Search = {
     resultsContainer: null,
     minQueryLength: 2,
     maxResults: 10,
-    
+
     init() {
         this.input = document.getElementById('searchInput');
         this.resultsContainer = document.getElementById('searchResults');
-        
+
         if (this.input) {
             this.input.addEventListener('input', (e) => this.handleInput(e));
             this.input.addEventListener('focus', () => this.handleFocus());
             this.input.addEventListener('blur', () => setTimeout(() => this.hideResults(), 200));
             this.input.addEventListener('keydown', (e) => this.handleKeydown(e));
         }
-        
+
         // Also initialize mobile search if present
         const mobileInput = document.getElementById('searchModalInput');
         if (mobileInput) {

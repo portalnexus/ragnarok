@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao Raspberry Pi 3B - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/terminal-theme.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">TUI/CLI Wiki</span>
+            </h1>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Alternar menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <ul class="nav-list">
+                    <li><a href="../../index.pt-br.html" class="nav-link">Início</a></li>
+                    <li><a href="../tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">👶 Exemplos para Iniciantes</h3>
+                <ul class="nav-list">
+                    <li><a href="../beginner/python-basics.pt-br.html" class="nav-link">Python Básico</a></li>
+                    <li><a href="../beginner/rust-basics.pt-br.html" class="nav-link">Rust Básico</a></li>
+                    <li><a href="../beginner/go-basics.pt-br.html" class="nav-link">Go Básico</a></li>
+                    <li><a href="../beginner/nodejs-basics.pt-br.html" class="nav-link">Node.js Básico</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">🥧 Raspberry Pi</h3>
+                <ul class="nav-list">
+                    <li><a href="index.pt-br.html" class="nav-link active">Raspberry Pi 3B</a></li>
+                    <li><a href="getting-started/hardware-overview.pt-br.html" class="nav-link">Visão Geral do Hardware</a></li>
+                    <li><a href="getting-started/os-installation.pt-br.html" class="nav-link">Instalação do SO</a></li>
+                    <li><a href="getting-started/first-boot.pt-br.html" class="nav-link">Primeira Inicialização</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
+                    <li><a href="../best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
+                    <li><a href="../best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
+                    <li><a href="../snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
+                    <li><a href="../snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Bar with Search -->
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../../index.pt-br.html">Início</a></span>
+                <span class="breadcrumb-item"><a href="#">Raspberry Pi</a></span>
+                <span class="breadcrumb-item">Introdução</span>
+            </div>
+            <div class="search-container">
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Buscar documentação... (Pressione / para focar)"
+                    aria-label="Buscar"
+                >
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn" aria-label="Alternar tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="index.html" class="lang-link" title="English">🇺🇸 EN</a>
+            <a href="index.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <!-- Page Content -->
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Raspberry Pi</span>
+                <span class="badge badge-success">Iniciante</span>
+                <h1 class="page-title">Introdução ao Raspberry Pi 3B</h1>
+                <p class="page-subtitle">Seu ponto de partida para aprender desenvolvimento TUI/CLI em um computador de placa única acessível</p>
+            </header>
+
+            <section class="content-section">
+                <h2>🎯 O que é Raspberry Pi?</h2>
+                <p>
+                    O <strong>Raspberry Pi</strong> é um computador de placa única do tamanho de um cartão de crédito,
+                    projetado para promover o ensino de ciência da computação e programação. O <strong>Raspberry Pi 3B</strong>,
+                    lançado em 2016, permanece como uma excelente plataforma para aprender desenvolvimento TUI/CLI devido a:
+                </p>
+                <ul>
+                    <li><strong>Acessibilidade:</strong> Cerca de $35 USD (aproximadamente R$ 180-250)</li>
+                    <li><strong>Baixo consumo:</strong> Perfeito para operação 24/7</li>
+                    <li><strong>Baseado em Linux:</strong> Acesso completo ao terminal</li>
+                    <li><strong>Pinos GPIO:</strong> Capacidades de interação com hardware</li>
+                    <li><strong>Comunidade ativa:</strong> Suporte extensivo e recursos abundantes</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>📋 Especificações do Raspberry Pi 3B</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Componente</th>
+                                <th>Especificação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>CPU</strong></td>
+                                <td>Broadcom BCM2837, Quad-core Cortex-A53 @ 1.2GHz</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GPU</strong></td>
+                                <td>Broadcom VideoCore IV @ 400MHz</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RAM</strong></td>
+                                <td>1GB LPDDR2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Armazenamento</strong></td>
+                                <td>Slot para cartão MicroSD (até 256GB+)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>USB</strong></td>
+                                <td>4x portas USB 2.0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rede</strong></td>
+                                <td>Ethernet 10/100, Wi-Fi 802.11n, Bluetooth 4.1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>GPIO</strong></td>
+                                <td>Cabeçalho de 40 pinos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vídeo</strong></td>
+                                <td>HDMI, Composto (via conector 3.5mm)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Energia</strong></td>
+                                <td>5V/2.5A via MicroUSB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>💡 Por que Usar Pi 3B para Aprender TUI/CLI?</h2>
+                <div class="feature-grid">
+                    <div class="info-card">
+                        <h3>🖥️ Experiência Linux Real</h3>
+                        <p>Sistema Linux completo baseado em Debian com acesso total ao terminal. Perfeito para aprender comandos Unix e shell scripting.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔌 Interação com Hardware</h3>
+                        <p>40 pinos GPIO permitem controlar LEDs, ler sensores e construir projetos físicos controlados por suas aplicações TUI.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>💰 Econômico</h3>
+                        <p>Por ~$35, é acessível para estudantes e hobbistas. Sem risco de danificar uma workstation cara.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔋 Baixo Consumo</h3>
+                        <p>Consome apenas 2.5-7W, tornando-o perfeito para projetos sempre ligados como dashboards, monitores e automação residencial.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📚 Documentação Extensiva</h3>
+                        <p>Milhões de usuários, inúmeros tutoriais e uma comunidade solidária tornam a resolução de problemas mais fácil.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🚀 Projetos Portáteis</h3>
+                        <p>Tamanho pequeno permite incorporar projetos em gabinetes, criando dispositivos independentes com interfaces TUI.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>🛒 O Que Você Vai Precisar</h2>
+                <h3>Itens Essenciais</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash">✓ Placa Raspberry Pi 3B (~$35 / R$ 180-250)
+✓ Cartão MicroSD (16GB mínimo, 32GB+ recomendado) (~$10-20 / R$ 50-100)
+✓ Fonte de alimentação: 5V/2.5A com conector MicroUSB (~$10 / R$ 50-80)
+✓ Cabo HDMI e monitor/TV (~$10-50)
+✓ Teclado e mouse USB (~$20-40 / R$ 100-200)
+✓ Leitor de cartão SD (se seu computador não tiver um) (~$10 / R$ 50)</code></pre>
+                </div>
+
+                <h3>Acessórios Recomendados</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash">✓ Gabinete para proteção (~$10-20 / R$ 50-100)
+✓ Dissipadores de calor ou ventilador para resfriamento (~$5-10 / R$ 25-50)
+✓ Cabo Ethernet para rede cabeada (~$5 / R$ 25-40)
+✓ Kit iniciante GPIO (LEDs, botões, resistores, jumpers) (~$15-25 / R$ 75-125)
+✓ Protoboard para prototipar circuitos (~$5-10 / R$ 25-50)</code></pre>
+                </div>
+
+                <div class="info-box">
+                    <strong>💡 Dica:</strong> Muitos varejistas oferecem kits iniciantes completos que incluem a maioria destes itens com preço descontado. Procure por "Kit Iniciante Raspberry Pi 3B".
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>📊 Pi 3B vs Outros Modelos</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Recurso</th>
+                                <th>Pi 3B</th>
+                                <th>Pi 4B</th>
+                                <th>Pi 5</th>
+                                <th>Pi Zero 2W</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>CPU</strong></td>
+                                <td>Quad 1.2GHz</td>
+                                <td>Quad 1.5GHz</td>
+                                <td>Quad 2.4GHz</td>
+                                <td>Quad 1.2GHz</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RAM</strong></td>
+                                <td>1GB</td>
+                                <td>2/4/8GB</td>
+                                <td>4/8GB</td>
+                                <td>512MB</td>
+                            </tr>
+                            <tr>
+                                <td><strong>USB</strong></td>
+                                <td>4x USB 2.0</td>
+                                <td>2x USB 3.0, 2x USB 2.0</td>
+                                <td>2x USB 3.0, 2x USB 2.0</td>
+                                <td>1x Micro USB</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ethernet</strong></td>
+                                <td>10/100</td>
+                                <td>Gigabit</td>
+                                <td>Gigabit</td>
+                                <td>Nenhuma (apenas Wi-Fi)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Preço</strong></td>
+                                <td>$35</td>
+                                <td>$35-75</td>
+                                <td>$60-80</td>
+                                <td>$15</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ideal Para</strong></td>
+                                <td>Aprender TUI/CLI</td>
+                                <td>Substituto de desktop</td>
+                                <td>Alta performance</td>
+                                <td>Projetos compactos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    <strong>Por que Pi 3B?</strong> Para desenvolvimento TUI/CLI, o Pi 3B oferece o equilíbrio perfeito
+                    entre desempenho e preço. Aplicações de terminal não precisam do poder extra do Pi 4/5, e as
+                    portas de tamanho completo facilitam o trabalho comparado à série Zero.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <h2>🗺️ Caminho de Aprendizado</h2>
+                <p>Esta seção de Raspberry Pi guiará você através de:</p>
+                <ol class="numbered-list">
+                    <li>
+                        <strong>Começando</strong>
+                        <ul>
+                            <li>Visão geral do hardware e configuração</li>
+                            <li>Instalando Raspberry Pi OS</li>
+                            <li>Configuração da primeira inicialização</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Fundamentos do Terminal</strong>
+                        <ul>
+                            <li>Acessando o terminal</li>
+                            <li>Comandos essenciais do Linux</li>
+                            <li>Gerenciamento de arquivos</li>
+                            <li>Acesso remoto SSH</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Configuração de Programação</strong>
+                        <ul>
+                            <li>Instalação e configuração do Python</li>
+                            <li>Ferramentas Rust</li>
+                            <li>Instalação do Go</li>
+                            <li>Ambiente Node.js</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>GPIO com TUI</strong>
+                        <ul>
+                            <li>Entendendo pinos GPIO</li>
+                            <li>Controlando LEDs</li>
+                            <li>Lendo entradas de botões</li>
+                            <li>Exibindo dados de sensoores</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Projetos</strong>
+                        <ul>
+                            <li>Dashboard de monitoramento do sistema</li>
+                            <li>Exibição de estação meteorológica</li>
+                            <li>Controlador de casa inteligente</li>
+                            <li>Scanner de rede</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="content-section">
+                <h2>📚 Próximos Passos</h2>
+                <p>Pronto para começar? Continue com:</p>
+                <div class="action-buttons">
+                    <a href="getting-started/hardware-overview.pt-br.html" class="btn btn-primary">Visão Geral do Hardware →</a>
+                    <a href="getting-started/os-installation.pt-br.html" class="btn btn-secondary">Instalação do SO →</a>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Veja Também</h2>
+                <ul class="see-also">
+                    <li><a href="../beginner/python-basics.pt-br.html">Python Básico para Iniciantes</a></li>
+                    <li><a href="../tutorials/cli-basics.pt-br.html">Fundamentos de CLI</a></li>
+                    <li><a href="../tutorials/what-is-tui.pt-br.html">O que é TUI?</a></li>
+                    <li><a href="https://www.raspberrypi.com/documentation/" target="_blank">Documentação Oficial do Raspberry Pi</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <!-- Footer -->
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
+            <p>Hospedado no GitHub Pages | <a href="#">Ver no GitHub</a></p>
+        </footer>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/search.js"></script>
+</body>
+</html>

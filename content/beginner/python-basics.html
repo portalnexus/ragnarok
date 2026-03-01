@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Basics for TUI - Beginner Guide - TUI/CLI Wiki</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/terminal-theme.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1 class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">TUI/CLI Wiki</span>
+            </h1>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <h3 class="nav-section-title">📚 Getting Started</h3>
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../tutorials/what-is-tui.html" class="nav-link">What is TUI?</a></li>
+                    <li><a href="../tutorials/cli-basics.html" class="nav-link">CLI Basics</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">👶 Beginner Examples</h3>
+                <ul class="nav-list">
+                    <li><a href="python-basics.html" class="nav-link active">Python Basics</a></li>
+                    <li><a href="rust-basics.html" class="nav-link">Rust Basics</a></li>
+                    <li><a href="go-basics.html" class="nav-link">Go Basics</a></li>
+                    <li><a href="nodejs-basics.html" class="nav-link">Node.js Basics</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">🔧 Frameworks</h3>
+                <ul class="nav-list">
+                    <li><a href="../frameworks/python-textual.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="../frameworks/python-rich.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="../frameworks/rust-ratatui.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="../frameworks/go-bubbletea.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="../frameworks/nodejs-ink.html" class="nav-link">Node.js Ink</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">✨ Best Practices</h3>
+                <ul class="nav-list">
+                    <li><a href="../best-practices/cli-parsing.html" class="nav-link">CLI Argument Parsing</a></li>
+                    <li><a href="../best-practices/tui-accessibility.html" class="nav-link">TUI Accessibility</a></li>
+                    <li><a href="../best-practices/color-schemes.html" class="nav-link">Color Schemes</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3 class="nav-section-title">📝 Snippets</h3>
+                <ul class="nav-list">
+                    <li><a href="../snippets/loading-spinners.html" class="nav-link">Loading Spinners</a></li>
+                    <li><a href="../snippets/progress-bars.html" class="nav-link">Progress Bars</a></li>
+                    <li><a href="../snippets/tables.html" class="nav-link">Data Tables</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="footer-text">Built with ⚡ by Ragnarok Team</p>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Bar with Search -->
+        <header class="top-bar">
+            <div class="breadcrumbs">
+                <span class="breadcrumb-item"><a href="../index.html">Home</a></span>
+                <span class="breadcrumb-item"><a href="#">Beginner</a></span>
+                <span class="breadcrumb-item">Python Basics</span>
+            </div>
+            <div class="search-container">
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search documentation... (Press / to focus)"
+                    aria-label="Search"
+                >
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <a href="python-basics.html" class="lang-link active" title="English">🇺🇸 EN</a>
+            <a href="python-basics.pt-br.html" class="lang-link" title="Português">🇧🇷 PT-BR</a>
+        </div>
+
+        <!-- Page Content -->
+        <article class="content-wrapper">
+            <header class="page-header">
+                <span class="badge badge-primary">Beginner</span>
+                <span class="badge badge-success">Python</span>
+                <h1 class="page-title">Python Basics for TUI</h1>
+                <p class="page-subtitle">Learn Python fundamentals for building terminal applications</p>
+            </header>
+
+            <section class="content-section">
+                <h2>📋 Prerequisites</h2>
+                <p>Before diving into TUI development, you should understand these Python basics:</p>
+                <ul>
+                    <li>Variables and data types</li>
+                    <li>Functions and parameters</li>
+                    <li>Lists and dictionaries</li>
+                    <li>Loops (for/while)</li>
+                    <li>Conditional statements (if/elif/else)</li>
+                    <li>Import statements</li>
+                </ul>
+            </section>
+
+            <section class="content-section">
+                <h2>🐍 Hello World</h2>
+                <p>Your first Python program:</p>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python">print("Hello, World!")</code></pre>
+                </div>
+                <p><strong>Run it:</strong></p>
+                <div class="code-block">
+                    <pre><code class="language-bash">python hello.py</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>📦 Variables and Data Types</h2>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python"># Strings (text)
+name = "Alice"
+message = 'Hello, ' + name
+
+# Integers (whole numbers)
+age = 25
+count = 0
+
+# Floats (decimal numbers)
+price = 19.99
+temperature = -5.5
+
+# Booleans (True/False)
+is_active = True
+has_permission = False
+
+# Print values
+print(name)        # Alice
+print(age)         # 25
+print(is_active)   # True</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>📝 Lists (Arrays)</h2>
+                <p>Lists store multiple items in a single variable:</p>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python"># Create a list
+fruits = ["apple", "banana", "cherry"]
+
+# Access items (0-indexed)
+print(fruits[0])  # apple
+print(fruits[1])  # banana
+
+# Add items
+fruits.append("orange")
+
+# Remove items
+fruits.remove("banana")
+
+# Loop through list
+for fruit in fruits:
+    print(fruit)
+
+# List length
+print(len(fruits))  # 3</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>🔑 Dictionaries (Key-Value Pairs)</h2>
+                <p>Dictionaries store data as key-value pairs:</p>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python"># Create a dictionary
+person = {
+    "name": "Alice",
+    "age": 25,
+    "city": "New York"
+}
+
+# Access values
+print(person["name"])  # Alice
+print(person["age"])   # 25
+
+# Add/Update values
+person["age"] = 26
+person["email"] = "alice@example.com"
+
+# Loop through dictionary
+for key, value in person.items():
+    print(f"{key}: {value}")
+
+# Check if key exists
+if "name" in person:
+    print("Name exists!")</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>🔁 Loops</h2>
+                <h3>For Loop</h3>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python"># Loop through a range
+for i in range(5):
+    print(i)  # 0, 1, 2, 3, 4
+
+# Loop through a list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+# Loop with index
+for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")</code></pre>
+                </div>
+
+                <h3>While Loop</h3>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python">count = 0
+while count < 5:
+    print(count)
+    count += 1  # Increment count</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>⚡ Conditional Statements</h2>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python">age = 18
+
+if age < 13:
+    print("Child")
+elif age < 20:
+    print("Teenager")
+else:
+    print("Adult")
+
+# Multiple conditions
+score = 85
+if score >= 90:
+    grade = "A"
+elif score >= 80 and score < 90:  # 'and' operator
+    grade = "B"
+elif score >= 70 or score < 80:   # 'or' operator
+    grade = "C"
+else:
+    grade = "F"</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>🔧 Functions</h2>
+                <p>Functions are reusable blocks of code:</p>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python"># Define a function
+def greet(name):
+    return f"Hello, {name}!"
+
+# Call the function
+message = greet("Alice")
+print(message)  # Hello, Alice!
+
+# Function with default parameter
+def greet_person(name="Guest"):
+    return f"Welcome, {name}!"
+
+print(greet_person())        # Welcome, Guest!
+print(greet_person("Bob"))   # Welcome, Bob!
+
+# Function with multiple parameters
+def add(a, b):
+    return a + b
+
+result = add(5, 3)
+print(result)  # 8</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>📥 Import Statements</h2>
+                <p>Import modules to use their functions:</p>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python"># Import entire module
+import math
+print(math.sqrt(16))  # 4.0
+
+# Import specific function
+from random import randint
+print(randint(1, 10))  # Random number 1-10
+
+# Import with alias
+import datetime as dt
+print(dt.datetime.now())
+
+# Import all from module (not recommended)
+from math import *
+print(pi)  # 3.14159...</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>🎯 Practice Exercise</h2>
+                <p>Create a simple calculator:</p>
+                <div class="code-block">
+                    <button class="copy-btn" aria-label="Copy code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                    </button>
+                    <pre><code class="language-python">def calculator(a, b, operation):
+    """Simple calculator function"""
+    if operation == "+":
+        return a + b
+    elif operation == "-":
+        return a - b
+    elif operation == "*":
+        return a * b
+    elif operation == "/":
+        if b != 0:
+            return a / b
+        else:
+            return "Error: Division by zero"
+    else:
+        return "Invalid operation"
+
+# Test the calculator
+print(calculator(10, 5, "+"))  # 15
+print(calculator(10, 5, "-"))  # 10
+print(calculator(10, 5, "*"))  # 50
+print(calculator(10, 5, "/"))  # 2.0</code></pre>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>📚 Next Steps</h2>
+                <p>Now that you know Python basics, you're ready to learn:</p>
+                <div class="action-buttons">
+                    <a href="../frameworks/python-textual.html" class="btn btn-primary">Python Textual Framework →</a>
+                    <a href="../frameworks/python-rich.html" class="btn btn-secondary">Python Rich Library →</a>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>See Also</h2>
+                <ul class="see-also">
+                    <li><a href="rust-basics.html">Rust Basics for Beginners</a></li>
+                    <li><a href="go-basics.html">Go Basics for Beginners</a></li>
+                    <li><a href="nodejs-basics.html">Node.js Basics for Beginners</a></li>
+                    <li><a href="../tutorials/cli-basics.html">CLI Basics</a></li>
+                </ul>
+            </section>
+        </article>
+
+        <!-- Footer -->
+        <footer class="content-footer">
+            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+            <p>Hosted on GitHub Pages | <a href="#">View on GitHub</a></p>
+        </footer>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/search.js"></script>
+</body>
+</html>
