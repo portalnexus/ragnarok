@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TUI/CLI Wiki - Interface de Usuário em Texto e Linha de Comando</title>
+    <title>TUI/CLI Wiki - Terminal User Interface & Command Line Interface</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/terminal-theme.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -16,72 +16,72 @@
                 <span class="logo-icon">⚡</span>
                 <span class="logo-text">TUI/CLI Wiki</span>
             </h1>
-            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Alternar menu">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
                 <span class="hamburger"></span>
             </button>
         </div>
         
         <nav class="sidebar-nav">
             <div class="nav-section">
-                <h3 class="nav-section-title">📚 Primeiros Passos</h3>
+                <h3 class="nav-section-title">📚 Getting Started</h3>
                 <ul class="nav-list">
-                    <li><a href="index.pt-br.html" class="nav-link active">Início</a></li>
-                    <li><a href="content/tutorials/what-is-tui.pt-br.html" class="nav-link">O que é TUI?</a></li>
-                    <li><a href="content/tutorials/cli-basics.pt-br.html" class="nav-link">Fundamentos de CLI</a></li>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="content/tutorials/what-is-tui.html" class="nav-link">What is TUI?</a></li>
+                    <li><a href="content/tutorials/cli-basics.html" class="nav-link">CLI Basics</a></li>
                 </ul>
             </div>
 
             <div class="nav-section">
-                <h3 class="nav-section-title">👶 Exemplos para Iniciantes</h3>
+                <h3 class="nav-section-title">👶 Beginner Examples</h3>
                 <ul class="nav-list">
-                    <li><a href="content/beginner/python-basics.pt-br.html" class="nav-link">Python Básico</a></li>
-                    <li><a href="content/beginner/rust-basics.pt-br.html" class="nav-link">Rust Básico</a></li>
-                    <li><a href="content/beginner/go-basics.pt-br.html" class="nav-link">Go Básico</a></li>
-                    <li><a href="content/beginner/nodejs-basics.pt-br.html" class="nav-link">Node.js Básico</a></li>
+                    <li><a href="content/beginner/python-basics.html" class="nav-link">Python Basics</a></li>
+                    <li><a href="content/beginner/rust-basics.html" class="nav-link">Rust Basics</a></li>
+                    <li><a href="content/beginner/go-basics.html" class="nav-link">Go Basics</a></li>
+                    <li><a href="content/beginner/nodejs-basics.html" class="nav-link">Node.js Basics</a></li>
                 </ul>
             </div>
 
             <div class="nav-section">
                 <h3 class="nav-section-title">🥧 Raspberry Pi</h3>
                 <ul class="nav-list">
-                    <li><a href="content/raspberry-pi/index.pt-br.html" class="nav-link">Raspberry Pi 3B</a></li>
-                    <li><a href="content/raspberry-pi/getting-started/hardware-overview.pt-br.html" class="nav-link">Visão Geral do Hardware</a></li>
-                    <li><a href="content/raspberry-pi/getting-started/os-installation.pt-br.html" class="nav-link">Instalação do SO</a></li>
+                    <li><a href="content/raspberry-pi/index.html" class="nav-link">Raspberry Pi 3B</a></li>
+                    <li><a href="content/raspberry-pi/getting-started/hardware-overview.html" class="nav-link">Hardware Overview</a></li>
+                    <li><a href="content/raspberry-pi/getting-started/os-installation.html" class="nav-link">OS Installation</a></li>
                 </ul>
             </div>
 
             <div class="nav-section">
                 <h3 class="nav-section-title">🔧 Frameworks</h3>
                 <ul class="nav-list">
-                    <li><a href="content/frameworks/python-textual.pt-br.html" class="nav-link">Python Textual</a></li>
-                    <li><a href="content/frameworks/python-rich.pt-br.html" class="nav-link">Python Rich</a></li>
-                    <li><a href="content/frameworks/rust-ratatui.pt-br.html" class="nav-link">Rust Ratatui</a></li>
-                    <li><a href="content/frameworks/go-bubbletea.pt-br.html" class="nav-link">Go Bubble Tea</a></li>
-                    <li><a href="content/frameworks/nodejs-ink.pt-br.html" class="nav-link">Node.js Ink</a></li>
+                    <li><a href="content/frameworks/python-textual.html" class="nav-link">Python Textual</a></li>
+                    <li><a href="content/frameworks/python-rich.html" class="nav-link">Python Rich</a></li>
+                    <li><a href="content/frameworks/rust-ratatui.html" class="nav-link">Rust Ratatui</a></li>
+                    <li><a href="content/frameworks/go-bubbletea.html" class="nav-link">Go Bubble Tea</a></li>
+                    <li><a href="content/frameworks/nodejs-ink.html" class="nav-link">Node.js Ink</a></li>
                 </ul>
             </div>
 
             <div class="nav-section">
-                <h3 class="nav-section-title">✨ Melhores Práticas</h3>
+                <h3 class="nav-section-title">✨ Best Practices</h3>
                 <ul class="nav-list">
-                    <li><a href="content/best-practices/cli-parsing.pt-br.html" class="nav-link">Análise de Argumentos CLI</a></li>
-                    <li><a href="content/best-practices/tui-accessibility.pt-br.html" class="nav-link">Acessibilidade em TUI</a></li>
-                    <li><a href="content/best-practices/color-schemes.pt-br.html" class="nav-link">Esquemas de Cores</a></li>
+                    <li><a href="content/best-practices/cli-parsing.html" class="nav-link">CLI Argument Parsing</a></li>
+                    <li><a href="content/best-practices/tui-accessibility.html" class="nav-link">TUI Accessibility</a></li>
+                    <li><a href="content/best-practices/color-schemes.html" class="nav-link">Color Schemes</a></li>
                 </ul>
             </div>
 
             <div class="nav-section">
-                <h3 class="nav-section-title">📝 Trechos de Código</h3>
+                <h3 class="nav-section-title">📝 Snippets</h3>
                 <ul class="nav-list">
-                    <li><a href="content/snippets/loading-spinners.pt-br.html" class="nav-link">Spinners de Carregamento</a></li>
-                    <li><a href="content/snippets/progress-bars.pt-br.html" class="nav-link">Barras de Progresso</a></li>
-                    <li><a href="content/snippets/tables.pt-br.html" class="nav-link">Tabelas de Dados</a></li>
+                    <li><a href="content/snippets/loading-spinners.html" class="nav-link">Loading Spinners</a></li>
+                    <li><a href="content/snippets/progress-bars.html" class="nav-link">Progress Bars</a></li>
+                    <li><a href="content/snippets/tables.html" class="nav-link">Data Tables</a></li>
                 </ul>
             </div>
         </nav>
         
         <div class="sidebar-footer">
-            <p class="footer-text">Construído com ⚡ pela Equipe Ragnarok</p>
+            <p class="footer-text">Built with ⚡ by Ragnarok Team</p>
         </div>
     </aside>
 
@@ -90,20 +90,20 @@
         <!-- Top Bar with Search -->
         <header class="top-bar">
             <div class="breadcrumbs">
-                <span class="breadcrumb-item">Início</span>
+                <span class="breadcrumb-item">Home</span>
             </div>
             <div class="search-container">
                 <input 
                     type="text" 
                     id="searchInput" 
                     class="search-input" 
-                    placeholder="Buscar documentação... (Pressione / para focar)"
-                    aria-label="Buscar"
+                    placeholder="Search documentation... (Press / to focus)"
+                    aria-label="Search"
                 >
                 <div class="search-results" id="searchResults"></div>
             </div>
             <div class="theme-toggle">
-                <button id="themeToggle" class="theme-btn" aria-label="Alternar tema">
+                <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
             </div>
@@ -111,8 +111,8 @@
 
         <!-- Language Selector -->
         <div class="language-selector">
-            <a href="index.html" class="lang-link" title="English">🇺🇸 EN</a>
-            <a href="index.pt-br.html" class="lang-link active" title="Português">🇧🇷 PT-BR</a>
+            <a href="index.html" class="lang-link active" title="English">🇺🇸 EN</a>
+            <a href="index.pt-br.html" class="lang-link" title="Português">🇧🇷 PT-BR</a>
         </div>
 
         <!-- Page Content -->
@@ -120,18 +120,18 @@
             <section class="hero">
                 <div class="hero-content">
                     <h1 class="hero-title">
-                        <span class="typing-effect">Bem-vindo à TUI/CLI Wiki</span>
+                        <span class="typing-effect">Welcome to TUI/CLI Wiki</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Seu guia completo para construir belas Text User Interfaces 
-                        e Command Line Interfaces em múltiplas linguagens de programação.
+                        Your comprehensive guide to building beautiful Text User Interfaces 
+                        and Command Line Interfaces across multiple programming languages.
                     </p>
                     <div class="hero-actions">
-                        <a href="content/tutorials/what-is-tui.pt-br.html" class="btn btn-primary">
-                            Começar a Aprender →
+                        <a href="content/tutorials/what-is-tui.html" class="btn btn-primary">
+                            Start Learning →
                         </a>
-                        <a href="content/frameworks/python-textual.pt-br.html" class="btn btn-secondary">
-                            Navegar Frameworks
+                        <a href="content/frameworks/python-textual.html" class="btn btn-secondary">
+                            Browse Frameworks
                         </a>
                     </div>
                 </div>
@@ -147,14 +147,14 @@
                             <pre><code class="language-python"><span class="keyword">from</span> textual.app <span class="keyword">import</span> App, ComposeResult
 <span class="keyword">from</span> textual.widgets <span class="keyword">import</span> Header, Footer, Static
 
-<span class="keyword">class</span> <span class="class-name">OlaMundo</span>(App):
+<span class="keyword">class</span> <span class="class-name">HelloWorld</span>(App):
     <span class="keyword">def</span> <span class="function-name">compose</span>(self) -> ComposeResult:
         <span class="keyword">yield</span> Header()
-        <span class="keyword">yield</span> Static(<span class="string">"Olá, Mundo!"</span>)
+        <span class="keyword">yield</span> Static(<span class="string">"Hello, World!"</span>)
         <span class="keyword">yield</span> Footer()
 
 <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
-    app = OlaMundo()
+    app = HelloWorld()
     app.run()</code></pre>
                         </div>
                     </div>
@@ -162,53 +162,53 @@
             </section>
 
             <section class="features">
-                <h2 class="section-title">Por que TUI/CLI?</h2>
+                <h2 class="section-title">Why TUI/CLI?</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">🚀</div>
-                        <h3>Ultra Rápido</h3>
-                        <p>Sem overhead de navegador. Execute diretamente no seu terminal com inicialização instantânea.</p>
+                        <h3>Lightning Fast</h3>
+                        <p>No browser overhead. Run directly in your terminal with instant startup times.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔧</div>
-                        <h3>Pronto para Remoto</h3>
-                        <p>SSH em qualquer servidor e tenha uma interface interativa completa na ponta dos dedos.</p>
+                        <h3>Remote Ready</h3>
+                        <p>SSH into any server and have a full interactive interface at your fingertips.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">♿</div>
-                        <h3>Acessível</h3>
-                        <p>Design focado em teclado torna TUIs naturalmente acessíveis para todos os usuários.</p>
+                        <h3>Accessible</h3>
+                        <p>Keyboard-first design makes TUIs naturally accessible for all users.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📦</div>
-                        <h3>Leve</h3>
-                        <p>Dependências mínimas e bundles pequenos, perfeito para qualquer ambiente.</p>
+                        <h3>Lightweight</h3>
+                        <p>Minimal dependencies and small bundle sizes perfect for any environment.</p>
                     </div>
                 </div>
             </section>
 
             <section class="frameworks-overview">
-                <h2 class="section-title">Frameworks Suportados</h2>
+                <h2 class="section-title">Supported Frameworks</h2>
                 <div class="frameworks-grid">
-                    <a href="content/frameworks/python-textual.pt-br.html" class="framework-card python">
+                    <a href="content/frameworks/python-textual.html" class="framework-card python">
                         <div class="framework-logo">🐍</div>
                         <h3>Python</h3>
                         <p>Textual, Rich, Blessed, Urwid</p>
                         <span class="framework-count">4 frameworks</span>
                     </a>
-                    <a href="content/frameworks/rust-ratatui.pt-br.html" class="framework-card rust">
+                    <a href="content/frameworks/rust-ratatui.html" class="framework-card rust">
                         <div class="framework-logo">🦀</div>
                         <h3>Rust</h3>
                         <p>Ratatui, Termion, Cursive</p>
                         <span class="framework-count">3 frameworks</span>
                     </a>
-                    <a href="content/frameworks/go-bubbletea.pt-br.html" class="framework-card go">
+                    <a href="content/frameworks/go-bubbletea.html" class="framework-card go">
                         <div class="framework-logo">🔵</div>
                         <h3>Go</h3>
                         <p>Bubble Tea, Termbox, Tview</p>
                         <span class="framework-count">3 frameworks</span>
                     </a>
-                    <a href="content/frameworks/nodejs-ink.pt-br.html" class="framework-card nodejs">
+                    <a href="content/frameworks/nodejs-ink.html" class="framework-card nodejs">
                         <div class="framework-logo">🟢</div>
                         <h3>Node.js</h3>
                         <p>Ink, Inquirer, Blessed, Cliui</p>
@@ -218,7 +218,7 @@
             </section>
 
             <section class="quick-start">
-                <h2 class="section-title">Início Rápido</h2>
+                <h2 class="section-title">Quick Start</h2>
                 <div class="tabs">
                     <div class="tab-buttons">
                         <button class="tab-btn active" data-tab="python">Python</button>
@@ -229,44 +229,44 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="python-tab">
                             <div class="code-block">
-                                <button class="copy-btn" aria-label="Copiar código">
+                                <button class="copy-btn" aria-label="Copy code">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                                     </svg>
                                 </button>
                                 <pre><code class="language-bash">pip install textual
-textual create meu_app</code></pre>
+textual create my_app</code></pre>
                             </div>
                         </div>
                         <div class="tab-pane" id="rust-tab">
                             <div class="code-block">
-                                <button class="copy-btn" aria-label="Copiar código">
+                                <button class="copy-btn" aria-label="Copy code">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                                     </svg>
                                 </button>
-                                <pre><code class="language-bash">cargo new meu_tui
-cd meu_tui
+                                <pre><code class="language-bash">cargo new my_tui
+cd my_tui
 cargo add ratatui crossterm</code></pre>
                             </div>
                         </div>
                         <div class="tab-pane" id="go-tab">
                             <div class="code-block">
-                                <button class="copy-btn" aria-label="Copiar código">
+                                <button class="copy-btn" aria-label="Copy code">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                                     </svg>
                                 </button>
-                                <pre><code class="language-bash">go mod init meuapp
+                                <pre><code class="language-bash">go mod init myapp
 go get github.com/charmbracelet/bubbletea</code></pre>
                             </div>
                         </div>
                         <div class="tab-pane" id="nodejs-tab">
                             <div class="code-block">
-                                <button class="copy-btn" aria-label="Copiar código">
+                                <button class="copy-btn" aria-label="Copy code">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -281,37 +281,37 @@ npm install ink react</code></pre>
             </section>
 
             <section class="team-section">
-                <h2 class="section-title">Conheça a Equipe</h2>
+                <h2 class="section-title">Meet the Team</h2>
                 <div class="team-grid">
                     <div class="team-card">
                         <div class="team-avatar">🧙</div>
                         <h3>Ragnarok</h3>
-                        <p class="team-role">Gerente de Agentes</p>
-                        <p class="team-desc">Coordena a equipe multidisciplinar de agentes.</p>
+                        <p class="team-role">Agent Manager</p>
+                        <p class="team-desc">Coordinates the multidisciplinary team of agents.</p>
                     </div>
                     <div class="team-card">
                         <div class="team-avatar">🦊</div>
                         <h3>Loki</h3>
-                        <p class="team-role">Desenvolvedor Frontend</p>
-                        <p class="team-desc">Especialista em HTML, CSS, JavaScript e UI/UX.</p>
+                        <p class="team-role">Frontend Developer</p>
+                        <p class="team-desc">HTML, CSS, JavaScript and UI/UX specialist.</p>
                     </div>
                     <div class="team-card">
                         <div class="team-avatar">⚡</div>
                         <h3>Thor</h3>
-                        <p class="team-role">Engenheiro TUI/CLI</p>
-                        <p class="team-desc">Fornece exemplos de código e melhores práticas.</p>
+                        <p class="team-role">TUI/CLI Engineer</p>
+                        <p class="team-desc">Provides real code examples and best practices.</p>
                     </div>
                     <div class="team-card">
                         <div class="team-avatar">📜</div>
                         <h3>Odin</h3>
-                        <p class="team-role">Redator Técnico</p>
-                        <p class="team-desc">Cria conteúdo didático e documentação.</p>
+                        <p class="team-role">Technical Writer</p>
+                        <p class="team-desc">Creates didactic content and documentation.</p>
                     </div>
                     <div class="team-card">
                         <div class="team-avatar">👁️</div>
                         <h3>Heimdall</h3>
-                        <p class="team-role">DevOps & Integração</p>
-                        <p class="team-desc">Gerencia scripts de integração QWEN/GEMINI CLI.</p>
+                        <p class="team-role">DevOps & Integration</p>
+                        <p class="team-desc">Manages QWEN/GEMINI CLI integration scripts.</p>
                     </div>
                 </div>
             </section>
@@ -319,8 +319,8 @@ npm install ink react</code></pre>
 
         <!-- Footer -->
         <footer class="content-footer">
-            <p>&copy; 2026 TUI/CLI Wiki. Construído com ⚡ pela Equipe Ragnarok.</p>
-            <p>Hospedado no GitHub Pages | <a href="#">Ver no GitHub</a></p>
+            <p>&copy; 2026 TUI/CLI Wiki. Built with ⚡ by the Ragnarok Team.</p>
+            <p>Hosted on GitHub Pages | <a href="#">View on GitHub</a></p>
         </footer>
     </main>
 
@@ -330,7 +330,7 @@ npm install ink react</code></pre>
             <input 
                 type="text" 
                 class="search-modal-input" 
-                placeholder="Buscar..."
+                placeholder="Search..."
                 id="searchModalInput"
             >
             <button class="search-close" id="searchClose">&times;</button>
